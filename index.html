@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+  <title>Goce Mojsoski · Portfolio</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* Tailwind on-the-fly config */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#ecfdf9',
+              100: '#d1faee',
+              200: '#a7f3df',
+              300: '#6ee7cd',
+              400: '#34d3b6',
+              500: '#14b8a6',  /* primary teal */
+              600: '#0fa495',
+              700: '#0b7e73',
+              800: '#0a5c56',
+              900: '#083f3c'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 0 3px rgba(20,184,166,0.25)'
+          },
+          backdropBlur: {
+            xs: '2px'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    /* simple fade/slide animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; transform: translateY(16px); }
+    .reveal.revealed { animation: fadeUp .6s ease forwards; }
+
+    /* Smooth accordion animation */
+    #projects [id^="tsd-"],
+    #projects [id^="vox-"] {
+    transition: max-height 0.7s ease, opacity 0.5s ease;
+    overflow: hidden;
+}
+  </style>
+</head>
+
+<body class="bg-gray-950 text-gray-100 antialiased">
+<!-- ===== PARTICLE BACKGROUND ===== -->
+<div id="particles" class="fixed inset-0 -z-10 pointer-events-none"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar"
+    class="fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-gray-950/70 backdrop-blur-xs border-b border-white/5">
+    <nav class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
+      <a href="#home" class="font-semibold tracking-wide text-brand-300 hover:text-brand-200">
+        Goce Mojsoski
+      </a>
+      <button id="menuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Open menu">
+        ☰
+      </button>
+      <ul id="menu"
+          class="hidden md:flex gap-6 text-sm text-gray-300">
+        <li><a class="nav-link hover:text-brand-300" href="#about">About</a></li>
+        <li><a class="nav-link hover:text-brand-300" href="#experience">Experience</a></li>
+        <li><a class="nav-link hover:text-brand-300" href="#projects">Projects</a></li>
+        <li><a class="nav-link hover:text-brand-300" href="#skills">Skills</a></li>
+        <li><a class="nav-link hover:text-brand-300" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/5">
+      <ul class="px-5 py-3 space-y-3 text-sm text-gray-300">
+        <li><a class="nav-link block hover:text-brand-300" href="#about">About</a></li>
+        <li><a class="nav-link block hover:text-brand-300" href="#experience">Experience</a></li>
+        <li><a class="nav-link block hover:text-brand-300" href="#projects">Projects</a></li>
+        <li><a class="nav-link block hover:text-brand-300" href="#skills">Skills</a></li>
+        <li><a class="nav-link block hover:text-brand-300" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="relative pt-28">
+  <!-- background accent (fades before reaching photo) -->
+  <div class="absolute top-0 left-0 right-0 h-[60%] -z-10 bg-[radial-gradient(50%_60%_at_50%_0%,rgba(20,184,166,0.25),rgba(20,184,166,0)_80%)]"></div>
+
+  <div class="max-w-7xl mx-auto px-5 py-16 grid md:grid-cols-[auto_1fr] gap-8 items-center">
+    <div class="relative rounded-full bg-gray-950 p-[3px] ring-4 ring-brand-500/30 shadow-glow">
+      <img src="images/profile.jpg" alt="Profile photo"
+           class="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover scale-[0.95]">
+    </div>
+
+    <div class="reveal">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+        Senior Program & Delivery Leader
+      </h1>
+      <p class="mt-3 text-gray-300 max-w-2xl">
+        Strategic R&amp;D, cloud transformation, and cross-functional delivery across US &amp; EU teams.
+        Focused on measurable outcomes, cost optimization, and resilient operations.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://drive.google.com/"
+           class="px-5 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 transition shadow shadow-brand-500/20">
+          Download CV
+        </a>
+        <a href="#projects"
+           class="px-5 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10">
+          View Projects
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ===== ABOUT (metrics + short bio) ===== -->
+  <section id="about" class="py-14 border-t border-white/5 bg-gray-900/20">
+    <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-2 gap-10 items-start">
+      <div class="reveal">
+        <h2 class="text-2xl md:text-3xl font-semibold text-brand-300">About</h2>
+        <p class="mt-3 text-gray-300">
+          Program leader with hands-on experience in R&amp;D operations, DevOps collaboration,
+          and compliance (SOC2). Comfortable navigating complex orgs, aligning stakeholders,
+          and delivering outcomes on time and within budget.
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-4 reveal">
+        <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
+          <div class="text-2xl font-bold text-brand-300">10+ </div>
+          <div class="text-xs text-gray-400">Years</div>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
+          <div class="text-2xl font-bold text-brand-300">35+</div>
+          <div class="text-xs text-gray-400">Projects</div>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
+          <div class="text-2xl font-bold text-brand-300">€3M+</div>
+          <div class="text-xs text-gray-400">Budgets</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ===== EXPERIENCE (Full-Length, Chronological Layout) ===== -->
+<section id="experience" class="py-20 bg-gray-900/20 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold text-brand-300 text-center mb-12 reveal">Experience</h2>
+
+    <div class="space-y-10">
+
+      <!-- ARCADIA -->
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:shadow-lg hover:shadow-brand-500/10 transition reveal">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <!-- TODO: Add logo at /images/logos/arcadia.jpeg -->
+            <img src="images/logos/arcadia.jpeg" alt="Arcadia Logo" class="w-10 h-10 rounded-md opacity-80" />
+            <h3 class="text-2xl font-semibold text-gray-100">Arcadia</h3>
+          </div>
+          <span class="text-sm text-gray-400">Washington DC, USA (Remote) · May 2023 – Present</span>
+        </div>
+
+        <p class="mt-2 text-gray-300 font-medium">Chief of Staff / Senior R&amp;D Program Manager</p>
+        <ul class="list-disc list-inside text-sm text-gray-200 space-y-1 mt-3">
+          <li>Coordinated efforts between Research &amp; Development, Engineering, and SRE, collaborating with over 150 professionals across 25 different teams specializing in Python, DevOps, PHP, and InfoSec.</li>
+          <li>Responsible for lifecycle management of various services and applications across the company.</li>
+          <li>Developed and executed strategic technology roadmaps to align with organizational objectives.</li>
+          <li>Led a team of 10 DevOps professionals, contributing to sprint planning and execution while acting as a Product and Project Manager.</li>
+          <li>Managed AWS cloud costs with a budget of $3 million, implementing effective cost-saving measures and establishing financial governance processes.</li>
+          <li>Oversaw SOC 2 compliance efforts, ensuring adherence to security and regulatory standards.</li>
+          <li>Directed an internal R&amp;D stream evaluating emerging technologies (AI, automation, cloud, DevOps) for business transformation.</li>
+          <li>Drove enterprise-wide transformation initiatives, overseeing application rationalization, cloud modernization, and vendor alignment during organizational restructuring.</li>
+          <li>Piloted innovative solutions in data management and collaboration tools, influencing enterprise-wide adoption.</li>
+          <li>Advised senior leadership on digital strategy, balancing cost optimization with innovation delivery.</li>
+          <li>Reported directly to the Senior VP of Engineering and the Senior Director of Information Security.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-gray-400 italic">
+          Arcadia is a U.S.-based clean energy technology company providing data and billing infrastructure for renewable energy access across North America and Europe.
+        </p>
+        <div class="mt-6 border-t border-brand-500/30 pt-4 text-right">
+          <a href="https://www.arcadia.com" target="_blank"
+             class="px-4 py-2 border border-brand-500 text-brand-300 rounded-lg text-sm hover:bg-brand-500 hover:text-white transition">
+            Visit Company Site →
+          </a>
+        </div>
+      </article>
+
+      <!-- TSD DIGITAL -->
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:shadow-lg hover:shadow-brand-500/10 transition reveal">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <!-- TODO: Add logo at /images/logos/tsd.jpeg -->
+            <img src="images/logos/tsd.jpeg" alt="TSD Digital Logo" class="w-10 h-10 rounded-md opacity-80" />
+            <h3 class="text-xl font-semibold text-gray-100">TSD Digital</h3>
+          </div>
+          <span class="text-sm text-gray-400">Herefordshire, United Kingdom · Jul 2024 – Present</span>
+        </div>
+
+        <p class="mt-2 text-gray-300 font-medium">Project / Program Management Consultant</p>
+        <ul class="list-disc list-inside text-sm text-gray-200 space-y-1 mt-3">
+          <li>Improved Jira system and workflows, leading to a 30% enhancement in team productivity and 20% reduction in project tracking errors.</li>
+          <li>Designed and implemented a project management framework to align cross-functional collaboration and delivery efficiency.</li>
+          <li>Efficiently managed project budgets and timelines, achieving 10% cost savings across multiple parallel initiatives.</li>
+          <li>Led client communication for key accounts including Brightwells, Bond Jewellery, and Joe Davies, ensuring alignment between technical teams and client expectations.</li>
+          <li>Collaborated with the Head of Engineering and CEO to ensure strategic program alignment with company goals.</li>
+          <li>Contributed to technical roadmap definition and R&D prioritization for new digital initiatives and CMS-based solutions.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-gray-400 italic">
+          TSD Digital provides digital transformation and custom software delivery services, specializing in Umbraco, Sitefinity, and enterprise-level integrations.
+        </p>
+        <div class="mt-6 border-t border-brand-500/30 pt-4 text-right">
+          <a href="https://www.tsd-digital.co.uk" target="_blank"
+             class="px-4 py-2 border border-brand-500 text-brand-300 rounded-lg text-sm hover:bg-brand-500 hover:text-white transition">
+            Visit Company Site →
+          </a>
+        </div>
+      </article>
+
+      <!-- ANANAS.MK -->
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:shadow-lg hover:shadow-brand-500/10 transition reveal">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <!-- TODO: Add logo at /images/logos/ananas.png -->
+            <img src="images/logos/ananas.png" alt="Ananas Logo" class="w-10 h-10 rounded-md opacity-80" />
+            <h3 class="text-xl font-semibold text-gray-100">Ananas.mk</h3>
+          </div>
+          <span class="text-sm text-gray-400">Skopje, N. Macedonia · Jan 2023 – May 2023</span>
+        </div>
+
+        <p class="mt-2 text-gray-300 font-medium">Technical Integration Manager (Contract)</p>
+        <ul class="list-disc list-inside text-sm text-gray-200 space-y-1 mt-3">
+          <li>Led a team of 5 to develop and implement integration tools and templates, increasing integration efficiency by 20%.</li>
+          <li>Successfully migrated 100 merchants from one e-commerce platform to another, resulting in a 15% increase in sales.</li>
+          <li>Oversaw the creation of reusable integration pipelines and documentation to standardize API onboarding.</li>
+          <li>Delivered system migration and data synchronization between internal CRM and merchant systems.</li>
+          <li>Improved delivery quality by 25% through structured QA processes and delivery monitoring.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-gray-400 italic">
+          Ananas.mk is a Macedonian e-commerce marketplace connecting regional retailers and consumers, focusing on integration and scalable digital retail ecosystems.
+        </p>
+        <div class="mt-6 border-t border-brand-500/30 pt-4 text-right">
+          <a href="https://www.ananas.mk" target="_blank"
+             class="px-4 py-2 border border-brand-500 text-brand-300 rounded-lg text-sm hover:bg-brand-500 hover:text-white transition">
+            Visit Company Site →
+          </a>
+        </div>
+      </article>
+
+      <!-- VOX TENEO -->
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:shadow-lg hover:shadow-brand-500/10 transition reveal">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <!-- TODO: Add logo at /images/logos/vox.jpeg -->
+            <img src="images/logos/vox.jpeg" alt="Vox Teneo Logo" class="w-10 h-10 rounded-md opacity-80" />
+            <h3 class="text-2xl font-semibold text-gray-100">Vox Teneo</h3>
+          </div>
+          <span class="text-sm text-gray-400">Brussels, Belgium · Aug 2020 – May 2023</span>
+        </div>
+
+        <p class="mt-2 text-gray-300 font-medium">Managing Director <span class="text-sm text-gray-400">(Jun 2021 – May 2023)</span></p>
+        <ul class="list-disc list-inside text-sm text-gray-200 space-y-1 mt-3">
+          <li>Managed and led 35 professionals across six teams (2 .NET, 2 PHP, 1 Front End, 1 Managed Services).</li>
+          <li>Collaborated closely with Product and R&amp;D to deliver products and features on strict deadlines.</li>
+          <li>Expanded the development team by 40% from 25 to 35 professionals, completing 17 projects for high-profile clients such as Erasmus+, PEGI, and D’Ieteren, grossing over €2 million in revenue.</li>
+          <li>Oversaw application and platform consolidation efforts, including M&amp;A-driven system integrations, enabling scalable operations across multiple business units.</li>
+          <li>Established and maintained strong client relationships, serving as the primary point of contact for key accounts and ensuring satisfaction and growth.</li>
+          <li>Oversaw staffing, budgeting, forecasting, performance evaluations, and promotions.</li>
+        </ul>
+
+        <div class="mt-6 pt-4 border-t border-white/10">
+          <p class="text-gray-300 font-medium">IT Project Manager <span class="text-sm text-gray-400">(Aug 2020 – May 2021)</span></p>
+          <ul class="list-disc list-inside text-sm text-gray-200 space-y-1 mt-3">
+            <li>Oversaw 11 developers across 2 .NET teams, successfully delivering 9 projects for diverse clients.</li>
+            <li>Played a pivotal role in all stages of the product lifecycle, ensuring seamless execution and delivery.</li>
+            <li>Collaborated closely with stakeholders to identify project requirements and mitigate risks.</li>
+            <li>Implemented advanced e-commerce and ad-tech solutions, including Gravity Forms workflows, membership systems, and digital advertising integrations.</li>
+            <li>Enhanced team efficiency and project delivery by 20%, leading to promotion to Managing Director.</li>
+          </ul>
+        </div>
+
+        <p class="mt-5 text-sm text-gray-400 italic">
+          Vox Teneo is a Belgian digital agency delivering enterprise-grade software solutions and web platforms for European institutions and global brands.
+        </p>
+        <div class="mt-6 border-t border-brand-500/30 pt-4 text-right">
+          <a href="https://www.voxteneo.com" target="_blank"
+             class="px-4 py-2 border border-brand-500 text-brand-300 rounded-lg text-sm hover:bg-brand-500 hover:text-white transition">
+            Visit Company Site →
+          </a>
+        </div>
+      </article>
+
+      <!-- LIDL -->
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:shadow-lg hover:shadow-brand-500/10 transition reveal">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <!-- TODO: Add logo at /images/logos/lidl.png -->
+            <img src="images/logos/lidl.png" alt="Lidl Logo" class="w-10 h-10 rounded-md opacity-80" />
+            <h3 class="text-xl font-semibold text-gray-100">Lidl</h3>
+          </div>
+          <span class="text-sm text-gray-400">Sofia, Bulgaria · Aug 2019 – Jul 2020</span>
+        </div>
+
+        <p class="mt-2 text-gray-300 font-medium">Project Manager</p>
+        <ul class="list-disc list-inside text-sm text-gray-200 space-y-1 mt-3">
+          <li>Maintained project budgets, optimized vendor contracts, and coordinated cross-functional project rollout activities.</li>
+          <li>Led digital transformation initiatives across logistics and supply chain units, improving operational data visibility.</li>
+          <li>Managed process redesign and automation within store expansion projects, reducing average rollout time by 15%.</li>
+          <li>Led collaboration between IT, logistics, and procurement teams with a 90% stakeholder satisfaction rate based on reviews.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-gray-400 italic">
+          Lidl is a multinational retail chain with over 12,000 stores in 30+ countries, recognized for its efficiency, lean operations, and innovation-driven logistics.
+        </p>
+
+        <div class="mt-6 border-t border-brand-500/30 pt-4 text-right">
+          <a href="https://www.lidl.com" target="_blank"
+             class="px-4 py-2 border border-brand-500 text-brand-300 rounded-lg text-sm hover:bg-brand-500 hover:text-white transition">
+            Visit Company Site →
+          </a>
+        </div>
+      </article>
+
+      <!-- NIKE -->
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:shadow-lg hover:shadow-brand-500/10 transition reveal">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <!-- TODO: Add logo at /images/logos/nike2.jpg -->
+            <img src="images/logos/nike2.jpg" alt="Nike Logo" class="w-10 h-10 rounded-md opacity-80" />
+            <h3 class="text-xl font-semibold text-gray-100">Nike</h3>
+          </div>
+          <span class="text-sm text-gray-400">Skopje, N. Macedonia · Aug 2015 – Jul 2019</span>
+        </div>
+
+        <p class="mt-2 text-gray-300 font-medium">Regional Manager / Nike Brand Manager</p>
+        <ul class="list-disc list-inside text-sm text-gray-200 space-y-1 mt-3">
+          <li>Opened 5 new stores generating $2M in annual revenue while managing 100 employees across 7 cities.</li>
+          <li>Increased annual growth of Sport Vision by 5% through optimized product strategy and training programs.</li>
+          <li>Implemented a new performance management framework increasing store efficiency by 15%.</li>
+          <li>Oversaw retail operations, budgeting, and merchandising strategy across the Macedonian market.</li>
+          <li>Built strategic partnerships and localized brand campaigns aligned with Nike’s European marketing strategy.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-gray-400 italic">
+          Nike is a global leader in athletic footwear, apparel, and sports equipment with a focus on innovation, brand strategy, and retail excellence.
+        </p>
+
+        <div class="mt-6 border-t border-brand-500/30 pt-4 text-right">
+          <a href="https://www.nike.com" target="_blank"
+             class="px-4 py-2 border border-brand-500 text-brand-300 rounded-lg text-sm hover:bg-brand-500 hover:text-white transition">
+            Visit Company Site →
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== PROJECTS & CASE STUDIES ===== -->
+<section id="projects" class="py-20 bg-gray-900/20 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold text-brand-300 text-center mb-12 reveal">
+      Projects & Case Studies
+    </h2>
+
+    <!-- Accordion: TSD DIGITAL -->
+    <div class="mb-10">
+      <button
+        class="w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group"
+        data-accordion-target="#tsd-digital"
+      >
+        <div class="flex items-center gap-3">
+          <img src="images/logos/tsd.jpeg" alt="TSD Digital Logo" class="w-8 h-8 rounded-md opacity-80 group-hover:opacity-100 transition" />
+          <h3 class="text-xl font-semibold text-gray-100">
+            Delivered with TSD Digital
+            <span class="text-sm text-gray-400 font-normal">(2020–2025)</span>
+          </h3>
+        </div>
+        <span class="text-brand-300 text-2xl">+</span>
+      </button>
+
+      <div id="tsd-digital" class="hidden mt-6 grid md:grid-cols-3 gap-8 reveal transition-all duration-500 ease-in-out">
+
+        <!-- Ameriband -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/ameriband.png" alt="Ameriband Logo" /></div>
+          <h4>Ameriband</h4>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span><span>Umbraco</span></div>
+          <p>Web platform for a U.S. telecom firm providing enterprise Wi-DAS solutions. Built to showcase Wi-Fi–based cellular coverage systems, with detailed technical documentation, partner integration features, and regional service mapping.</p>
+          <div class="mt-3"><a href="https://ameriband.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- ETAP -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/etap.png" alt="ETAP Logo" /></div>
+          <h4>ETAP Lighting</h4>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span><span>Umbraco</span></div>
+          <p>Corporate site for a European lighting manufacturer. Includes a structured product catalog with filtering, multilingual content management, and integration with external ERP systems for stock and pricing synchronization.</p>
+          <div class="mt-3"><a href="https://etap.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Delineate -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/delineate.png" alt="Delineate.ai Logo" /></div>
+          <h4>Delineate.ai</h4>
+          <div class="tags"><span>.NET</span><span>AI</span><span>Analytics</span></div>
+          <p>Analytics platform for market-research automation. Delivers real-time brand and audience insights through data ingestion pipelines, visualization dashboards, and permission-based client access.</p>
+          <div class="mt-3"><a href="#" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Joe Davies -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/joedavies.png" alt="Joe Davies Logo" /></div>
+          <h4>Joe Davies</h4>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span><span>Umbraco</span></div>
+          <p>Trade-only e-commerce platform for a UK giftware distributor. Features 10,000+ SKUs, tiered customer pricing, product import automation, and ERP integration for real-time stock and order tracking.</p>
+          <div class="mt-3"><a href="https://joedavies.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- All Nations -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/allnations.png" alt="All Nations Logo" /></div>
+          <h4>All Nations Centre</h4>
+          <div class="tags"><span>.NET</span><span>CMS</span><span>Umbraco</span></div>
+          <p>Venue management platform with dynamic event scheduling, booking forms, and room-availability logic. Includes internal admin dashboard for managing events, pricing, and customer communications.</p>
+          <div class="mt-3"><a href="https://www.allnationscentre.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Avansere -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/avansere.png" alt="Avansere Logo" /></div>
+          <h4>Avansere</h4>
+          <div class="tags"><span>.NET</span><span>Consulting</span><span>Innovation</span></div>
+          <p>Corporate innovation hub and consulting site designed to promote digital transformation services. Developed modular content blocks and API integrations for marketing automation and case-study management.</p>
+          <div class="mt-3"><a href="https://avansere.no/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Your Epic Home -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/yourepic.png" alt="Your Epic Home Logo" /></div>
+          <h4>Your Epic Home</h4>
+          <div class="tags"><span>.NET</span><span>Umbraco</span><span>E-commerce</span></div>
+          <p>Home-improvement platform supporting custom product selection, lead capture, and partner referrals. Includes modular configurator and form workflows for quote generation.</p>
+          <div class="mt-3"><a href="https://yourepichome.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- QuoteHub -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/quotehub.png" alt="QuoteHub Logo" /></div>
+          <h4>QuoteHub AI</h4>
+          <div class="tags"><span>Blazor</span><span>AI</span><span>SaaS</span></div>
+          <p>Internal AI-assisted quotation tool improving response times and automating pricing workflows.Automates pricing calculations, template generation, and proposal tracking with integrated AI prompts for response optimization.</p>
+          <div class="mt-3"><a href="https://quotehub.ai/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- BH Savige -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/bhsavige.png" alt="BH Savige Logo" /></div>
+          <h4>BH Savige</h4>
+          <div class="tags"><span>.NET</span><span>Umbraco</span></div>
+          <p>Construction industry website featuring project showcases and secure client login. Includes CMS-driven portfolio, document management, and contact automation.</p>
+          <div class="mt-3"><a href="https://www.bhsavidge.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- PersonaFin.ai -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/personafin.jpeg" alt="PersonaFin Logo" /></div>
+          <h4>PersonaFin.ai</h4>
+          <div class="tags"><span>.NET</span><span>AI</span><span>Finance</span></div>
+          <p>AI-based personal finance assistant offering custom insights and forecasting tools. Personal finance SaaS application providing goal tracking, budgeting, and forecasting tools. Uses AI modules to analyse spending trends and generate personalized financial insights.</p>
+          <div class="mt-3"><a href="https://www.personafin.ai/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Brightwells -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/brightwells.jpeg" alt="Brightwells Logo" /></div>
+          <h4>Brightwells</h4>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span></div>
+          <p>Online auction platform for vehicles, machinery, and wine. Includes live bidding, payment gateway integration, and secure account dashboards for buyers and sellers.</p>
+          <div class="mt-3"><a href="https://www.brightwells.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- InfoBrokers -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/infobrokers.png" alt="InfoBrokers Logo" /></div>
+          <h4>InfoBrokers</h4>
+          <div class="tags"><span>.NET</span><span>API</span><span>Data</span></div>
+          <p>B2B data aggregation service enabling secure real-time data exchange. Features REST APIs for external integrations and configurable dashboards for analytics and reporting.</p>
+          <div class="mt-3"><a href="https://www.infobrokers.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Bond Jewellery -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/bond.svg" alt="Bond Jewellery Logo" /></div>
+          <h4>Bond Jewellery</h4>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span><span>Umbraco</span></div>
+          <p>Award-winning e-commerce platform recognized for UX and performance excellence at the Umbraco Conference. Built with custom Umbraco components, product search optimization, and API-based catalog management.</p>
+          <div class="mt-3"><a href="https://bondjewellery.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Advanced Joinery -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/advancejoinery.jpeg" alt="Advanced Joinery Logo" /></div>
+          <h4>Advance Joinery</h4>
+          <div class="tags"><span>.NET</span><span>Umbraco</span></div>
+          <p>High-end joinery and interior-design site featuring a portfolio gallery, quote forms, and CRM integration for project enquiries.</p>
+          <div class="mt-3"><a href="https://advancedjoinery.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- SafeLives -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/safelives.png" alt="SafeLives Logo" /></div>
+          <h4>SafeLives</h4>
+          <div class="tags"><span>.NET</span><span>Non-profit</span><span>CMS</span></div>
+          <p>Public-facing website supporting domestic abuse awareness. Includes structured resource libraries, donation integrations, and accessibility-first design compliant with WCAG 2.1.</p>
+          <div class="mt-3"><a href="https://safelives.org.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Wye Valley -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/wyevalley.svg" alt="Wye Valley Brewery Logo" /></div>
+          <h4>Wye Valley Brewery</h4>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>Umbraco</span></div>
+          <p>Brewery website highlighting products, heritage, and local pubs. Includes interactive “find-a-pub” map, content-managed product pages, and promotional event modules.</p>
+          <div class="mt-3"><a href="https://www.wyevalleybrewery.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Westons Cider -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/westons.jpg" alt="Westons Cider Logo" /></div>
+          <h4>Westons Cider</h4>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>Umbraco</span></div>
+          <p>Corporate site and online shop for one of the UK’s leading cider producers. Built with scalable Umbraco CMS, integrated product feeds, and marketing automation.</p>
+          <div class="mt-3"><a href="https://www.westons-cider.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Westgate Labs -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/westgate.jpeg" alt="Westgate Labs Logo" /></div>
+          <h4>Westgate Labs</h4>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>Umbraco</span></div>
+          <p>Veterinary diagnostics site offering direct-to-consumer testing kits. Includes order tracking, subscription management, and results-access portal for registered clients.</p>
+          <div class="mt-3"><a href="https://www.westgatelabs.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Accordion: VOX TENEO -->
+    <div>
+      <button
+        class="w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group"
+        data-accordion-target="#vox-teneo"
+      >
+        <div class="flex items-center gap-3">
+          <img src="images/logos/vox.jpeg" alt="Vox Teneo Logo" class="w-8 h-8 rounded-md opacity-80 group-hover:opacity-100 transition" />
+          <h3 class="text-xl font-semibold text-gray-100">
+            Delivered with Vox Teneo
+            <span class="text-sm text-gray-400 font-normal">(2020–2023)</span>
+          </h3>
+        </div>
+        <span class="text-brand-300 text-2xl">+</span>
+      </button>
+
+      <div id="vox-teneo" class="hidden mt-6 grid md:grid-cols-3 gap-8 reveal transition-all duration-500 ease-in-out">
+
+        <!-- Erasmus+ -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/erasmus.jpg" alt="Erasmus Logo" /></div>
+          <h4>Erasmus+</h4>
+          <div class="tags"><span>PHP</span><span>Public Sector</span></div>
+          <p>EU-wide education management platform supporting grants and exchange programs.</p>
+          <div class="mt-3"><a href="https://erasmus-plus.ec.europa.eu/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- PEGI -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/pegi.svg" alt="PEGI Logo" /></div>
+          <h4>PEGI</h4>
+          <div class="tags"><span>PHP</span><span>Regulatory</span></div>
+          <p>Official European video game age rating portal used by publishers and regulators.</p>
+          <div class="mt-3"><a href="https://pegi.info/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Thomas Piron -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/thomaspiron.png" alt="Thomas Piron Logo" /></div>
+          <h4>Thomas Piron</h4>
+          <div class="tags"><span>.NET</span><span>Corporate</span></div>
+          <p>Corporate real estate website for Belgian property developer featuring multilingual CMS and advanced filtering.</p>
+          <div class="mt-3"><a href="https://www.thomas-piron.lu/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Monitoring des Quartiers -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/monitoring.svg" alt="Monitoring Logo" /></div>
+          <h4>Monitoring des Quartiers</h4>
+          <div class="tags"><span>.NET</span><span>Public Data</span></div>
+          <p>Public data platform for urban analytics and neighborhood development tracking.</p>
+          <div class="mt-3"><a href="https://monitoringdesquartiers.brussels/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Sport Brussels -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/sportbrussels.svg" alt="Sport Brussels Logo" /></div>
+          <h4>Sport Brussels</h4>
+          <div class="tags"><span>.NET</span><span>Portal</span></div>
+          <p>Regional sports portal promoting events and athletic initiatives across Brussels.</p>
+          <div class="mt-3"><a href="https://sport.brussels/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- D’Ieteren -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/dieteren.avif" alt="D'Ieteren Logo" /></div>
+          <h4>D’Ieteren Group</h4>
+          <div class="tags"><span>.NET</span><span>Corporate</span></div>
+          <p>Corporate mobility platform showcasing innovative automotive and sustainable transport services.</p>
+          <div class="mt-3"><a href="https://www.dieterengroup.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- OTRA -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/otra.png" alt="OTRA Logo" /></div>
+          <h4>OTRA</h4>
+          <div class="tags"><span>.NET</span><span>NGO</span></div>
+          <p>NGO support platform promoting youth reintegration through creative and educational projects.</p>
+          <div class="mt-3"><a href="https://www.weareotra.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- LawBox -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/lawbox.png" alt="LawBox Logo" /></div>
+          <h4>LawBox</h4>
+          <div class="tags"><span>.NET</span><span>LegalTech</span></div>
+          <p>LegalTech SaaS platform enabling document automation and contract lifecycle management.</p>
+          <div class="mt-3"><a href="https://www.lawbox.com/index.html" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+        <!-- Genealex -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/genealex.svg" alt="Genealex Logo" /></div>
+          <h4>Genealex</h4>
+          <div class="tags"><span>.NET</span><span>Science</span></div>
+          <p>Genetics and ancestry research platform offering DNA testing and result visualization tools.</p>
+          <div class="mt-3"><a href="https://www.genealex.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Accordion Animation -->
+<script>
+document.querySelectorAll("[data-accordion-target]").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    const target = document.querySelector(button.dataset.accordionTarget);
+    const isHidden = target.classList.contains("hidden");
+
+    // Close all others first
+    document.querySelectorAll("[data-accordion-target]").forEach((b) => {
+      const content = document.querySelector(b.dataset.accordionTarget);
+      if (content !== target) {
+        content.classList.add("hidden");
+        content.style.maxHeight = null;
+        b.querySelector("span").textContent = "+";
+      }
+    });
+
+    if (isHidden) {
+      // Apply a short delay for visual smoothness
+      setTimeout(() => {
+        target.classList.remove("hidden");
+        target.style.maxHeight = target.scrollHeight + "px";
+        button.querySelector("span").textContent = "−";
+
+        // Scroll adjustment to avoid snapping
+        const yOffset = -80; // offset for fixed navbar
+        const y =
+          button.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }, 150); // small delay (150ms)
+    } else {
+      target.classList.add("hidden");
+      target.style.maxHeight = null;
+      button.querySelector("span").textContent = "+";
+    }
+  });
+});
+</script>
+
+<style>
+  .project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+  .project-card:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.1);
+  }
+
+  .logo-box {
+  width: 5rem; /* increased from 3rem */
+  height: 5rem;
+  background: #ffffff; /* white for transparent PNGs */
+  border-radius: 0.75rem; /* slightly rounder corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem; /* small breathing space inside */
+}
+
+.logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keeps logo shape intact */
+  transform: scale(1.15); /* slightly enlarges the logo visually */
+}
+
+
+  .tags span,
+  .badge {
+    font-size: 0.7rem;
+    background: rgba(0,255,200,0.15);
+    color: rgb(100,255,220);
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+  }
+</style>
+
+
+
+<!-- ===== TECHNICAL SKILLS (COLORED BADGES) ===== -->
+<section id="skills" class="py-16 bg-gray-900/20 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-semibold text-brand-300 mb-10">Technical Skills</h2>
+
+    <div class="flex flex-wrap justify-center gap-3 text-sm font-medium">
+
+      <!-- 🌤️ Cloud & DevOps (Blue) -->
+      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">AWS</span>
+      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Azure</span>
+      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">GCP</span>
+      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Docker</span>
+      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Linux</span>
+      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">GitHub</span>
+      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Jira</span>
+      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Confluence</span>
+
+      <!-- 💻 CMS / E-commerce (Purple) -->
+      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">WordPress</span>
+      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Magento</span>
+      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Pimcore</span>
+      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Shopify</span>
+      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Umbraco</span>
+      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Ucommerce</span>
+
+      <!-- 🏢 ERP / CRM (Green) -->
+      <span class="px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">Dynamics 365</span>
+      <span class="px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">Odoo</span>
+      <span class="px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">SAP</span>
+
+      <!-- 🧠 Languages (Orange) -->
+      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">Python</span>
+      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">SQL</span>
+      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">HTML</span>
+      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">CSS</span>
+      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">C#</span>
+
+      <!-- 🎨 Design (Pink) -->
+      <span class="px-3 py-1 rounded-full bg-pink-900/40 text-pink-300 border border-pink-700/40">Figma</span>
+      <span class="px-3 py-1 rounded-full bg-pink-900/40 text-pink-300 border border-pink-700/40">Canva</span>
+      <span class="px-3 py-1 rounded-full bg-pink-900/40 text-pink-300 border border-pink-700/40">Adobe Suite</span>
+
+      <!-- 🔌 APIs & Integrations (Cyan) -->
+      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">REST</span>
+      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">GraphQL</span>
+      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">SOAP</span>
+      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">Stripe</span>
+      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">PayPal</span>
+
+      <!-- 🔒 Security / Compliance (Red) -->
+      <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-300 border border-red-700/40">AuditBoard</span>
+      <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-300 border border-red-700/40">Vanta</span>
+      <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-300 border border-red-700/40">Crowdstrike</span>
+      <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-300 border border-red-700/40">Proofpoint</span>
+
+      <!-- ⚙️ Automation & Monitoring (Indigo) -->
+      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">Zapier</span>
+      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">n8n</span>
+      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">Make / Integromat</span>
+      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">Datadog</span>
+      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">PagerDuty</span>
+
+      <!-- 📊 Data (Teal) -->
+      <span class="px-3 py-1 rounded-full bg-teal-900/40 text-teal-300 border border-teal-700/40">Snowflake</span>
+      <span class="px-3 py-1 rounded-full bg-teal-900/40 text-teal-300 border border-teal-700/40">Google Sheets</span>
+      <span class="px-3 py-1 rounded-full bg-teal-900/40 text-teal-300 border border-teal-700/40">AppScripts</span>
+      <span class="px-3 py-1 rounded-full bg-teal-900/40 text-teal-300 border border-teal-700/40">Excel</span>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section id="certifications" class="py-20 bg-gray-900/20 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold text-brand-300 text-center mb-12 reveal">Certifications</h2>
+
+    <div class="flex flex-wrap justify-center gap-3 text-sm reveal">
+
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Generative AI Overview for Project Managers — PMI</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Scrum Product Owner Certified (SPOC) — VMEdu</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Scrum Master Certified (SMC) — VMEdu</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Project Management Program Diploma — IBMI</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Automation Architect — airSlate</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Transitioning from Waterfall to Agile Project Management — LinkedIn</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">AWS Essentials — Semos Education</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Basecamp: Project Management Best Practices — LinkedIn</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Becoming an Ally to All — LinkedIn</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Certified SQL Developer — W3Schools</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Critical Thinking for Self Development — MSBM (UK)</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Delivering IT Services — Pluralsight</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Implementation Design: SOXHUB — AuditBoard</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Microsoft Dynamics 365: Foundation — Pluralsight</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Responsive Web Design (HTML/CSS) — freeCodeCamp</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Risk Management Program Certificate — IBMI</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Sales Management Certification — HubSpot Academy</span>
+      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Six Sigma Yellow Belt — 6sigmastudy</span>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-16 bg-gray-900/20 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-5 text-center">
+    <h2 class="text-3xl font-semibold text-brand-300 reveal">Contact</h2>
+
+    <p class="mt-4 text-gray-300">
+      Email:
+      <a class="text-brand-300 hover:underline" href="mailto:hello@gmojsoski.com">hello@gmojsoski.com</a>
+    </p>
+
+    <p class="mt-2 text-gray-300">
+      LinkedIn:
+      <a class="text-brand-300 hover:underline" href="https://linkedin.com/in/yourprofile" target="_blank">
+        linkedin.com/in/gmojsoski
+      </a>
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="https://drive.google.com/" target="_blank"
+         class="px-5 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 transition shadow shadow-brand-500/20">
+        Download CV
+      </a>
+
+      <a href="https://koalendar.com/e/meet-with-goce" target="_blank"
+         class="px-5 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 border border-brand-500/40 text-brand-300 hover:text-white shadow-[0_0_10px_rgba(20,184,166,0.3)] transition">
+        Book a Call with Me
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-8 text-center text-gray-400 bg-gray-950 border-t border-white/5">
+    © <span id="year"></span> Goce Mojsoski · All rights reserved.
+  </footer>
+
+  <!-- Back-to-top -->
+  <button id="backToTop"
+          class="hidden fixed bottom-6 right-6 bg-brand-500 hover:bg-brand-600 text-white p-3 rounded-full shadow-lg transition"
+          aria-label="Back to top">↑</button>
+
+  <!-- ===== Minimal JS: navbar, active links, reveals, back-to-top ===== -->
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // navbar style on scroll + back-to-top visibility
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      const sc = window.scrollY;
+      navbar.classList.toggle('bg-gray-950', sc < 8);
+      navbar.classList.toggle('bg-gray-900/85', sc >= 8);
+      if (sc > 400) backToTop.classList.remove('hidden'); else backToTop.classList.add('hidden');
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // intersection observer: reveal + active nav links
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // reveal animation
+          entry.target.classList.add('revealed');
+          // active link
+          const id = entry.target.getAttribute('id');
+          if (!id) return;
+          navLinks.forEach(a => {
+            const href = a.getAttribute('href') || '';
+            a.classList.toggle('text-brand-300', href === `#${id}`);
+          });
+        }
+      });
+    }, { threshold: 0.15 });
+
+    sections.forEach(s => io.observe(s));
+    revealEls.forEach(el => io.observe(el));
+  </script>
+<!-- tsparticles full-page background -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+<script>
+window.addEventListener("load", () => {
+  tsParticles.load("particles", {
+    background: { color: { value: "transparent" } },
+    fullScreen: { enable: false },
+    fpsLimit: 60,
+    detectRetina: true,
+    particles: {
+      number: { value: 60, density: { enable: true, area: 800 } },
+      color: { value: "#14b8a6" },
+      shape: { type: "circle" },
+      opacity: { value: 0.12 },
+      size: { value: 1.8 },
+      move: {
+        enable: true,
+        speed: 0.6,
+        random: true,
+        outModes: { default: "out" }
+      },
+      links: {
+        enable: true,
+        distance: 130,
+        color: "#14b8a6",
+        opacity: 0.1,
+        width: 0.5
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "grab" },
+        resize: true
+      },
+      modes: {
+        grab: { distance: 120, links: { opacity: 0.25 } }
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>
