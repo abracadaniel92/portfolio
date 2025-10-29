@@ -7,6 +7,8 @@
     content="width=device-width, initial-scale=1"
   />
   <title>Goce Mojsoski · Portfolio</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -56,6 +58,87 @@
     transition: max-height 0.7s ease, opacity 0.5s ease;
     overflow: hidden;
 }
+
+    #projects [id^="tsd-"].hidden,
+    #projects [id^="vox-"].hidden {
+    display: none !important;
+}
+
+    #projects [id^="tsd-"]:not(.hidden),
+    #projects [id^="vox-"]:not(.hidden) {
+    display: grid !important;
+    opacity: 1 !important;
+}
+  @media (max-width: 768px) {
+    /* Justify text on mobile for key sections */
+    #experience p,
+    #experience li,
+    #about p,
+    #home p,
+    #projects p {
+      text-align: justify;
+    }
+}
+  /* Prevent + and − icons from overlapping during transitions */
+[data-accordion-target] span:last-child {
+  display: inline-block;
+  min-width: 1.2em;
+  text-align: center;
+}
+  [data-accordion-target] span:last-child {
+  transition: transform 0.3s ease;
+}
+
+[data-accordion-target].active span:last-child {
+  transform: rotate(45deg);
+}
+  /* Prevent extra pseudo or duplicate icons */
+[data-accordion-target]::before,
+[data-accordion-target]::after {
+  content: none !important;
+}
+  /* Prevent accidental rotation of spans inside accordion headings */
+[data-accordion-target] h3 span {
+  transform: none !important;
+}
+  /* Ensure only the last span in the accordion button toggles */
+[data-accordion-target] > span:last-child {
+  font-size: 1.5rem;
+  color: #14b8a6;
+  min-width: 1.5rem;
+  text-align: center;
+}
+/* Fix for rotated minus icons */
+.accordion-icon {
+  display: inline-block;
+  font-weight: 500;
+  line-height: 1;
+  transform: none !important; /* remove any rotation */
+  rotate: 0deg !important;
+  transition: color 0.2s ease;
+}
+
+/* active color variant (optional) */
+.accordion-btn.active .accordion-icon {
+  color: #14b8a6; /* brand teal */
+}
+
+
+/* Prevent all other child spans (like dates) from being affected */
+[data-accordion-target] h3 span {
+  all: unset;
+  font-size: 0.85rem;
+  color: #9ca3af; /* gray-400 */
+  font-weight: 400;
+}
+/* Ensure only icons toggle, not other spans */
+.accordion-btn h3 span {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  font-weight: 400;
+  transform: none !important;
+}
+
   </style>
 </head>
 
@@ -67,8 +150,8 @@
   <header id="navbar"
     class="fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-gray-950/70 backdrop-blur-xs border-b border-white/5">
     <nav class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
-      <a href="#home" class="font-semibold tracking-wide text-brand-300 hover:text-brand-200">
-        Goce Mojsoski
+      <a href="#home" class="font-bold text-3xl md:text-4xl tracking-wide text-brand-300 hover:text-brand-200">
+      Goce Mojsoski
       </a>
       <button id="menuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Open menu">
         ☰
@@ -95,34 +178,36 @@
   </header>
 
 <!-- ===== HERO ===== -->
-<section id="home" class="relative pt-28">
+<section id="home" class="relative pt-20 md:pt-28">
   <!-- background accent (fades before reaching photo) -->
   <div class="absolute top-0 left-0 right-0 h-[60%] -z-10 bg-[radial-gradient(50%_60%_at_50%_0%,rgba(20,184,166,0.25),rgba(20,184,166,0)_80%)]"></div>
 
   <div class="max-w-7xl mx-auto px-5 py-16 grid md:grid-cols-[auto_1fr] gap-8 items-center">
-    <div class="relative rounded-full bg-gray-950 p-[3px] ring-4 ring-brand-500/30 shadow-glow">
-      <img src="images/profile.jpg" alt="Profile photo"
-           class="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover scale-[0.95]">
-    </div>
+    <div class="relative flex items-center justify-center">
+  <div class="rounded-full bg-gray-950 p-[2px] ring-2 md:ring-4 ring-brand-500/30 shadow-glow">
+    <img src="images/profile.jpg" alt="Profile photo"
+         class="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover">
+  </div>
+</div>
 
     <div class="reveal">
       <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
         Senior Program & Delivery Leader
       </h1>
       <p class="mt-3 text-gray-300 max-w-2xl">
-        Strategic R&amp;D, cloud transformation, and cross-functional delivery across US &amp; EU teams.
-        Focused on measurable outcomes, cost optimization, and resilient operations.
+        Hi I'm Goce. A results-driven leader with experience in strategy, program management, and cross-functional delivery. I’ve led major transformation projects, including ERP rollouts, cloud modernization, and post-M&A integrations across US &amp; EU teams.
+        I enjoy tackling complex challenges and using my experience to create meaningful results in dynamic environments.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="https://drive.google.com/"
-           class="px-5 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 transition shadow shadow-brand-500/20">
-          Download CV
-        </a>
-        <a href="#projects"
-           class="px-5 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10">
-          View Projects
-        </a>
-      </div>
+    <a href="#contact"
+     class="px-5 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 transition shadow shadow-brand-500/20">
+      Contact Me
+    </a>
+    <a href="#projects"
+     class="px-5 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10">
+    View Projects
+    </a>
+  </div>
     </div>
   </div>
 </section>
@@ -134,9 +219,7 @@
       <div class="reveal">
         <h2 class="text-2xl md:text-3xl font-semibold text-brand-300">About</h2>
         <p class="mt-3 text-gray-300">
-          Program leader with hands-on experience in R&amp;D operations, DevOps collaboration,
-          and compliance (SOC2). Comfortable navigating complex orgs, aligning stakeholders,
-          and delivering outcomes on time and within budget.
+        Program leader with extensive experience in R&amp;D operations, cloud transformation, and DevOps collaboration. Skilled in driving cross-functional initiatives, ensuring compliance with SOC 2 standards, and fostering strong alignment between technical teams and business goals. Adept at navigating complex organizations, optimizing delivery processes, and achieving measurable results on time and within budget.
         </p>
       </div>
       <div class="grid grid-cols-3 gap-4 reveal">
@@ -381,21 +464,18 @@
       Projects & Case Studies
     </h2>
 
-    <!-- Accordion: TSD DIGITAL -->
-    <div class="mb-10">
-      <button
-        class="w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group"
-        data-accordion-target="#tsd-digital"
-      >
-        <div class="flex items-center gap-3">
-          <img src="images/logos/tsd.jpeg" alt="TSD Digital Logo" class="w-8 h-8 rounded-md opacity-80 group-hover:opacity-100 transition" />
-          <h3 class="text-xl font-semibold text-gray-100">
-            Delivered with TSD Digital
-            <span class="text-sm text-gray-400 font-normal">(2020–2025)</span>
-          </h3>
-        </div>
-        <span class="text-brand-300 text-2xl">+</span>
-      </button>
+      <!-- Accordion: TSD DIGITAL -->
+      <div class="mb-10">
+        <button
+          class="accordion-btn w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group"
+          data-accordion-target="#tsd-digital"
+        >
+          <div class="flex items-center gap-3">
+            <img src="images/logos/tsd.jpeg" alt="TSD Digital Logo" class="w-8 h-8 rounded-md opacity-80 group-hover:opacity-100 transition" />
+            <h3 class="text-xl font-semibold text-gray-100">Delivered with TSD Digital</h3>
+          </div>
+          <span class="accordion-icon text-brand-300 text-2xl">+</span>
+        </button>
 
       <div id="tsd-digital" class="hidden mt-6 grid md:grid-cols-3 gap-8 reveal transition-all duration-500 ease-in-out">
 
@@ -564,23 +644,20 @@
       </div>
     </div>
 
-    <!-- Accordion: VOX TENEO -->
+        <!-- Accordion: VOX TENEO -->
     <div>
       <button
-        class="w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group"
+        class="accordion-btn w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group"
         data-accordion-target="#vox-teneo"
       >
         <div class="flex items-center gap-3">
           <img src="images/logos/vox.jpeg" alt="Vox Teneo Logo" class="w-8 h-8 rounded-md opacity-80 group-hover:opacity-100 transition" />
-          <h3 class="text-xl font-semibold text-gray-100">
-            Delivered with Vox Teneo
-            <span class="text-sm text-gray-400 font-normal">(2020–2023)</span>
-          </h3>
+          <h3 class="text-xl font-semibold text-gray-100">Delivered with Vox Teneo <span class="block text-sm text-gray-400 font-normal">(2020–2023)</span></h3>
         </div>
-        <span class="text-brand-300 text-2xl">+</span>
+        <span class="accordion-icon text-brand-300 text-2xl">+</span>
       </button>
 
-      <div id="vox-teneo" class="hidden mt-6 grid md:grid-cols-3 gap-8 reveal transition-all duration-500 ease-in-out">
+       <div id="vox-teneo" class="hidden mt-6 grid md:grid-cols-3 gap-8 reveal transition-all duration-500 ease-in-out">
 
         <!-- Erasmus+ -->
         <article class="project-card">
@@ -671,43 +748,47 @@
 
 <!-- Accordion Animation -->
 <script>
-document.querySelectorAll("[data-accordion-target]").forEach((button) => {
+document.querySelectorAll(".accordion-btn").forEach((button) => {
+  const icon = button.querySelector(".accordion-icon");
+
   button.addEventListener("click", (event) => {
     event.preventDefault();
     const target = document.querySelector(button.dataset.accordionTarget);
     const isHidden = target.classList.contains("hidden");
 
-    // Close all others first
-    document.querySelectorAll("[data-accordion-target]").forEach((b) => {
-      const content = document.querySelector(b.dataset.accordionTarget);
-      if (content !== target) {
-        content.classList.add("hidden");
-        content.style.maxHeight = null;
-        b.querySelector("span").textContent = "+";
+    // Close others
+    document.querySelectorAll(".accordion-btn").forEach((b) => {
+      const otherTarget = document.querySelector(b.dataset.accordionTarget);
+      const otherIcon = b.querySelector(".accordion-icon");
+      if (b !== button) {
+        otherTarget.classList.add("hidden");
+        otherTarget.style.maxHeight = null;
+        otherIcon.textContent = "+";
+        b.classList.remove("active");
       }
     });
 
+    // Toggle clicked one
     if (isHidden) {
-      // Apply a short delay for visual smoothness
-      setTimeout(() => {
-        target.classList.remove("hidden");
-        target.style.maxHeight = target.scrollHeight + "px";
-        button.querySelector("span").textContent = "−";
-
-        // Scroll adjustment to avoid snapping
-        const yOffset = -80; // offset for fixed navbar
-        const y =
-          button.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }, 150); // small delay (150ms)
+      button.classList.add("active");
+      target.classList.remove("hidden");
+      target.style.maxHeight = target.scrollHeight + "px";
+      icon.textContent = "−";
+      const yOffset = -80;
+      const y = button.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     } else {
+      button.classList.remove("active");
       target.classList.add("hidden");
       target.style.maxHeight = null;
-      button.querySelector("span").textContent = "+";
+      icon.textContent = "+";
     }
   });
 });
 </script>
+
+
+
 
 <style>
   .project-card {
@@ -722,25 +803,30 @@ document.querySelectorAll("[data-accordion-target]").forEach((button) => {
   }
 
   .logo-box {
-  width: 5rem; /* increased from 3rem */
-  height: 5rem;
-  background: #ffffff; /* white for transparent PNGs */
-  border-radius: 0.75rem; /* slightly rounder corners */
+  width: 5.5rem; /* slightly larger for visibility */
+  height: 5.5rem;
+  background: #fff;
+  border-radius: 1rem; /* a bit rounder = cleaner */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-bottom: 0.75rem;
-  padding: 0.35rem; /* small breathing space inside */
+  margin: 0 auto 0.85rem auto; /* centers box horizontally */
+  padding: 0.5rem;
+  box-shadow: 0 2px 12px rgba(20, 184, 166, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.logo-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
 }
 
 .logo-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* keeps logo shape intact */
-  transform: scale(1.15); /* slightly enlarges the logo visually */
+  width: 90%; /* gives a bit of breathing space */
+  height: 90%;
+  object-fit: contain;
 }
-
 
   .tags span,
   .badge {
@@ -879,8 +965,8 @@ document.querySelectorAll("[data-accordion-target]").forEach((button) => {
     </p>
 
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href="https://drive.google.com/" target="_blank"
-         class="px-5 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 transition shadow shadow-brand-500/20">
+      <a href="files/GoceMojsoskiCV.pdf" download
+      class="px-5 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 transition shadow shadow-brand-500/20">
         Download CV
       </a>
 
