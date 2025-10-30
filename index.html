@@ -139,6 +139,12 @@
   transform: none !important;
 }
 
+  @media (min-width: 768px) {
+    p {
+      text-align: justify;
+    }
+  }
+
   </style>
 </head>
 
@@ -191,14 +197,15 @@
 </div>
 
     <div class="reveal">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-center md:text-left">
         Senior Program & Delivery Leader
       </h1>
       <p class="mt-3 text-gray-300 max-w-2xl">
         Hi I'm Goce. A results-driven leader with experience in strategy, program management, and cross-functional delivery. I’ve led major transformation projects, including ERP rollouts, cloud modernization, and post-M&A integrations across US &amp; EU teams.
         I enjoy tackling complex challenges and using my experience to create meaningful results in dynamic environments.
       </p>
-      <div class="mt-6 flex flex-wrap gap-3">
+      <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+
     <a href="#contact"
      class="px-5 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 transition shadow shadow-brand-500/20">
       Contact Me
@@ -463,6 +470,47 @@
     <h2 class="text-3xl font-semibold text-brand-300 text-center mb-12 reveal">
       Projects & Case Studies
     </h2>
+      <!-- Accordion: Arcadia -->
+      <div class="mb-10">
+        <button
+          class="accordion-btn w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group"
+          data-accordion-target="#Arcadia"
+        >
+          <div class="flex items-center gap-3">
+            <img src="images/logos/arcadia.jpeg" alt="Arcadia Logo" class="w-8 h-8 rounded-md opacity-80 group-hover:opacity-100 transition" />
+            <h3 class="text-xl font-semibold text-gray-100">Delivered with Arcadia <span class="block text-sm text-gray-400 font-normal">(2023–present)</span></h3>
+          </div>
+          <span class="accordion-icon text-brand-300 text-2xl">+</span>
+        </button>
+
+      <div id="Arcadia" class="hidden mt-6 grid md:grid-cols-3 gap-8 reveal transition-all duration-500 ease-in-out">
+
+        <!-- MySQL -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/sql.png" alt="sql Logo" /></div>
+          <h4>MySQL 5.7 -> 8.0 Upgrades</h4>
+          <div class="tags"><span>SQL</span><span>Project Management</span><span>Lifecycle Management</span></div>
+          <p>Led the upgrade of 50 backend services from MySQL 5.7 to 8.0, ensuring zero downtime, full data integrity, and compatibility across all dependent applications.</p>
+        </article>
+
+        <!-- MySQL -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/aws.png" alt="sql Logo" /></div>
+          <h4>AWS SDK Upgrades</h4>
+          <div class="tags"><span>AWS</span><span>Java</span><span>DevOps</span><span>Project Management</span><span>Lifecycle Management</span></div>
+          <p>Led the AWS SDK upgrade across multiple services, migrating from Java SDK v1.11.1034 to the v2.36.3/v2.37.0 release. Ensured full compatibility, improved performance, and alignment with AWS’s end-of-support roadmap for SDK v1</p>
+        </article>
+
+                <!-- MySQL -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/java.png" alt="sql Logo" /></div>
+          <h4>Java 8 -> Java 21 Upgrades</h4>
+          <div class="tags"><span>AWS</span><span>Java</span><span>DevOps</span><span>Project Management</span><span>Lifecycle Management</span></div>
+          <p>Led the Java platform upgrade from Java 8 to 21 and migrated core microservices to Spring Boot 3.x for over 100 services. Modernized build pipelines, ensured framework compatibility, and optimized performance through modularization and updated dependencies.</p>
+        </article>
+
+      </div>
+    </div>
 
       <!-- Accordion: TSD DIGITAL -->
       <div class="mb-10">
@@ -472,7 +520,7 @@
         >
           <div class="flex items-center gap-3">
             <img src="images/logos/tsd.jpeg" alt="TSD Digital Logo" class="w-8 h-8 rounded-md opacity-80 group-hover:opacity-100 transition" />
-            <h3 class="text-xl font-semibold text-gray-100">Delivered with TSD Digital</h3>
+            <h3 class="text-xl font-semibold text-gray-100">Delivered with TSD <span class="block text-sm text-gray-400 font-normal">(2024–2025)</span></h3>
           </div>
           <span class="accordion-icon text-brand-300 text-2xl">+</span>
         </button>
@@ -483,7 +531,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/ameriband.png" alt="Ameriband Logo" /></div>
           <h4>Ameriband</h4>
-          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>Java</span><span>C#</span></div>
           <p>Web platform for a U.S. telecom firm providing enterprise Wi-DAS solutions. Built to showcase Wi-Fi–based cellular coverage systems, with detailed technical documentation, partner integration features, and regional service mapping.</p>
           <div class="mt-3"><a href="https://ameriband.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -492,7 +540,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/etap.png" alt="ETAP Logo" /></div>
           <h4>ETAP Lighting</h4>
-          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>C#</span><span>E-commerce</span></div>
           <p>Corporate site for a European lighting manufacturer. Includes a structured product catalog with filtering, multilingual content management, and integration with external ERP systems for stock and pricing synchronization.</p>
           <div class="mt-3"><a href="https://etap.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -501,7 +549,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/delineate.png" alt="Delineate.ai Logo" /></div>
           <h4>Delineate.ai</h4>
-          <div class="tags"><span>.NET</span><span>AI</span><span>Analytics</span></div>
+          <div class="tags"><span>.NET</span><span>AI</span><span>C#</span><span>REST APIs</span></div>
           <p>Analytics platform for market-research automation. Delivers real-time brand and audience insights through data ingestion pipelines, visualization dashboards, and permission-based client access.</p>
           <div class="mt-3"><a href="#" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -510,7 +558,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/joedavies.png" alt="Joe Davies Logo" /></div>
           <h4>Joe Davies</h4>
-          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>C#</span><span>SQL</span><span>Umbraco</span><span>CMS</span></div>
           <p>Trade-only e-commerce platform for a UK giftware distributor. Features 10,000+ SKUs, tiered customer pricing, product import automation, and ERP integration for real-time stock and order tracking.</p>
           <div class="mt-3"><a href="https://joedavies.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -519,7 +567,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/allnations.png" alt="All Nations Logo" /></div>
           <h4>All Nations Centre</h4>
-          <div class="tags"><span>.NET</span><span>CMS</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span></div>
           <p>Venue management platform with dynamic event scheduling, booking forms, and room-availability logic. Includes internal admin dashboard for managing events, pricing, and customer communications.</p>
           <div class="mt-3"><a href="https://www.allnationscentre.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -528,7 +576,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/avansere.png" alt="Avansere Logo" /></div>
           <h4>Avansere</h4>
-          <div class="tags"><span>.NET</span><span>Consulting</span><span>Innovation</span></div>
+          <div class="tags"><span>Angular</span><span>HTML</span><span>CSS</span></div>
           <p>Corporate innovation hub and consulting site designed to promote digital transformation services. Developed modular content blocks and API integrations for marketing automation and case-study management.</p>
           <div class="mt-3"><a href="https://avansere.no/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -537,7 +585,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/yourepic.png" alt="Your Epic Home Logo" /></div>
           <h4>Your Epic Home</h4>
-          <div class="tags"><span>.NET</span><span>Umbraco</span><span>E-commerce</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span></div>
           <p>Home-improvement platform supporting custom product selection, lead capture, and partner referrals. Includes modular configurator and form workflows for quote generation.</p>
           <div class="mt-3"><a href="https://yourepichome.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -546,7 +594,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/quotehub.png" alt="QuoteHub Logo" /></div>
           <h4>QuoteHub AI</h4>
-          <div class="tags"><span>Blazor</span><span>AI</span><span>SaaS</span></div>
+          <div class="tags"><span>Blazor</span><span>AI</span><span>HTML</span><span>SQL</span><span>CSS</span></div>
           <p>Internal AI-assisted quotation tool improving response times and automating pricing workflows.Automates pricing calculations, template generation, and proposal tracking with integrated AI prompts for response optimization.</p>
           <div class="mt-3"><a href="https://quotehub.ai/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -555,7 +603,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/bhsavige.png" alt="BH Savige Logo" /></div>
           <h4>BH Savige</h4>
-          <div class="tags"><span>.NET</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>Umbraco</span><span>HTML</span><span>CSS</span></div>
           <p>Construction industry website featuring project showcases and secure client login. Includes CMS-driven portfolio, document management, and contact automation.</p>
           <div class="mt-3"><a href="https://www.bhsavidge.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -564,7 +612,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/personafin.jpeg" alt="PersonaFin Logo" /></div>
           <h4>PersonaFin.ai</h4>
-          <div class="tags"><span>.NET</span><span>AI</span><span>Finance</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>AI</span><span>HTML</span><span>CSS</span></div>
           <p>AI-based personal finance assistant offering custom insights and forecasting tools. Personal finance SaaS application providing goal tracking, budgeting, and forecasting tools. Uses AI modules to analyse spending trends and generate personalized financial insights.</p>
           <div class="mt-3"><a href="https://www.personafin.ai/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -573,7 +621,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/brightwells.jpeg" alt="Brightwells Logo" /></div>
           <h4>Brightwells</h4>
-          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span></div>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>C#</span><span>SQL</span><span>JS</span><span>REST APIs</span></div>
           <p>Online auction platform for vehicles, machinery, and wine. Includes live bidding, payment gateway integration, and secure account dashboards for buyers and sellers.</p>
           <div class="mt-3"><a href="https://www.brightwells.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -582,7 +630,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/infobrokers.png" alt="InfoBrokers Logo" /></div>
           <h4>InfoBrokers</h4>
-          <div class="tags"><span>.NET</span><span>API</span><span>Data</span></div>
+          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span></div>
           <p>B2B data aggregation service enabling secure real-time data exchange. Features REST APIs for external integrations and configurable dashboards for analytics and reporting.</p>
           <div class="mt-3"><a href="https://www.infobrokers.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -591,7 +639,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/bond.svg" alt="Bond Jewellery Logo" /></div>
           <h4>Bond Jewellery</h4>
-          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>E-commerce</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>SQL</span><span>E-commerce</span><span>Umbraco</span><span>E-commerce</span></div>
           <p>Award-winning e-commerce platform recognized for UX and performance excellence at the Umbraco Conference. Built with custom Umbraco components, product search optimization, and API-based catalog management.</p>
           <div class="mt-3"><a href="https://bondjewellery.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -600,7 +648,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/advancejoinery.jpeg" alt="Advanced Joinery Logo" /></div>
           <h4>Advance Joinery</h4>
-          <div class="tags"><span>.NET</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>Umbraco</span><span>HTML</span><span>CSS</span><span>E-commerce</span></div>
           <p>High-end joinery and interior-design site featuring a portfolio gallery, quote forms, and CRM integration for project enquiries.</p>
           <div class="mt-3"><a href="https://advancedjoinery.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -609,7 +657,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/safelives.png" alt="SafeLives Logo" /></div>
           <h4>SafeLives</h4>
-          <div class="tags"><span>.NET</span><span>Non-profit</span><span>CMS</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>SQL</span><span>PowerBI</span></div>
           <p>Public-facing website supporting domestic abuse awareness. Includes structured resource libraries, donation integrations, and accessibility-first design compliant with WCAG 2.1.</p>
           <div class="mt-3"><a href="https://safelives.org.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -618,7 +666,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/wyevalley.svg" alt="Wye Valley Brewery Logo" /></div>
           <h4>Wye Valley Brewery</h4>
-          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>Umbraco</span><span>E-commerce</span></div>
           <p>Brewery website highlighting products, heritage, and local pubs. Includes interactive “find-a-pub” map, content-managed product pages, and promotional event modules.</p>
           <div class="mt-3"><a href="https://www.wyevalleybrewery.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -627,7 +675,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/westons.jpg" alt="Westons Cider Logo" /></div>
           <h4>Westons Cider</h4>
-          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>SQL</span><span>Umbraco</span><span>E-commerce</span></div>
           <p>Corporate site and online shop for one of the UK’s leading cider producers. Built with scalable Umbraco CMS, integrated product feeds, and marketing automation.</p>
           <div class="mt-3"><a href="https://www.westons-cider.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -636,11 +684,47 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/westgate.jpeg" alt="Westgate Labs Logo" /></div>
           <h4>Westgate Labs</h4>
-          <div class="tags"><span>.NET</span><span>HTML</span><span>CSS</span><span>Umbraco</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>JS</span><span>Umbraco</span><span>SQL</span><span>E-commerce</span></div>
           <p>Veterinary diagnostics site offering direct-to-consumer testing kits. Includes order tracking, subscription management, and results-access portal for registered clients.</p>
           <div class="mt-3"><a href="https://www.westgatelabs.co.uk/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
 
+      </div>
+    </div>
+
+
+      <!-- Divider -->
+      <div class="my-10"></div>
+
+      <!-- Accordion: Ananas.mk -->
+      <div class="mb-10">
+        <button
+          class="accordion-btn w-full flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group"
+          data-accordion-target="#ananas-mk"
+        >
+          <div class="flex items-center gap-3">
+            <img src="images/logos/ananas.png" alt="Ananas.mk Logo" class="w-8 h-8 rounded-md opacity-80 group-hover:opacity-100 transition" />
+            <h3 class="text-xl font-semibold text-gray-100">Delivered with Ananas.mk <span class="block text-sm text-gray-400 font-normal">(2024)</span></h3>
+          </div>
+          <span class="accordion-icon text-brand-300 text-2xl">+</span>
+        </button>
+
+        <div id="ananas-mk" class="hidden mt-6 grid md:grid-cols-3 gap-8 reveal transition-all duration-500 ease-in-out">
+                  <!-- Grouper -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/projects/grouper.webp" alt="Grouper-Logo" /></div>
+          <h4>Migration of Grouper merchants</h4>
+          <div class="tags"><span>SQL</span><span>REST API</span><span>JS</span><span>Postman</span></div>
+          <p>Sucessfully migrated 100 merchants from Grouper.mk to Ananas.mk.</p>
+          </article>
+                            <!-- Merchant integration -->
+        <article class="project-card">
+          <div class="logo-box"><img src="images/logos/ananas.png" alt="Ananas.mk Logo" /></div>
+          <h4>API integration of merchants</h4>
+          <div class="tags"><span>SQL</span><span>REST API</span><span>JS</span><span>Postman</span></div>
+          <p>Led the API integration project at Ananas.mk, overseeing the technical onboarding of 10 merchants and providing ongoing implementation support.</p>
+      
+        </article>
       </div>
     </div>
 
@@ -663,7 +747,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/erasmus.jpg" alt="Erasmus Logo" /></div>
           <h4>Erasmus+</h4>
-          <div class="tags"><span>PHP</span><span>Public Sector</span></div>
+          <div class="tags"><span>PHP</span><span>Laravel</span><span>JS</span><span>SQL</span></div>
           <p>EU-wide education management platform supporting grants and exchange programs.</p>
           <div class="mt-3"><a href="https://erasmus-plus.ec.europa.eu/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -672,7 +756,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/pegi.svg" alt="PEGI Logo" /></div>
           <h4>PEGI</h4>
-          <div class="tags"><span>PHP</span><span>Regulatory</span></div>
+          <div class="tags"><span>PHP</span><span>Laravel</span><span>JS</span><span>SQL</span></div>
           <p>Official European video game age rating portal used by publishers and regulators.</p>
           <div class="mt-3"><a href="https://pegi.info/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -681,7 +765,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/thomaspiron.png" alt="Thomas Piron Logo" /></div>
           <h4>Thomas Piron</h4>
-          <div class="tags"><span>.NET</span><span>Corporate</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>JS</span><span>HTML</span><span>CSS</span><span>SQL</span></div>
           <p>Corporate real estate website for Belgian property developer featuring multilingual CMS and advanced filtering.</p>
           <div class="mt-3"><a href="https://www.thomas-piron.lu/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -690,7 +774,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/monitoring.svg" alt="Monitoring Logo" /></div>
           <h4>Monitoring des Quartiers</h4>
-          <div class="tags"><span>.NET</span><span>Public Data</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>SQL</span></div>
           <p>Public data platform for urban analytics and neighborhood development tracking.</p>
           <div class="mt-3"><a href="https://monitoringdesquartiers.brussels/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -699,7 +783,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/sportbrussels.svg" alt="Sport Brussels Logo" /></div>
           <h4>Sport Brussels</h4>
-          <div class="tags"><span>.NET</span><span>Portal</span></div>
+          <div class="tags"><span>.NET</span><span>JS</span><span>HTML</span><span>CSS</span><span>SQL</span></div>
           <p>Regional sports portal promoting events and athletic initiatives across Brussels.</p>
           <div class="mt-3"><a href="https://sport.brussels/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -708,7 +792,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/dieteren.avif" alt="D'Ieteren Logo" /></div>
           <h4>D’Ieteren Group</h4>
-          <div class="tags"><span>.NET</span><span>Corporate</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>SQL</span><span>JS</span></div>
           <p>Corporate mobility platform showcasing innovative automotive and sustainable transport services.</p>
           <div class="mt-3"><a href="https://www.dieterengroup.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -717,7 +801,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/otra.png" alt="OTRA Logo" /></div>
           <h4>OTRA</h4>
-          <div class="tags"><span>.NET</span><span>NGO</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>AzureTables</span></div>
           <p>NGO support platform promoting youth reintegration through creative and educational projects.</p>
           <div class="mt-3"><a href="https://www.weareotra.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -726,7 +810,7 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/lawbox.png" alt="LawBox Logo" /></div>
           <h4>LawBox</h4>
-          <div class="tags"><span>.NET</span><span>LegalTech</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>SQL</span><span>JS</span></div>
           <p>LegalTech SaaS platform enabling document automation and contract lifecycle management.</p>
           <div class="mt-3"><a href="https://www.lawbox.com/index.html" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
@@ -735,16 +819,14 @@
         <article class="project-card">
           <div class="logo-box"><img src="images/projects/genealex.svg" alt="Genealex Logo" /></div>
           <h4>Genealex</h4>
-          <div class="tags"><span>.NET</span><span>Science</span></div>
+          <div class="tags"><span>.NET</span><span>C#</span><span>MongoDB</span></div>
           <p>Genetics and ancestry research platform offering DNA testing and result visualization tools.</p>
           <div class="mt-3"><a href="https://www.genealex.com/" target="_blank" class="inline-block px-3 py-1 border border-brand-500 text-brand-300 rounded-lg text-xs hover:bg-brand-500 hover:text-white transition">Visit Site →</a></div>
         </article>
-
-      </div>
-    </div>
-  </div>
-</section>
-
+      </div> <!-- End of Vox Teneo accordion content -->
+    </div> <!-- End of Vox Teneo wrapper -->
+        <div class="my-10"></div>
+</div>
 
 <!-- Accordion Animation -->
 <script>
@@ -949,20 +1031,23 @@ document.querySelectorAll(".accordion-btn").forEach((button) => {
 
 <!-- ===== CONTACT ===== -->
 <section id="contact" class="py-16 bg-gray-900/20 border-t border-white/5">
-  <div class="max-w-7xl mx-auto px-5 text-center">
-    <h2 class="text-3xl font-semibold text-brand-300 reveal">Contact</h2>
+  <div class="max-w-7xl mx-auto px-5">
+    <h2 class="text-3xl font-semibold text-brand-300 text-center reveal">Contact</h2>
 
-    <p class="mt-4 text-gray-300">
-      Email:
-      <a class="text-brand-300 hover:underline" href="mailto:hello@gmojsoski.com">hello@gmojsoski.com</a>
-    </p>
+    <div class="mt-6 flex flex-col items-center">
+      <p class="text-gray-300">
+        Email:
+        <a class="text-brand-300 hover:underline" href="mailto:hello@gmojsoski.com">
+          hello@gmojsoski.com
+        </a>
+      </p>
 
-    <p class="mt-2 text-gray-300">
-      LinkedIn:
-      <a class="text-brand-300 hover:underline" href="https://linkedin.com/in/yourprofile" target="_blank">
-        linkedin.com/in/gmojsoski
-      </a>
-    </p>
+      <p class="mt-2 text-gray-300">
+        LinkedIn:
+        <a class="text-brand-300 hover:underline" href="https://linkedin.com/in/gmojsoski" target="_blank">
+          linkedin.com/in/gmojsoski
+        </a>
+      </p>
 
     <div class="mt-8 flex flex-wrap justify-center gap-3">
       <a href="files/GoceMojsoskiCV.pdf" download
