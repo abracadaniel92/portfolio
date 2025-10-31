@@ -1,0 +1,23 @@
+# Node
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Generated or cache
+analytics.html
+capture-screens.js
+logs/
+*.tar.gz
+
+# Personal or large files
+files/GoceMojsoskiCV.pdf
+
+# OS/Temp
+.tmp/
