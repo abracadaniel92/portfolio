@@ -17,7 +17,7 @@ logs/
 *.tar.gz
 
 # Personal or large files
-files/GoceMojsoskiCV.pdf
+#files/GoceMojsoskiCV.pdf
 
 # OS/Temp
 .tmp/
