@@ -83,14 +83,29 @@ Website
   .hero-shell {
     margin: 0 auto;
     max-width: 1600px;
-    padding: 200px 24px 120px;
+    /* default (tablet/desktop-ish) */
+    padding: 180px 24px 80px;
   }
 
+  /* Desktop / larger screens */
   @media (min-width: 768px) {
     .hero-shell {
       padding: 200px 150px 120px;
     }
   }
+
+/* Mobile: much tighter */
+@media (max-width: 640px) {
+  #home {
+    min-height: auto;          /* don’t force full viewport height */
+    padding-top: 96px;         /* clear the fixed navbar */
+  }
+
+  .hero-shell {
+    padding: 140px 24px 32px;  /* less bottom padding */
+  }
+}
+
 
   /* Shared section shell for About + Experience */
   .section-shell {
@@ -106,17 +121,18 @@ Website
   }
 
   /* Make ABOUT section wider, Brittany-style */
-  #about .section-shell {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 120px 24px 0;
-  }
-
-  @media (min-width: 1024px) {
     #about .section-shell {
-      padding: 120px 120px 0;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 60px 24px 0;       /* much less top space on mobile/tablet */
     }
-  }
+
+    @media (min-width: 1024px) {
+      #about .section-shell {
+        padding: 96px 120px 0;    /* still roomy on desktop */
+      }
+    }
+
 
   /* ===== HERO TYPOGRAPHY ===== */
   .hero-overline {
@@ -798,58 +814,243 @@ Website
       display: none;
     }
   }
+  /* Fix "Where I've worked" tabs on mobile */
+@media (max-width: 767px) {
+  .exp-tabs {
+    flex-wrap: wrap;          /* allow them to go to 2+ rows */
+    overflow-x: visible;      /* stop horizontal scrolling/overflow */
+  }
+
+  .exp-tab {
+    flex: 1 1 50%;            /* two tabs per row */
+    text-align: center;
+    border-bottom: 1px solid #233554;
+    font-size: 12px;          /* slightly smaller label */
+    padding: 0.6rem 0.4rem;
+  }
+}
+/* Reduce huge empty space after "Where I've worked" on mobile */
+/* Ultra-tight spacing between Experience → Projects on mobile */
+@media (max-width: 767px) {
+
+  /* Remove almost all spacing under the entire section */
+  #experience {
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Tabs spacing almost removed */
+  .exp-tabs {
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* Panels spaced minimally */
+  .experience-panel {
+    margin-bottom: 0.5rem !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Pull Projects upward a LOT */
+  #projects {
+    margin-top: -0.25rem !important;   /* negative to lift it closer */
+    padding-top: 0 !important;
+  }
+
+  /* Sometimes section headings have padding */
+  #projects .section-heading {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+@media (max-width: 640px) {
+  #projects {
+    padding-bottom: 0.25rem !important; /* reduced from py-24 (6rem) */
+  }
+
+  #projects .company-card:last-child {
+    margin-bottom: 0.10rem !important; 
+  }
+}
+@media (max-width: 640px) {
+
+  /* Pull Technical Skills section closer to Certifications */
+  #tech-skills {
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Pull Certifications section closer to the next section */
+  #certifications {
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Reduce spacing inside skill category blocks */
+  .skills-grid,
+  .cert-list {
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Generic tighter spacing between ANY main sections on mobile */
+  section {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  /* But keep hero larger */
+  #hero {
+    padding-bottom: 2rem !important;
+  }
+}
+@media (max-width: 640px) {
+
+  /* === PROJECTS & CASE STUDIES === */
+  #projects {
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Tighten the gap between each project card on mobile */
+  .company-card {
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* === TECHNICAL SKILLS === */
+  #tech-skills {
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .skills-grid {
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* === CERTIFICATIONS === */
+  #certifications {
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .cert-list {
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* === GENERAL SECTION COMPRESSION (except Hero) === */
+  section:not(#hero) {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+}
+@media (max-width: 640px) {
+
+  /* Add space specifically after the About Me section */
+  #about {
+    padding-bottom: 3rem !important;   /* adjust value if needed */
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* Add slight top space to Where I've Worked */
+  #experience {
+    padding-top: 2rem !important;
+  }
+}
+/* Back to top button base */
+  #backToTop {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+
 </style>
-
-
 
 </head>
 
 <body class="bg-[#0a192f] text-slate-300 antialiased">
 
   <!-- ===== NAVBAR (Brittany-style) ===== -->
-<header class="fixed inset-x-0 top-0 z-50 bg-[#0a192f]/95 backdrop-blur-sm">
-  <nav class="w-full px-10 md:px-14 lg:px-20 py-5 flex items-center justify-between">
-    
-    <!-- Left: Hexagon Logo -->
-    <a href="#home"
-       class="w-12 h-12 flex items-center justify-center
-              text-[15px] font-semibold font-mono tracking-wide
-              text-teal-300 relative hover:scale-[1.05] transition">
+<!-- ===== NAVBAR (Brittany-style) ===== -->
+<header id="navbar" class="fixed inset-x-0 top-0 z-50 bg-[#0a192f]/95 backdrop-blur-sm">
+    <nav class="w-full px-10 md:px-14 lg:px-20 py-5 flex items-center justify-between">
+      
+      <!-- Left: Hexagon Logo -->
+      <a href="#home"
+        class="w-12 h-12 flex items-center justify-center
+                text-[15px] font-semibold font-mono tracking-wide
+                text-teal-300 relative hover:scale-[1.05] transition">
+        <span class="absolute inset-0">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-teal-400">
+            <polygon points="50 3, 90 25, 90 75, 50 97, 10 75, 10 25"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    class="drop-shadow-[0_0_6px_rgba(20,184,166,0.4)]" />
+          </svg>
+        </span>
+        <span class="z-10">G</span>
+      </a>
 
-      <span class="absolute inset-0">
-        <svg viewBox="0 0 100 100" class="w-full h-full text-teal-400">
-          <polygon points="50 3, 90 25, 90 75, 50 97, 10 75, 10 25"
-                   fill="none"
-                   stroke="currentColor"
-                   stroke-width="5"
-                   stroke-linecap="round"
-                   class="drop-shadow-[0_0_6px_rgba(20,184,166,0.4)]" />
-        </svg>
-      </span>
+      <!-- Right: Desktop Nav Links -->
+      <div class="hidden md:flex items-center gap-10 text-[18px] font-mono tracking-wide text-slate-300">
+        <a href="#about" class="nav-link hover:text-teal-300">About</a>
+        <a href="#experience" class="nav-link hover:text-teal-300">Experience</a>
+        <a href="#projects" class="nav-link hover:text-teal-300">Work</a>
+        <a href="#contact" class="nav-link hover:text-teal-300">Contact</a>
 
-      <span class="z-10">G</span>
-    </a>
+        <a href="files/GoceMojsoskiCV.pdf" target="_blank"
+          class="ml-4 px-4 py-1.5 rounded border border-teal-400 text-[17px] font-mono tracking-wide text-teal-300 hover:bg-teal-400/10">
+          Resume
+        </a>
+      </div>
 
-    <!-- Right: Nav Links -->
-    <div class="hidden md:flex items-center gap-10 text-[14px] font-mono tracking-wide text-slate-300">
-      <a href="#about" class="hover:text-teal-300">About</a>
-      <a href="#experience" class="hover:text-teal-300">Experience</a>
-      <a href="#projects" class="hover:text-teal-300">Work</a>
-      <a href="#contact" class="hover:text-teal-300">Contact</a>
+      <!-- Mobile hamburger -->
+      <button
+        id="menuBtn"
+        class="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-teal-400 text-teal-300"
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
 
-      <a href="files/GoceMojsoskiCV.pdf" target="_blank"
-         class="ml-4 px-4 py-1.5 rounded border border-teal-400 text-[14px] font-mono tracking-wide text-teal-300 hover:bg-teal-400/10">
+    </nav>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobileMenu"
+      class="md:hidden hidden px-10 pb-6 flex flex-col gap-4 bg-[#0a192f]/95 border-t border-white/5"
+    >
+      <a href="#about" class="nav-link block py-1 text-sm font-mono text-slate-200 hover:text-teal-300">
+        About
+      </a>
+      <a href="#experience" class="nav-link block py-1 text-sm font-mono text-slate-200 hover:text-teal-300">
+        Experience
+      </a>
+      <a href="#projects" class="nav-link block py-1 text-sm font-mono text-slate-200 hover:text-teal-300">
+        Work
+      </a>
+      <a href="#contact" class="nav-link block py-1 text-sm font-mono text-slate-200 hover:text-teal-300">
+        Contact
+      </a>
+
+      <a
+        href="files/GoceMojsoskiCV.pdf"
+        target="_blank"
+        class="mt-2 inline-block px-4 py-2 rounded border border-teal-400 text-[13px] font-mono tracking-wide text-teal-300 hover:bg-teal-400/10"
+      >
         Resume
       </a>
     </div>
+  </header>
 
-    <!-- Mobile hamburger -->
-    <button class="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-teal-400 text-teal-300">
-      ☰
-    </button>
-
-  </nav>
-</header>
 
   <!-- ===== HERO (Brittany-style) ===== -->
   <main class="bg-[#0a192f] min-h-screen">
@@ -908,7 +1109,7 @@ Website
 
 
 <!-- ===== ABOUT  ===== -->
-<section id="about" class="bg-[#0a192f] py-24">
+<section id="about" class="bg-[#0a192f] py-12">
   <div class="section-shell">
 
     <!-- Section Heading -->
@@ -2478,12 +2679,6 @@ Website
   <footer class="py-8 text-center text-gray-400 bg-[#0a192f]">
     © <span id="year"></span> Goce Mojsoski · All rights reserved.
   </footer>
-
-  <!-- Back-to-top -->
-  <button id="backToTop"
-          class="hidden fixed bottom-6 right-6 bg-brand-500 hover:bg-brand-600 text-white p-3 rounded-full shadow-lg transition"
-          aria-label="Back to top">↑</button>
-
   <!-- ===== Minimal JS: navbar, active links, reveals, back-to-top ===== -->
   <script>
     // year
@@ -2497,17 +2692,32 @@ Website
     });
 
     // navbar style on scroll + back-to-top visibility
-    const navbar = document.getElementById('navbar');
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      const sc = window.scrollY;
-      navbar.classList.toggle('bg-gray-950', sc < 8);
-      navbar.classList.toggle('bg-gray-900/85', sc >= 8);
-      if (sc > 400) backToTop.classList.remove('hidden'); else backToTop.classList.add('hidden');
+    document.addEventListener("DOMContentLoaded", () => {
+      const navbar = document.getElementById('navbar');
+      const backToTop = document.getElementById('backToTop');
+
+      window.addEventListener('scroll', () => {
+        const sc = window.scrollY;
+
+        if (navbar) {
+          navbar.classList.add('bg-[#0a192f]/95');
+
+        }
+
+        if (backToTop) {
+          if (sc > 400) backToTop.classList.add('show');
+          else backToTop.classList.remove('show');
+        }
+      });
+
+      if (backToTop) {
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
     });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+
+
 
     // intersection observer: reveal + active nav links
     const sections = document.querySelectorAll('section[id]');
@@ -2651,6 +2861,23 @@ window.addEventListener("load", () => {
   <a href="mailto:hello@gmojsoski.com">hello@gmojsoski.com</a>
   <div class="side-line"></div>
 </div>
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop"
+  aria-label="Back to top"
+  class="
+    fixed bottom-6 right-14 z-50     <!-- SHIFTED LEFT -->
+    opacity-0 pointer-events-none
+    transition-all duration-300 ease
+    w-12 h-12 flex items-center justify-center
+    rounded-full
+    border border-teal-400
+    text-teal-300
+    bg-[#0a192f]/60 backdrop-blur-md
+    hover:bg-teal-400/10 hover:scale-105
+  ">
+  ↑
+</button>
+
 
 </body>
 </html>
