@@ -164,7 +164,7 @@ Website
   .hero-text {
     margin-top: 0;
     margin-bottom: 40px;
-    max-width: 540px;
+    max-width: 900px;
     color: #8892b0;
     font-size: 16px;
     line-height: 1.6;
@@ -970,15 +970,91 @@ Website
     pointer-events: auto;
   }
 
+/* ===== TECH SKILLS – RAIL LAYOUT ===== */
+.skill-rail-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Tech skills category titles – match Certifications labels */
+.skill-rail-label {
+  position: relative;
+  padding-left: 1rem;
+  width: 240px;
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Use same color as "Agile & Scrum" */
+.skill-rail-label span {
+  color: #6ee7cd !important;    /* tweak this hex if your cert labels use a different one */
+}
+
+/* Vertical teal bar stays the same */
+.skill-rail-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, #34d399, #22d3ee);
+  opacity: 0.75;
+}
+
+/* Chip list */
+.skill-rail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* Individual skill chip */
+.skill-rail-chips span {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.38);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 1);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.skill-rail-chips span:hover {
+  background: rgba(45, 212, 191, 0.12);
+  border-color: rgba(45, 212, 191, 0.7);
+  transform: translateY(-1px);
+}
+
+/* Mobile – stack label over chips */
+@media (max-width: 640px) {
+  .skill-rail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .skill-rail-label {
+    width: auto;
+  }
+}
+
+/* Reduce space ABOVE Technical Skills section */
+#skills {
+  margin-top: -40px;   /* pulls the section up */
+}
 
 </style>
 
 </head>
 
 <body class="bg-[#0a192f] text-slate-300 antialiased">
-
-  <!-- ===== NAVBAR (Brittany-style) ===== -->
-<!-- ===== NAVBAR (Brittany-style) ===== -->
+<!-- ===== NAVBAR  ===== -->
 <header id="navbar" class="fixed inset-x-0 top-0 z-50 bg-[#0a192f]/95 backdrop-blur-sm">
     <nav class="w-full px-10 md:px-14 lg:px-20 py-5 flex items-center justify-between">
       
@@ -1001,14 +1077,14 @@ Website
       </a>
 
       <!-- Right: Desktop Nav Links -->
-      <div class="hidden md:flex items-center gap-10 text-[18px] font-mono tracking-wide text-slate-300">
+      <div class="hidden md:flex items-center gap-10 text-[14px] font-mono tracking-wide text-slate-300">
         <a href="#about" class="nav-link hover:text-teal-300">About</a>
         <a href="#experience" class="nav-link hover:text-teal-300">Experience</a>
         <a href="#projects" class="nav-link hover:text-teal-300">Work</a>
         <a href="#contact" class="nav-link hover:text-teal-300">Contact</a>
 
         <a href="files/GoceMojsoskiCV.pdf" target="_blank"
-          class="ml-4 px-4 py-1.5 rounded border border-teal-400 text-[17px] font-mono tracking-wide text-teal-300 hover:bg-teal-400/10">
+          class="ml-4 px-4 py-1.5 rounded border border-teal-400 text-[15px] font-mono tracking-wide text-teal-300 hover:bg-teal-400/10">
           Resume
         </a>
       </div>
@@ -1073,8 +1149,8 @@ Website
 
           <p class="hero-text hero-item">
             I’m a senior programme &amp; delivery leader with experience across cloud,
-            SaaS and digital commerce. I’ve led major transformation projects —
-            including ERP rollouts, cloud modernisation and post-M&amp;A integrations —
+            SaaS and digital commerce. I’ve led major transformation projects
+            including ERP rollouts, cloud modernisation and post-M&amp;A integrations
             across distributed US &amp; EU teams. I enjoy untangling complex problems
             and turning strategy into execution.
           </p>
@@ -1534,7 +1610,7 @@ Website
 </section>
 
 <!-- ===== PROJECTS & CASE STUDIES (Brittany-style) ===== -->
-<section id="projects" class="py-24 bg-[#0a192f]">
+<section id="projects" class="pt-20 pb-12 bg-[#0a192f]">
   <div class="section-shell projects-shell">
 
     <!-- Section heading -->
@@ -1592,7 +1668,7 @@ Website
         </div>
         <h4>MySQL 5.7 → 8.0 Upgrades</h4>
         <div class="tags">
-          <span>SQL</span><span>Project Management</span><span>Lifecycle Management</span>
+          <span>SQL</span><span>Project Management</span>
         </div>
         <p>
           Led the upgrade of 50 backend services from MySQL 5.7 to 8.0, ensuring zero downtime,
@@ -1607,8 +1683,7 @@ Website
         </div>
         <h4>AWS SDK Upgrades</h4>
         <div class="tags">
-          <span>AWS</span><span>Java</span><span>DevOps</span><span>Project Management</span
-          ><span>Lifecycle Management</span>
+          <span>AWS</span><span>Java</span><span>DevOps</span>
         </div>
         <p>
           Led the AWS SDK upgrade across multiple services, migrating from Java SDK v1.11.1034
@@ -1624,8 +1699,7 @@ Website
         </div>
         <h4>Java 8 → Java 21 Upgrades</h4>
         <div class="tags">
-          <span>AWS</span><span>Java</span><span>DevOps</span><span>Project Management</span
-          ><span>Lifecycle Management</span>
+          <span>AWS</span><span>Java</span><span>DevOps</span>
         </div>
         <p>
           Led the platform uplift from Java 8 to 21 and migrated over 100 microservices to
@@ -1906,7 +1980,7 @@ Website
         <h4>Brightwells</h4>
         <div class="tags">
           <span>.NET</span><span>HTML</span><span>CSS</span><span>C#</span><span>SQL</span
-          ><span>JS</span><span>REST APIs</span>
+          ><span>JS</span>
         </div>
         <p>
           Online auction platform for vehicles, machinery, and wine with live bidding,
@@ -1951,7 +2025,7 @@ Website
         <h4>Bond Jewellery</h4>
         <div class="tags">
           <span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>SQL</span
-          ><span>E-commerce</span><span>Umbraco</span>
+          ><span>Umbraco</span>
         </div>
         <p>
           Award-winning e-commerce platform built on custom Umbraco components with product
@@ -2020,7 +2094,7 @@ Website
         <h4>Wye Valley Brewery</h4>
         <div class="tags">
           <span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span
-          ><span>Umbraco</span><span>E-commerce</span>
+          ><span>Umbraco</span>
         </div>
         <p>
           Brewery site with product storytelling, interactive “find-a-pub” map, and content-
@@ -2043,7 +2117,7 @@ Website
         <h4>Westons Cider</h4>
         <div class="tags">
           <span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>SQL</span
-          ><span>Umbraco</span><span>E-commerce</span>
+          ><span>Umbraco</span>
         </div>
         <p>
           Corporate site and online shop for a leading cider producer with scalable Umbraco
@@ -2066,7 +2140,7 @@ Website
         <h4>Westgate Labs</h4>
         <div class="tags">
           <span>.NET</span><span>C#</span><span>HTML</span><span>CSS</span><span>JS</span
-          ><span>Umbraco</span><span>SQL</span><span>E-commerce</span>
+          ><span>Umbraco</span><span>SQL</span>
         </div>
         <p>
           Veterinary diagnostics e-commerce site with subscription management, order tracking,
@@ -2570,82 +2644,112 @@ Website
 }
   </style>
 
-
-
-
-<!-- ===== TECHNICAL SKILLS (COLORED BADGES) ===== -->
-<section id="skills" class="py-20 bg-[#0a192f]">
+<!-- ===== TECHNICAL SKILLS ===== -->
+<section id="skills" class="pt-12 pb-16 bg-[#0a192f]">
   <div class="section-shell">
 
-    <!-- Section Heading (same style as About) -->
+    <!-- Section heading (same pattern as About / Projects / Certs) -->
     <div class="section-heading">
       <h2 class="section-title">Technical Skills</h2>
       <div class="section-line"></div>
     </div>
 
-    <!-- Badges -->
-    <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-3 text-sm font-medium">
+    <!-- Category rail -->
+    <div class="mt-6 space-y-6">
 
-      <!-- 🌤️ Cloud & DevOps (Blue) -->
-      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">AWS</span>
-      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Azure</span>
-      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">GCP</span>
-      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Docker</span>
-      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Linux</span>
-      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">GitHub</span>
-      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Jira</span>
-      <span class="px-3 py-1 rounded-full bg-sky-900/40 text-sky-300 border border-sky-700/40">Confluence</span>
+      <!-- CLOUD PLATFORMS -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>Cloud Platforms</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>AWS</span><span>Azure</span><span>GCP</span>
+        </div>
+      </div>
 
-      <!-- 💻 CMS / E-commerce (Purple) -->
-      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">WordPress</span>
-      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Magento</span>
-      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Pimcore</span>
-      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Shopify</span>
-      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Umbraco</span>
-      <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-700/40">Ucommerce</span>
+      <!-- DEVOPS & INFRASTRUCTURE -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>DevOps &amp; Infrastructure</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>Docker</span><span>Linux</span><span>GitHub</span>
+          <span>Datadog</span><span>PagerDuty</span>
+        </div>
+      </div>
 
-      <!-- 🏢 ERP / CRM (Green) -->
-      <span class="px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">Dynamics 365</span>
-      <span class="px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">Odoo</span>
-      <span class="px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">SAP</span>
+      <!-- PROGRAMMING & LANGUAGES -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>Programming &amp; Languages</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>Python</span><span>SQL</span><span>HTML</span>
+          <span>CSS</span><span>C#</span>
+        </div>
+      </div>
 
-      <!-- 🧠 Languages (Orange) -->
-      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">Python</span>
-      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">SQL</span>
-      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">HTML</span>
-      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">CSS</span>
-      <span class="px-3 py-1 rounded-full bg-amber-900/40 text-amber-300 border border-amber-700/40">C#</span>
+      <!-- APIS & DATA -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>APIs &amp; Data</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>REST</span><span>GraphQL</span><span>SOAP</span><span>Snowflake</span>
+        </div>
+      </div>
 
-      <!-- 🎨 Design (Pink) -->
-      <span class="px-3 py-1 rounded-full bg-pink-900/40 text-pink-300 border border-pink-700/40">Figma</span>
-      <span class="px-3 py-1 rounded-full bg-pink-900/40 text-pink-300 border border-pink-700/40">Canva</span>
-      <span class="px-3 py-1 rounded-full bg-pink-900/40 text-pink-300 border border-pink-700/40">Adobe Suite</span>
+      <!-- CMS & E-COMMERCE -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>CMS &amp; E-Commerce</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>WordPress</span><span>Magento</span><span>Pimcore</span>
+          <span>Shopify</span><span>Umbraco</span><span>Ucommerce</span>
+        </div>
+      </div>
 
-      <!-- 🔌 APIs & Integrations (Cyan) -->
-      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">REST</span>
-      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">GraphQL</span>
-      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">SOAP</span>
-      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">Stripe</span>
-      <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 border border-cyan-700/40">PayPal</span>
+      <!-- ERP / CRM / ENTERPRISE -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>ERP, CRM &amp; Enterprise</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>Dynamics 365</span><span>Odoo</span><span>SAP</span>
+        </div>
+      </div>
 
-      <!-- 🔒 Security / Compliance (Red) -->
-      <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-300 border border-red-700/40">AuditBoard</span>
-      <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-300 border border-red-700/40">Vanta</span>
-      <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-300 border border-red-700/40">Crowdstrike</span>
-      <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-300 border border-red-700/40">Proofpoint</span>
+      <!-- PROJECT & DELIVERY TOOLS -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>Project &amp; Delivery Tools</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>Jira</span><span>Confluence</span><span>Make</span>
+          <span>Zapier</span><span>n8n</span><span>Google Sheets</span><span>AppScripts</span>
+        </div>
+      </div>
 
-      <!-- ⚙️ Automation & Monitoring (Indigo) -->
-      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">Zapier</span>
-      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">n8n</span>
-      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">Make / Integromat</span>
-      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">Datadog</span>
-      <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 border border-indigo-700/40">PagerDuty</span>
+      <!-- SECURITY & COMPLIANCE -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>Security &amp; Compliance</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>AuditBoard</span><span>Vanta</span><span>Crowdstrike</span><span>Proofpoint</span>
+        </div>
+      </div>
 
-      <!-- 📊 Data (Teal) -->
-      <span class="px-3 py-1 rounded-full bg-teal-900/40 text-teal-300 border border-teal-700/40">Snowflake</span>
-      <span class="px-3 py-1 rounded-full bg-teal-900/40 text-teal-300 border border-teal-700/40">Google Sheets</span>
-      <span class="px-3 py-1 rounded-full bg-teal-900/40 text-teal-300 border border-teal-700/40">AppScripts</span>
-      <span class="px-3 py-1 rounded-full bg-teal-900/40 text-teal-300 border border-teal-700/40">Excel</span>
+      <!-- DESIGN & PRODUCTIVITY -->
+      <div class="skill-rail-row">
+        <div class="skill-rail-label">
+          <span>Design &amp; Productivity</span>
+        </div>
+        <div class="skill-rail-chips">
+          <span>Figma</span><span>Adobe Suite</span><span>Canva</span><span>Excel</span>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -2653,43 +2757,72 @@ Website
 
 
 
-
-<!-- ===== CERTIFICATIONS ===== -->
-<section id="certifications" class="py-20 bg-[#0a192f]">
+<!-- ===== CERTIFICATIONS (Grouped, Clean) ===== -->
+<section id="certifications" class="pt-4 pb-14 bg-[#0a192f]">
   <div class="section-shell">
 
-    <!-- Section Heading (same as About / Skills) -->
+    <!-- Section Heading -->
     <div class="section-heading">
       <h2 class="section-title">Certifications</h2>
       <div class="section-line"></div>
     </div>
 
-    <!-- Certifications List -->
-    <div class="mt-10 flex flex-wrap justify-center md:justify-start gap-3 text-sm font-medium">
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
 
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Generative AI Overview for Project Managers — PMI</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Scrum Product Owner Certified (SPOC) — VMEdu</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Scrum Master Certified (SMC) — VMEdu</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Project Management Program Diploma — IBMI</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Automation Architect — airSlate</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Transitioning from Waterfall to Agile Project Management — LinkedIn</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">AWS Essentials — Semos Education</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Basecamp: Project Management Best Practices — LinkedIn</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Becoming an Ally to All — LinkedIn</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Certified SQL Developer — W3Schools</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Critical Thinking for Self Development — MSBM (UK)</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Delivering IT Services — Pluralsight</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Implementation Design: SOXHUB — AuditBoard</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Microsoft Dynamics 365: Foundation — Pluralsight</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Responsive Web Design (HTML/CSS) — freeCodeCamp</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Risk Management Program Certificate — IBMI</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Sales Management Certification — HubSpot Academy</span>
-      <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full">Six Sigma Yellow Belt — 6sigmastudy</span>
+      <!-- Agile & Scrum -->
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <p class="text-[11px] font-mono uppercase tracking-[0.22em] text-brand-300">
+          Agile &amp; Scrum
+        </p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-300 leading-relaxed">
+          <li>Scrum Product Owner Certified (SPOC) — VMEdu</li>
+          <li>Scrum Master Certified (SMC) — VMEdu</li>
+          <li>Transitioning from Waterfall to Agile Project Management — LinkedIn</li>
+          <li>Six Sigma Yellow Belt — 6sigmastudy</li>
+        </ul>
+      </article>
+
+      <!-- Project Management & Risk -->
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <p class="text-[11px] font-mono uppercase tracking-[0.22em] text-brand-300">
+          Project &amp; Risk Management
+        </p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-300 leading-relaxed">
+          <li>Project Management Program Diploma — IBMI</li>
+          <li>Risk Management Program Certificate — IBMI</li>
+          <li>Project Management Best Practices (Basecamp) — LinkedIn</li>
+        </ul>
+      </article>
+
+      <!-- Cloud, Data & Technical -->
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <p class="text-[11px] font-mono uppercase tracking-[0.22em] text-brand-300">
+          Cloud, Data &amp; Technical
+        </p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-300 leading-relaxed">
+          <li>AWS Essentials — Semos Education</li>
+          <li>Certified SQL Developer — W3Schools</li>
+          <li>Microsoft Dynamics 365: Foundation — Pluralsight</li>
+          <li>Responsive Web Design (HTML/CSS) — freeCodeCamp</li>
+        </ul>
+      </article>
+
+      <!-- Leadership, People & Other -->
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <p class="text-[11px] font-mono uppercase tracking-[0.22em] text-brand-300">
+          Leadership, People &amp; Other
+        </p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-300 leading-relaxed">
+          <li>Generative AI Overview for Project Managers — PMI</li>
+          <li>Becoming an Ally to All — LinkedIn</li>
+          <li>Critical Thinking for Self Development — MSBM (UK)</li>
+        </ul>
+      </article>
 
     </div>
-
   </div>
 </section>
+
 
 
 <!-- ===== CONTACT (Brittany-style) ===== -->
@@ -2916,7 +3049,7 @@ Website
         if (accordionBtn) {
           setTimeout(() => {
             accordionBtn.click(); // uses your existing accordion logic
-          }, 300);
+          }, 20);
         }
       });
     });
