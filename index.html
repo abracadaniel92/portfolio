@@ -73,28 +73,6 @@ Website
     background-color: #0a192f; /* navy */
     color: #e6f1ff;           /* light text */
   }
-
-  /* Make the hero a proper landing section */
-  #home {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-
-  .hero-shell {
-    margin: 0 auto;
-    max-width: 1600px;
-    /* default (tablet/desktop-ish) */
-    padding: 180px 24px 80px;
-  }
-
-  /* Desktop / larger screens */
-  @media (min-width: 768px) {
-    .hero-shell {
-      padding: 200px 150px 120px;
-    }
-  }
-
 /* Mobile: much tighter */
 @media (max-width: 640px) {
   #home {
@@ -197,7 +175,7 @@ Website
     #experience li,
     #home p,
     #projects p {
-      text-align: justify;
+      text-align: left !important;
     }
   }
 
@@ -679,10 +657,14 @@ Website
 }
 
 /* Mobile */
-@media (max-width: 767px) {
+@media (max-width: 640px) {
+  .featured-project {
+    gap: 0.3rem; /* was 1.5rem from the flex default */
+  }
+
   .featured-project-content {
-    margin-top: 1.25rem;
-    max-width: 100%;
+    margin-top: 0.35rem !important;  /* was 1.25rem */
+    padding-top: 1.4rem;             /* tiny bit less padding if you want */
   }
 
   .featured-media-inner {
@@ -815,6 +797,7 @@ Website
       display: none;
     }
   }
+  
   /* Fix "Where I've worked" tabs on mobile */
 @media (max-width: 767px) {
   .exp-tabs {
@@ -828,121 +811,6 @@ Website
     border-bottom: 1px solid #233554;
     font-size: 12px;          /* slightly smaller label */
     padding: 0.6rem 0.4rem;
-  }
-}
-/* Reduce huge empty space after "Where I've worked" on mobile */
-/* Ultra-tight spacing between Experience → Projects on mobile */
-@media (max-width: 767px) {
-
-  /* Remove almost all spacing under the entire section */
-  #experience {
-    padding-bottom: 0.5rem !important;
-    margin-bottom: 0 !important;
-  }
-
-  /* Tabs spacing almost removed */
-  .exp-tabs {
-    margin-bottom: 0.25rem !important;
-  }
-
-  /* Panels spaced minimally */
-  .experience-panel {
-    margin-bottom: 0.5rem !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* Pull Projects upward a LOT */
-  #projects {
-    margin-top: -0.25rem !important;   /* negative to lift it closer */
-    padding-top: 0 !important;
-  }
-
-  /* Sometimes section headings have padding */
-  #projects .section-heading {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-}
-@media (max-width: 640px) {
-  #projects {
-    padding-bottom: 0.25rem !important; /* reduced from py-24 (6rem) */
-  }
-
-  #projects .company-card:last-child {
-    margin-bottom: 0.10rem !important; 
-  }
-}
-@media (max-width: 640px) {
-
-  /* Pull Technical Skills section closer to Certifications */
-  #tech-skills {
-    padding-bottom: 0.75rem !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  /* Pull Certifications section closer to the next section */
-  #certifications {
-    padding-bottom: 0.5rem !important;
-    margin-bottom: 0.5rem !important;
-  }
-
-  /* Reduce spacing inside skill category blocks */
-  .skills-grid,
-  .cert-list {
-    margin-bottom: 0.5rem !important;
-  }
-
-  /* Generic tighter spacing between ANY main sections on mobile */
-  section {
-    padding-top: 1.25rem !important;
-    padding-bottom: 1.25rem !important;
-  }
-
-  /* But keep hero larger */
-  #hero {
-    padding-bottom: 2rem !important;
-  }
-}
-@media (max-width: 640px) {
-
-  /* === PROJECTS & CASE STUDIES === */
-  #projects {
-    padding-top: 0.8rem !important;
-    padding-bottom: 0.8rem !important;
-    margin-bottom: 0.5rem !important;
-  }
-
-  /* Tighten the gap between each project card on mobile */
-  .company-card {
-    margin-bottom: 0.75rem !important;
-  }
-
-  /* === TECHNICAL SKILLS === */
-  #tech-skills {
-    padding-top: 0.6rem !important;
-    padding-bottom: 0.6rem !important;
-    margin-bottom: 0.4rem !important;
-  }
-
-  .skills-grid {
-    margin-bottom: 0.4rem !important;
-  }
-
-  /* === CERTIFICATIONS === */
-  #certifications {
-    padding-top: 0.6rem !important;
-    padding-bottom: 0.6rem !important;
-    margin-bottom: 0.4rem !important;
-  }
-
-  .cert-list {
-    margin-bottom: 0.4rem !important;
-  }
-
-  /* === GENERAL SECTION COMPRESSION (except Hero) === */
-  section:not(#hero) {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
   }
 }
 @media (max-width: 640px) {
@@ -973,7 +841,7 @@ Website
 /* ===== TECH SKILLS – RAIL LAYOUT ===== */
 .skill-rail-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
 }
 
@@ -1049,13 +917,429 @@ Website
   margin-top: -40px;   /* pulls the section up */
 }
 
+/* Reduce vertical space between project blocks */
+.featured-project {
+  margin-bottom: 0.1rem !important;
+}
+
+@media (min-width: 1024px) {
+  .featured-project {
+    margin-bottom: 0.1rem !important;
+  }
+}
+
+/* Reduce the gap inside each grid block */
+.featured-project .grid {
+  row-gap: 0.5rem !important;
+  column-gap: 0.5rem !important;
+}
+
+@media (min-width: 1024px) {
+  .featured-project .grid {
+    row-gap: 0.5rem !important;
+    column-gap: 0.5rem !important;
+  }
+}
+/* === FINAL PROJECT DIVIDER RESET === */
+.project-divider {
+  position: relative;
+  display: block;
+
+  /* Center it inside the Projects container */
+  width: 40%;               /* tweak 35–50% to taste */
+  max-width: 480px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.28);
+
+  margin: 2.5rem auto;      /* equal space above/below, centered horizontally */
+  left: auto;
+  right: auto;
+  transform: none;
+}
+
+/* Slightly wider on small screens if you want */
+@media (max-width: 768px) {
+  .project-divider {
+    width: 55%;
+    margin: 1.5rem auto;
+  }
+}
+
+/* EXPERIENCE FOOTER LAYOUT */
+.exp-footer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* left = view, right = nav */
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* View Projects button in Experience */
+.exp-view-btn {
+  padding: 0.45rem 1.1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: transparent;
+  color: #e5e7eb;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease,
+    color 0.2s ease;
+}
+
+.exp-view-btn span {
+  font-size: 1rem;
+}
+
+.exp-view-btn:hover {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: #6ee7cd;
+  color: #e6fffa;
+  transform: translateY(-1px);
+}
+
+/* Prev / Next pills – transparent, like skills */
+.exp-nav-btn {
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: transparent;
+  color: #e5e7eb;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease,
+    color 0.2s ease;
+}
+
+.exp-nav-btn:hover {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: #6ee7cd;
+  color: #e6fffa;
+  transform: translateY(-1px);
+}
+
+/* Mobile: stack footer elements nicely */
+@media (max-width: 768px) {
+  .exp-footer {
+    justify-content: space-between;
+  }
+}
+/* === White double-chevron scroll hint === */
+.scroll-chevrons {
+  position: absolute;
+  bottom: 78px;              /* distance from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 30;
+}
+
+/* Single chevron */
+.chevron-down {
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  transform: rotate(45deg);
+  opacity: 0.8;
+
+  animation: chevronPulse 1.6s infinite ease-out;
+}
+
+/* Slight delay to create cascading motion */
+.chevron-down--delay {
+  animation-delay: 0.25s;
+}
+
+/* Animation */
+@keyframes chevronPulse {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(6px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.7;
+  }
+}
+
+/* ===== FINAL SPACING TIGHTEN ===== */
+
+/* Reduce space between Projects → Skills */
+#skills {
+  padding-top: 1.5rem !important;   /* was 3rem */
+  margin-top: 0 !important;
+}
+
+/* Reduce space between Skills → Certifications */
+#certifications {
+  padding-top: 1rem !important;     /* was ~2rem */
+  margin-top: -0.5rem !important;   /* pulls certs closer */
+}
+
+/* Optional: tighten bottom before footer */
+#certifications {
+  padding-bottom: 1.5rem !important;  /* was ~2rem+ */
+}
+
+/* On desktop, tighten even more */
+@media (min-width: 1024px) {
+  #skills {
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  #certifications {
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+}
+.scroll-indicator-wrapper {
+  position: fixed;
+  bottom: 40px;   /* move up/down as you want */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;    /* above content */
+}
+
+/* ===== HERO LAYOUT ===== */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;   /* vertically center hero content */
+}
+
+.hero-shell {
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 140px 24px 80px; /* enough top to clear navbar */
+}
+
+/* Desktop / larger screens */
+@media (min-width: 1024px) {
+  .hero-shell {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+}
+
+/* Mobile: tighter hero */
+@media (max-width: 640px) {
+  #home {
+    min-height: auto;
+    padding-top: 96px;          /* clear fixed navbar */
+  }
+
+  .hero-shell {
+    padding: 120px 24px 32px;
+  }
+}
+
+/* === White double-chevron scroll hint (fixed) === */
+.scroll-chevrons {
+  position: fixed;
+  bottom: 60px;              /* distance from bottom on desktop */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 40;
+}
+
+/* Single chevron */
+.chevron-down {
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  transform: rotate(45deg);
+  opacity: 0.8;
+  animation: chevronPulse 1.6s infinite ease-out;
+}
+
+/* Slight delay to create cascading motion */
+.chevron-down--delay {
+  animation-delay: 0.25s;
+}
+/* Hidden state for scroll indicator */
+.scroll-chevrons--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+
+/* Animation */
+@keyframes chevronPulse {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(6px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.7;
+  }
+}
+
+/* Move slightly up on mobile */
+@media (max-width: 768px) {
+  .scroll-chevrons {
+    bottom: 32px;
+  }
+}
+/* Reduce bottom spacing in Contact section on mobile */
+@media (max-width: 640px) {
+  #contact {
+    padding-bottom: 1.2rem !important;   /* lower section bottom padding */
+    margin-bottom: 0 !important;
+  }
+
+  #contact .mt-10 {
+    margin-top: 1.25rem !important;      /* tighten gap above "Say Hello" */
+    margin-bottom: 0 !important;
+  }
+
+  #contact button,
+  #contact a {
+    margin-bottom: 0.75rem !important;   /* slightly tighten button spacing */
+  }
+
+  footer,
+  #footer {
+    margin-top: 0.5rem !important;
+    padding-top: 0.5rem !important;
+  }
+}
+/* 🔧 MOBILE: tighten vertical gaps between Experience → Projects → Skills → Certs */
+@media (max-width: 640px) {
+
+  /* Kill the huge inner padding on these section shells */
+  #projects .section-shell,
+  #skills .section-shell,
+  #certifications .section-shell {
+    padding-top: 24px !important;   /* was 120px */
+    padding-bottom: 0 !important;
+  }
+
+  /* Tighten the outer section padding too */
+  #projects {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  #skills {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  #certifications {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+/* TECH SKILLS FIX — align labels and pills perfectly */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;   /* left fixed, right flexible */
+  row-gap: 2rem;
+  column-gap: 2rem;
+}
+
+/* On mobile stack correctly */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+  }
+}
+.skill-rail-chips span {
+  font-size: 0.85rem !important;   /* larger */
+  padding: 0.3rem 0.85rem;        /* visually balanced */
+}
+
+/* === TECH SKILLS – CLEAN 2-COLUMN GRID === */
+.skill-rail-row {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr); /* left = label, right = pills */
+  column-gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.skill-rail-label {
+  position: relative;
+  padding-left: 1rem;
+  width: auto; /* grid now controls width */
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.skill-rail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Mobile – stack label on top of pills */
+@media (max-width: 640px) {
+  .skill-rail-row {
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
+  }
+
+  .skill-rail-label {
+    width: 100%;
+  }
+}
+
+
 </style>
 
 </head>
 
 <body class="bg-[#0a192f] text-slate-300 antialiased">
 <!-- ===== NAVBAR  ===== -->
-<header id="navbar" class="fixed inset-x-0 top-0 z-50 bg-[#0a192f]/95 backdrop-blur-sm">
+<header id="navbar" class="fixed inset-x-0 top-0 z-50 bg-[#0a192f]">
     <nav class="w-full px-10 md:px-14 lg:px-20 py-5 flex items-center justify-between">
       
       <!-- Left: Hexagon Logo -->
@@ -1129,60 +1413,71 @@ Website
   </header>
 
 
-  <!-- ===== HERO (Brittany-style) ===== -->
-  <main class="bg-[#0a192f] min-h-screen">
-    <section id="home" class="bg-[#0a192f] min-h-screen">
-      <div class="hero-shell">
-        <div class="w-full">
+<!-- ===== HERO (Brittany-style) ===== -->
+<main class="bg-[#0a192f] min-h-screen">
+  <section id="home" class="bg-[#0a192f]">
+    <div class="hero-shell">
+      <div class="w-full">
 
-          <p class="hero-overline hero-item">
-            Hi, my name is
-          </p>
+        <p class="hero-overline hero-item">
+          Hi, my name is
+        </p>
 
-          <h1 class="hero-title hero-item">
-            Goce Mojsoski.
-          </h1>
+        <h1 class="hero-title hero-item">
+          Goce Mojsoski.
+        </h1>
 
-          <h2 class="hero-subtitle hero-item">
-            I build and lead digital programmes.
-          </h2>
+        <h2 class="hero-subtitle hero-item">
+          I lead complex digital and cloud programmes.
+        </h2>
 
-          <p class="hero-text hero-item">
-            I’m a senior programme &amp; delivery leader with experience across cloud,
-            SaaS and digital commerce. I’ve led major transformation projects
-            including ERP rollouts, cloud modernisation and post-M&amp;A integrations
-            across distributed US &amp; EU teams. I enjoy untangling complex problems
-            and turning strategy into execution.
-          </p>
+        <p class="hero-text hero-item">
+          I’m a senior programme &amp; delivery leader with experience across cloud,
+          SaaS and digital commerce. I’ve led major transformation projects
+          including ERP rollouts, cloud modernisation and post-M&amp;A integrations
+          across distributed US &amp; EU teams. I enjoy untangling complex problems
+          and turning strategy into execution.
+        </p>
 
-          <div class="mt-10 flex flex-wrap gap-4 hero-item">
+        <!-- CTA buttons -->
+        <div class="mt-10 flex flex-wrap gap-4 hero-item">
+          <a
+            href="#contact"
+            class="px-6 py-3 border border-[#64ffda] text-[#64ffda]
+                   text-sm font-mono rounded-md hover:bg-[#64ffda1a]
+                   transition-all duration-200"
+          >
+            Contact Me
+          </a>
 
-            <!-- Contact Button -->
-            <a
-              href="#contact"
-              class="px-6 py-3 border border-[#64ffda] text-[#64ffda]
-                    text-sm font-mono rounded-md hover:bg-[#64ffda1a]
-                    transition-all duration-200"
-            >
-              Contact Me
-            </a>
-
-            <!-- Projects Button -->
-            <a
-              href="#projects"
-              class="px-6 py-3 border border-[#64ffda1a]
-                    text-sm font-mono text-[#e6f1ff]
-                    rounded-md hover:bg-[#64ffda0d]
-                    transition-all duration-200"
-            >
-              View Projects
-            </a>
-
-          </div>
-
+          <a
+            href="#projects"
+            class="px-6 py-3 border border-[#64ffda1a]
+                   text-sm font-mono text-[#e6f1ff]
+                   rounded-md hover:bg-[#64ffda0d]
+                   transition-all duration-200"
+          >
+            View Projects
+          </a>
         </div>
+
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- Bottom-centered scroll hint (fixed; doesn't affect layout) -->
+  <button
+    id="scrollIndicator"
+    class="scroll-chevrons"
+    type="button"
+    aria-label="Scroll to About section"
+  >
+    <span class="chevron-down"></span>
+    <span class="chevron-down chevron-down--delay"></span>
+  </button>
+</main>
+
+
 
 
 <!-- ===== ABOUT  ===== -->
@@ -1230,30 +1525,38 @@ Website
       <!-- RIGHT: Stats Blocks -->
       <div class="space-y-4">
 
+        <!-- Years -->
         <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5">
-          <div class="text-3xl font-semibold text-[#64ffda]">10+</div>
+          <div class="text-3xl font-semibold text-[#64ffda]">
+            <span class="stat-number" data-count-target="10">0</span>+
+          </div>
           <div class="text-xs uppercase tracking-wide text-slate-400 mt-1">Years</div>
           <p class="text-xs text-slate-500 mt-2">
             Leading programmes across cloud, engineering, and digital operations.
           </p>
         </div>
 
+        <!-- Projects -->
         <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5">
-          <div class="text-3xl font-semibold text-[#64ffda]">35+</div>
+          <div class="text-3xl font-semibold text-[#64ffda]">
+            <span class="stat-number" data-count-target="35">0</span>+
+          </div>
           <div class="text-xs uppercase tracking-wide text-slate-400 mt-1">Projects</div>
           <p class="text-xs text-slate-500 mt-2">
             Complex digital, SaaS, and transformation initiatives delivered.
           </p>
         </div>
 
+        <!-- Budgets -->
         <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5">
-          <div class="text-3xl font-semibold text-[#64ffda]">€3M+</div>
+          <div class="text-3xl font-semibold text-[#64ffda]">
+            €<span class="stat-number" data-count-target="3">0</span>M+
+          </div>
           <div class="text-xs uppercase tracking-wide text-slate-400 mt-1">Budgets</div>
           <p class="text-xs text-slate-500 mt-2">
             Managed across cloud, vendors, and enterprise transformation.
           </p>
         </div>
-
       </div>
     </div>
 
@@ -1262,7 +1565,7 @@ Website
 
 
 <!-- ===== EXPERIENCE (Full-Length, Chronological Layout) ===== -->
-<section id="experience" class="py-24 bg-[#0a192f]">
+<section id="experience" class="pt-20 pb-12 bg-[#0a192f]">
   <div class="max-w-5xl mx-auto px-6 md:px-12">
     <!-- Section heading -->
     <div class="section-heading">
@@ -1327,23 +1630,23 @@ Website
 
       <!-- Panels (right column) -->
       <div class="flex-1 relative">
+
         <!-- Arcadia -->
         <div
           id="panel-arcadia"
           class="exp-panel experience-panel active
-                    flex flex-col gap-3 md:gap-4
-                    min-h-[220px] pr-1"
-
+                 flex flex-col gap-3 md:gap-4
+                 min-h-[220px] pr-1"
         >
           <h3 class="text-lg md:text-xl font-semibold text-[#ccd6f6]">
             Chief of Staff / Senior R&amp;D Program Manager
-            <a href="https://arcadia.com"
+            <a
+              href="https://arcadia.com"
               target="_blank"
               class="text-[#64ffda] hover:underline"
             >
               @ Arcadia
             </a>
-
           </h3>
 
           <p class="font-mono text-xs text-[#8892b0]">
@@ -1365,32 +1668,46 @@ Website
           <p class="mt-3 text-xs text-[#8892b0] italic">
             Arcadia is a clean-energy technology company providing data and billing infrastructure for renewable energy access across North America and Europe.
           </p>
-            <div class="mt-4 flex justify-end">
-              <a
-                href="#projects-arcadia"
-                data-open-accordion="#Arcadia"
-                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md
-                      border border-brand-300 text-brand-300 text-[11px]
-                      font-mono uppercase tracking-[0.18em]
-                      hover:bg-brand-300/10 hover:shadow-[0_0_12px_rgba(100,255,218,0.35)]
-                      transition"
+
+          <div class="mt-4 flex items-center justify-between gap-3 flex-wrap exp-footer" data-company="arcadia">
+            <!-- LEFT: View projects -->
+            <a
+              href="#projects-arcadia"
+              data-open-accordion="#Arcadia"
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md
+                     border border-brand-300 text-brand-300 text-[11px]
+                     font-mono uppercase tracking-[0.18em]
+                     hover:bg-brand-300/10 hover:shadow-[0_0_12px_rgba(100,255,218,0.35)]
+                     transition exp-projects-btn"
+            >
+              <span>View projects</span>
+              <span class="text-sm">↘</span>
+            </a>
+
+            <!-- RIGHT: Nav buttons (first = only NEXT) -->
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="exp-nav-btn exp-next"
+                data-next="tsd"
               >
-                <span>View projects</span>
-                <span class="text-sm">↘</span>
-              </a>
+                Next&nbsp;→
+              </button>
             </div>
+          </div>
         </div>
 
         <!-- TSD Digital -->
         <div
           id="panel-tsd"
           class="exp-panel experience-panel hidden
-         flex flex-col gap-3 md:gap-4
-         min-h-[220px] pr-1"
+                 flex flex-col gap-3 md:gap-4
+                 min-h-[220px] pr-1"
         >
           <h3 class="text-lg md:text-xl font-semibold text-[#ccd6f6]">
             Project / Program Management Consultant
-            <a href="https://tsd.digital"
+            <a
+              href="https://tsd.digital"
               target="_blank"
               class="text-[#64ffda] hover:underline"
             >
@@ -1414,33 +1731,51 @@ Website
           <p class="mt-3 text-xs text-[#8892b0] italic">
             TSD Digital provides digital transformation and custom software delivery services, specialising in Umbraco, Sitefinity, and enterprise-level integrations.
           </p>
-          <div class="mt-4 flex justify-end">
-          <a
-            href="#projects-tsd"
-            data-open-accordion="#tsd-digital"
-            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md
-                  border border-brand-300 text-brand-300 text-[11px]
-                  font-mono uppercase tracking-[0.18em]
-                  hover:bg-brand-300/10 hover:shadow-[0_0_12px_rgba(100,255,218,0.35)]
-                  transition"
-          >
-            <span>View projects</span>
-            <span class="text-sm">↘</span>
-          </a>
-        </div>
 
+          <div class="mt-4 flex items-center justify-between gap-3 flex-wrap exp-footer" data-company="tsd">
+            <a
+              href="#projects-tsd"
+              data-open-accordion="#tsd-digital"
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md
+                     border border-brand-300 text-brand-300 text-[11px]
+                     font-mono uppercase tracking-[0.18em]
+                     hover:bg-brand-300/10 hover:shadow-[0_0_12px_rgba(100,255,218,0.35)]
+                     transition exp-projects-btn"
+            >
+              <span>View projects</span>
+              <span class="text-sm">↘</span>
+            </a>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="exp-nav-btn exp-prev"
+                data-prev="arcadia"
+              >
+                ←&nbsp;Prev
+              </button>
+              <button
+                type="button"
+                class="exp-nav-btn exp-next"
+                data-next="ananas"
+              >
+                Next&nbsp;→
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Ananas.mk -->
         <div
           id="panel-ananas"
           class="exp-panel experience-panel hidden
-         flex flex-col gap-3 md:gap-4
-         min-h-[220px] pr-1"
+                 flex flex-col gap-3 md:gap-4
+                 min-h-[220px] pr-1"
         >
           <h3 class="text-lg md:text-xl font-semibold text-[#ccd6f6]">
             Technical Integration Manager (Contract)
-                        <a href="https://ananas.mk"
+            <a
+              href="https://ananas.mk"
               target="_blank"
               class="text-[#64ffda] hover:underline"
             >
@@ -1463,38 +1798,57 @@ Website
           <p class="mt-3 text-xs text-[#8892b0] italic">
             Ananas.mk is a regional e-commerce marketplace focused on scalable integrations and modern retail ecosystems.
           </p>
-          <div class="mt-4 flex justify-end">
+
+          <div class="mt-4 flex items-center justify-between gap-3 flex-wrap exp-footer" data-company="ananas">
             <a
               href="#projects-ananas"
               data-open-accordion="#ananas-mk"
               class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md
-           border border-brand-300 text-brand-300 text-[11px]
-           font-mono uppercase tracking-[0.18em]
-           hover:bg-brand-300/10 hover:shadow-[0_0_12px_rgba(100,255,218,0.35)]
-           transition"
+                     border border-brand-300 text-brand-300 text-[11px]
+                     font-mono uppercase tracking-[0.18em]
+                     hover:bg-brand-300/10 hover:shadow-[0_0_12px_rgba(100,255,218,0.35)]
+                     transition exp-projects-btn"
             >
               <span>View projects</span>
               <span class="text-sm">↘</span>
             </a>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="exp-nav-btn exp-prev"
+                data-prev="tsd"
+              >
+                ←&nbsp;Prev
+              </button>
+              <button
+                type="button"
+                class="exp-nav-btn exp-next"
+                data-next="vox"
+              >
+                Next&nbsp;→
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- Vox Teneo (multi-role example) -->
+        <!-- Vox Teneo -->
         <div
           id="panel-vox"
           class="exp-panel experience-panel hidden
-         flex flex-col gap-3 md:gap-4
-         min-h-[220px] pr-1"
+                 flex flex-col gap-3 md:gap-4
+                 min-h-[220px] pr-1"
         >
           <div>
             <h3 class="text-lg md:text-xl font-semibold text-[#ccd6f6]">
               Managing Director
-                          <a href="https://voxteneo.com"
-              target="_blank"
-              class="text-[#64ffda] hover:underline"
-            >
-              @ VOX
-            </a>
+              <a
+                href="https://voxteneo.com"
+                target="_blank"
+                class="text-[#64ffda] hover:underline"
+              >
+                @ VOX
+              </a>
             </h3>
             <p class="font-mono text-xs text-[#8892b0]">
               Brussels, Belgium · Jun 2022 – Feb 2023 (with prior promotion)
@@ -1522,32 +1876,51 @@ Website
           <p class="mt-3 text-xs text-[#8892b0] italic">
             Vox Teneo is a Belgian digital agency building enterprise-grade software for European institutions and global brands.
           </p>
-          <div class="mt-4 flex justify-end">
-          <a
-            href="#projects-vox"
-            data-open-accordion="#vox-teneo"
-            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md
-           border border-brand-300 text-brand-300 text-[11px]
-           font-mono uppercase tracking-[0.18em]
-           hover:bg-brand-300/10 hover:shadow-[0_0_12px_rgba(100,255,218,0.35)]
-           transition"
-          >
-            <span>View projects</span>
-            <span class="text-sm">↘</span>
-          </a>
-        </div>
+
+          <div class="mt-4 flex items-center justify-between gap-3 flex-wrap exp-footer" data-company="vox">
+            <a
+              href="#projects-vox"
+              data-open-accordion="#vox-teneo"
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md
+                     border border-brand-300 text-brand-300 text-[11px]
+                     font-mono uppercase tracking-[0.18em]
+                     hover:bg-brand-300/10 hover:shadow-[0_0_12px_rgba(100,255,218,0.35)]
+                     transition exp-projects-btn"
+            >
+              <span>View projects</span>
+              <span class="text-sm">↘</span>
+            </a>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="exp-nav-btn exp-prev"
+                data-prev="ananas"
+              >
+                ←&nbsp;Prev
+              </button>
+              <button
+                type="button"
+                class="exp-nav-btn exp-next"
+                data-next="lidl"
+              >
+                Next&nbsp;→
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Lidl -->
         <div
           id="panel-lidl"
           class="exp-panel experience-panel hidden
-         flex flex-col gap-3 md:gap-4
-         min-h-[220px] pr-1"
+                 flex flex-col gap-3 md:gap-4
+                 min-h-[220px] pr-1"
         >
           <h3 class="text-lg md:text-xl font-semibold text-[#ccd6f6]">
             Project Manager
-                        <a href="https://lidl.com"
+            <a
+              href="https://lidl.com"
               target="_blank"
               class="text-[#64ffda] hover:underline"
             >
@@ -1569,18 +1942,40 @@ Website
           <p class="mt-3 text-xs text-[#8892b0] italic">
             Lidl is a multinational retail chain with 12,000+ stores in 30+ countries, known for efficient, lean operations.
           </p>
+
+          <!-- FOOTER: Prev + Next (right aligned, tightly grouped) -->
+          <div class="mt-4 flex justify-end" data-company="lidl">
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="exp-nav-btn exp-prev"
+                data-prev="vox"
+              >
+                ← Prev
+              </button>
+
+              <button
+                type="button"
+                class="exp-nav-btn exp-next"
+                data-next="nike"
+              >
+                Next →
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Nike -->
         <div
           id="panel-nike"
           class="exp-panel experience-panel hidden
-         flex flex-col gap-3 md:gap-4
-         min-h-[220px] pr-1"
+                 flex flex-col gap-3 md:gap-4
+                 min-h-[220px] pr-1"
         >
           <h3 class="text-lg md:text-xl font-semibold text-[#ccd6f6]">
             Regional Manager / Nike Brand Manager
-                       <a href="https://nike.com"
+            <a
+              href="https://nike.com"
               target="_blank"
               class="text-[#64ffda] hover:underline"
             >
@@ -1603,14 +1998,28 @@ Website
           <p class="mt-3 text-xs text-[#8892b0] italic">
             Nike is a global leader in athletic footwear and apparel, focused on innovation and brand-driven retail.
           </p>
+
+          <div class="mt-4 flex justify-end" data-company="nike">
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="exp-nav-btn exp-prev"
+                data-prev="lidl"
+              >
+                ←&nbsp;Prev
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
+
+      </div> <!-- /flex-1 -->
+    </div>   <!-- /mt-10 flex -->
+  </div>     <!-- /max-w-5xl -->
 </section>
 
+
 <!-- ===== PROJECTS & CASE STUDIES (Brittany-style) ===== -->
-<section id="projects" class="pt-20 pb-12 bg-[#0a192f]">
+<section id="projects" class="pt-8 pb-4 bg-[#0a192f]">
   <div class="section-shell projects-shell">
 
     <!-- Section heading -->
@@ -1707,7 +2116,8 @@ Website
         </p>
       </article>
     </div>
-
+    <!--Divider-->
+    <div class="project-divider"></div>
     <!-- spacer between companies -->
     <div class="projects-spacer"></div>
 
@@ -2155,7 +2565,8 @@ Website
         </div>
       </article>
     </div>
-
+    <!--Divider-->
+    <div class="project-divider"></div>
     <div class="projects-spacer"></div>
 
     <!-- ======================= ANANAS.MK (ROW 3) ======================= -->
@@ -2227,7 +2638,8 @@ Website
         </p>
       </article>
     </div>
-
+    <!--Divider-->
+    <div class="project-divider"></div>
     <div class="projects-spacer"></div>
 
     <!-- ======================= VOX TENEO (ROW 4 – reversed) ======================= -->
@@ -2642,6 +3054,38 @@ Website
       justify-content: flex-end;  /* forces the content (link) to the right */
       margin-top: 1rem;
 }
+/* Shrink the spacer between companies */
+.projects-spacer {
+  height: 0.1rem !important;
+}
+
+@media (min-width: 1024px) {
+  .projects-spacer {
+    height: 0.1rem !important;
+  }
+}
+
+/* Tighten top/bottom padding of the whole Projects section (desktop) */
+#projects {
+  padding-top: 0.1rem !important;   /* was pt-20 (~5rem) */
+  padding-bottom: 0.1rem !important;/* was pb-12 (~3rem) */
+}
+
+/* Reduce top margin on the accordion grids under each company */
+.projects-accordion-panel {
+  margin-top: 0.1rem !important;    /* instead of mt-8 (~2rem) */
+}
+
+/* Optional: small internal gap between media + text on desktop */
+@media (min-width: 1024px) {
+  .featured-project {
+    gap: 0.1rem;
+  }
+}
+.side-scroll {
+  display: none;
+}
+
   </style>
 
 <!-- ===== TECHNICAL SKILLS ===== -->
@@ -2758,7 +3202,7 @@ Website
 
 
 <!-- ===== CERTIFICATIONS (Grouped, Clean) ===== -->
-<section id="certifications" class="pt-4 pb-14 bg-[#0a192f]">
+<section id="certifications" class="pt-2 pb-8 bg-[#0a192f]">
   <div class="section-shell">
 
     <!-- Section Heading -->
@@ -2877,30 +3321,25 @@ Website
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // navbar style on scroll + back-to-top visibility
-    document.addEventListener("DOMContentLoaded", () => {
-      const navbar = document.getElementById('navbar');
-      const backToTop = document.getElementById('backToTop');
+      document.addEventListener("DOMContentLoaded", () => {
+        const backToTop = document.getElementById('backToTop');
 
-      window.addEventListener('scroll', () => {
-        const sc = window.scrollY;
+        window.addEventListener('scroll', () => {
+          const sc = window.scrollY;
 
-        if (navbar) {
-          navbar.classList.add('bg-[#0a192f]/95');
-
-        }
+          if (backToTop) {
+            if (sc > 400) backToTop.classList.add('show');
+            else backToTop.classList.remove('show');
+          }
+        });
 
         if (backToTop) {
-          if (sc > 400) backToTop.classList.add('show');
-          else backToTop.classList.remove('show');
+          backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
         }
       });
 
-      if (backToTop) {
-        backToTop.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-    });
 
 
 
@@ -3000,6 +3439,11 @@ Website
 
   <div class="side-line"></div>
 </div>
+<!-- RIGHT SCROLL HINT (DESKTOP ONLY) -->
+<div class="side-scroll">
+  <span>Scroll</span>
+  <div class="side-line"></div>
+</div>
 
 <!-- ===== RIGHT EMAIL BAR ===== -->
 <div class="side-email">
@@ -3088,5 +3532,118 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.stat-number[data-count-target]');
+    if (!counters.length) return;
+
+    const animateCount = (el) => {
+      const target = parseFloat(el.dataset.countTarget);
+      if (isNaN(target)) return;
+
+      const duration = 1500; // ms
+      const startTime = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(progress * target);
+        el.textContent = value.toString();
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target.toString(); // snap to final
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    let hasRun = false;
+    const aboutSection = document.getElementById('about');
+
+    if (!aboutSection) {
+      // fallback: just run immediately
+      counters.forEach(animateCount);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasRun) {
+          hasRun = true;
+          counters.forEach(animateCount);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(aboutSection);
+  });
+</script>
+<script>
+  function activateCompany(slug) {
+    const tab = document.querySelector('.exp-tab[data-company="' + slug + '"]');
+    const panel = document.getElementById('panel-' + slug);
+
+    if (!tab || !panel) return;
+
+    // switch active tab
+    document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // switch active panel
+    document.querySelectorAll('.exp-panel').forEach(p => p.classList.remove('active'));
+    panel.classList.add('active');
+
+    // On mobile, jump back to the top of Experience
+    if (window.innerWidth < 768) {
+      const expSection = document.getElementById('experience');
+      if (expSection) {
+        expSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.exp-nav-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const next = this.dataset.next;
+        const prev = this.dataset.prev;
+
+        if (next) activateCompany(next);
+        if (prev) activateCompany(prev);
+      });
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    const aboutSection = document.getElementById('about');
+
+    if (!scrollIndicator || !aboutSection) return;
+
+    // Click → scroll to About
+    scrollIndicator.addEventListener('click', () => {
+      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Hide as soon as the user scrolls slightly
+    const hideAfterFirstScroll = () => {
+      if (window.scrollY > 40) {
+        scrollIndicator.classList.add('scroll-chevrons--hidden');
+      } else {
+        scrollIndicator.classList.remove('scroll-chevrons--hidden');
+      }
+    };
+
+    window.addEventListener('scroll', hideAfterFirstScroll);
+    hideAfterFirstScroll(); // run on load
+  });
+</script>
+
+
+
 </body>
 </html>
