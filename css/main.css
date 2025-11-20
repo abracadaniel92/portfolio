@@ -43,7 +43,7 @@ body {
   }
 }
 
-/* About section text should be left-aligned (Brittany-style) */
+/* About section text should be left-aligned */
 #about p {
   text-align: left !important;
 }

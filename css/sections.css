@@ -325,7 +325,7 @@ body.page-loaded .hero-item {
   border-radius: 999px;
 }
 
-/* Brittany-style arrow bullets */
+/* Arrow bullets */
 .exp-bullet {
   position: relative;
   padding-left: 20px;
@@ -616,11 +616,16 @@ body.page-loaded .hero-item {
   .featured-media-inner {
     align-items: center;
     justify-content: center;
+    flex-direction: row;  /* logo on left, text on right */
   }
   
   .featured-media-inner > div {
-    align-items: flex-end;
-    text-align: right;
+    align-items: flex-start;  /* align text content to left */
+    text-align: left;   /* left align text */
+  }
+  
+  .featured-media-tags {
+    text-align: left !important;  /* ensure tags are left-aligned on mobile */
   }
 }
 

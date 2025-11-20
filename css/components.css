@@ -236,7 +236,7 @@
   opacity: 0.35;
 }
 
-/* Hide on mobile (like Brittany) */
+/* Hide on mobile */
 @media (max-width: 768px) {
   .side-socials,
   .side-email {
