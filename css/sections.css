@@ -889,7 +889,7 @@ body.page-loaded .hero-item {
   padding-top: 1rem !important;     /* match projects top */
   padding-bottom: 5rem !important;  /* match experience bottom */
   margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 0 !important;      /* rely on padding-bottom / padding-top for spacing */
 }
 
 #certifications {
@@ -900,7 +900,7 @@ body.page-loaded .hero-item {
 }
 
 #contact {
-  padding-top: 1rem !important;     /* match projects top */
+  padding-top: 7rem !important;     /* larger gap before contact */
   margin-top: 0 !important;
 }
 
@@ -927,7 +927,7 @@ body.page-loaded .hero-item {
     padding-bottom: 5rem !important;
   }
   #contact {
-    padding-top: 1rem !important;
+    padding-top: 4.5rem !important;
   }
 }
 
