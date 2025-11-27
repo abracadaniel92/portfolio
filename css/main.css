@@ -48,6 +48,11 @@ body {
   text-align: left !important;
 }
 
+/* Center text in stat boxes - must be more specific */
+#about .space-y-4 .rounded-xl.text-center p.text-center {
+  text-align: center !important;
+}
+
 /* ===== SHARED SECTION SHELL ===== */
 .section-shell {
   margin: 0 auto;
