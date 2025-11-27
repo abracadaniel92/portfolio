@@ -45,3 +45,29 @@ const io = new IntersectionObserver((entries) => {
 sections.forEach(s => io.observe(s));
 revealEls.forEach(el => io.observe(el));
 
+// Show/hide side socials and email based on about section visibility
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutSection = document.getElementById('about');
+  const sideSocials = document.querySelector('.side-socials');
+  const sideEmail = document.querySelector('.side-email');
+
+  if (!aboutSection || !sideSocials || !sideEmail) return;
+
+  // Use IntersectionObserver to show them when about section is visible
+  const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // About section is visible, show side elements
+        sideSocials.classList.add('visible');
+        sideEmail.classList.add('visible');
+      } else {
+        // About section is not visible, hide side elements
+        sideSocials.classList.remove('visible');
+        sideEmail.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.2, rootMargin: '-100px 0px 0px 0px' });
+
+  aboutObserver.observe(aboutSection);
+});
+
