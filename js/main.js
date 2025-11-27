@@ -62,20 +62,46 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!aboutSection || !sideSocials || !sideEmail) return;
 
   // Use IntersectionObserver to show them when about section is visible
+  let socialsActivated = false;
+
+  const showSocials = () => {
+    sideSocials.classList.add('visible');
+    sideEmail.classList.add('visible');
+  };
+
+  const hideSocials = () => {
+    sideSocials.classList.remove('visible');
+    sideEmail.classList.remove('visible');
+  };
+
   const aboutObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // About section is visible, show side elements
-        sideSocials.classList.add('visible');
-        sideEmail.classList.add('visible');
-      } else {
-        // About section is not visible, hide side elements
-        sideSocials.classList.remove('visible');
-        sideEmail.classList.remove('visible');
+      if (!socialsActivated && entry.isIntersecting) {
+        // About section reached: show side elements and keep them visible afterwards
+        showSocials();
+        socialsActivated = true;
+        aboutObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.2, rootMargin: '-100px 0px 0px 0px' });
 
   aboutObserver.observe(aboutSection);
+
+  const heroSection = document.getElementById('home');
+  if (!heroSection) return;
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Hero is visible again → hide socials even if activated
+        hideSocials();
+      } else if (socialsActivated) {
+        // Hero out of view and we already activated socials → show them
+        showSocials();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  heroObserver.observe(heroSection);
 });
 
