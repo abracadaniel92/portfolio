@@ -902,6 +902,7 @@ body.page-loaded .hero-item {
 #contact {
   padding-top: 7rem !important;     /* larger gap before contact */
   margin-top: 0 !important;
+  padding-bottom: 2.5rem !important;
 }
 
 /* Mobile: same uniform spacing */
