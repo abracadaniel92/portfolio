@@ -30,7 +30,7 @@ body {
 }
 
 .reveal.revealed {
-  animation: fadeUp 0.6s ease forwards;
+  animation: fadeUp 1.6s ease forwards;
 }
 
 /* Mobile text justify for key sections */

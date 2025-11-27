@@ -24,6 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // Intersection observer: reveal + active nav links
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
+
+// Automatically mark major sections for reveal animations
+const heroShell = document.querySelector('.hero-shell');
+if (heroShell) {
+  heroShell.classList.add('reveal');
+}
+document.querySelectorAll('.section-shell').forEach(el => el.classList.add('reveal'));
+
 const revealEls = document.querySelectorAll('.reveal');
 
 const io = new IntersectionObserver((entries) => {
