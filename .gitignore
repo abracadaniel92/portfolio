@@ -21,3 +21,13 @@ logs/
 
 # OS/Temp
 .tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local

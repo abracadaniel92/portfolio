@@ -1,0 +1,18 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Goce Mojsoski Portfolio Website",
+  "scripts": {
+    "dev": "npx serve -l 8080",
+    "start": "npm run dev",
+    "serve": "npx serve -l 8080",
+    "preview": "npx serve -l 3000"
+  },
+  "keywords": [
+    "portfolio",
+    "website"
+  ],
+  "author": "Goce Mojsoski",
+  "license": "ISC"
+}
+
