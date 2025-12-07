@@ -277,6 +277,28 @@ body.page-loaded .hero-item {
   }
 }
 
+/* Shorten the vertical line to end after Nike */
+.exp-tabs-container {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .exp-tabs-container {
+    border-left: none !important;
+  }
+  
+  .exp-tabs-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    /* Height covers 7 buttons (Intertec through Nike) plus a bit extra */
+    height: calc(7 * 3rem + 1rem); /* ~22rem = ~352px */
+    background-color: #233554;
+  }
+}
+
 .exp-tab {
   background: transparent;
   border: none;
@@ -418,17 +440,27 @@ body.page-loaded .hero-item {
 
 /* Fix "Where I've worked" tabs on mobile */
 @media (max-width: 767px) {
+  .exp-tabs-container {
+    overflow-x: hidden;       /* prevent horizontal scrolling */
+    width: 100%;              /* ensure full width */
+  }
+
   .exp-tabs {
     flex-wrap: wrap;          /* allow them to go to 2+ rows */
-    overflow-x: visible;      /* stop horizontal scrolling/overflow */
+    overflow-x: hidden;       /* stop horizontal scrolling/overflow */
+    width: 100%;              /* full width container */
   }
 
   .exp-tab {
     flex: 1 1 50%;            /* two tabs per row */
+    min-width: 0;             /* allow flex shrinking */
     text-align: center;
     border-bottom: 1px solid #233554;
     font-size: 12px;          /* slightly smaller label */
     padding: 0.6rem 0.4rem;
+    white-space: nowrap;      /* prevent text wrapping within button */
+    overflow: hidden;         /* hide overflow text */
+    text-overflow: ellipsis;  /* show ellipsis if text is too long */
   }
 }
 
