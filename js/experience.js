@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // default active tab on load
-  const defaultTab = document.querySelector('.exp-tab[data-company="arcadia"]');
+  const defaultTab = document.querySelector('.exp-tab[data-company="intertec"]');
   if (defaultTab) {
     defaultTab.classList.add(
       'active',
@@ -56,9 +56,23 @@ function activateCompany(slug) {
 
   if (!tab || !panel) return;
 
-  // switch active tab
-  document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
-  tab.classList.add('active');
+  // switch active tab - remove all active states
+  document.querySelectorAll('.exp-tab').forEach(t => {
+    t.classList.remove(
+      'active',
+      'text-[#64ffda]',
+      'bg-[#112240]',
+      'md:border-l-[#64ffda]'
+    );
+  });
+  
+  // add active state to selected tab
+  tab.classList.add(
+    'active',
+    'text-[#64ffda]',
+    'bg-[#112240]',
+    'md:border-l-[#64ffda]'
+  );
 
   // switch active panel
   document.querySelectorAll('.exp-panel').forEach(p => {

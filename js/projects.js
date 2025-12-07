@@ -49,25 +49,67 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
 
       const targetSectionSelector = link.getAttribute('href');           // e.g. "#projects-arcadia"
-      const accordionSelector = link.dataset.openAccordion;             // e.g. "#Arcadia"
+      const accordionSelector = link.dataset.openAccordion;             // e.g. "#ananas-mk"
 
       const sectionEl = document.querySelector(targetSectionSelector);
       const accordionBtn = document.querySelector(
         `.accordion-btn[data-accordion-target="${accordionSelector}"]`
       );
 
-      // Smooth scroll to the projects row
-      if (sectionEl) {
-        const yOffset = -120; // tweak if needed
-        const y = sectionEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
+      // Check if the target section is hidden (Ananas or Vox)
+      const isHidden = sectionEl && sectionEl.classList.contains('projects-more-content') && !sectionEl.classList.contains('show');
+      
+      // If it's hidden, expand "View more" first
+      if (isHidden) {
+        const viewMoreBtn = document.getElementById('projectsViewMore');
+        const moreContent = document.querySelectorAll('.projects-more-content');
+        
+        if (viewMoreBtn && moreContent.length > 0) {
+          // Expand all hidden content
+          moreContent.forEach(item => {
+            item.classList.add('show');
+          });
+          
+          // Show dividers and spacers
+          document.querySelectorAll('.projects-more-content-divider, .projects-more-content-spacer').forEach(el => {
+            el.classList.add('show');
+          });
+          
+          // Hide "View more" button
+          viewMoreBtn.classList.add('hidden');
+          
+          // Wait for expansion, then scroll and open accordion
+          setTimeout(() => {
+            // Smooth scroll to the projects row
+            if (sectionEl) {
+              const yOffset = -120;
+              const y = sectionEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
 
-      // Open the matching accordion after a short delay
-      if (accordionBtn) {
-        setTimeout(() => {
-          accordionBtn.click(); // uses your existing accordion logic
-        }, 20);
+            // Open the matching accordion after scroll
+            if (accordionBtn) {
+              setTimeout(() => {
+                accordionBtn.click(); // uses your existing accordion logic
+              }, 300);
+            }
+          }, 100);
+        }
+      } else {
+        // Section is already visible, just scroll and open accordion
+        // Smooth scroll to the projects row
+        if (sectionEl) {
+          const yOffset = -120; // tweak if needed
+          const y = sectionEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+
+        // Open the matching accordion after a short delay
+        if (accordionBtn) {
+          setTimeout(() => {
+            accordionBtn.click(); // uses your existing accordion logic
+          }, 300);
+        }
       }
     });
   });
@@ -102,5 +144,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 300);
     });
   });
+});
+
+// View More/Less functionality for projects
+document.addEventListener('DOMContentLoaded', () => {
+  const viewMoreBtn = document.getElementById('projectsViewMore');
+  const viewLessBtn = document.getElementById('projectsViewLess');
+  const moreContent = document.querySelectorAll('.projects-more-content');
+  
+  // View More button - only functionality, no view less
+  if (viewMoreBtn && moreContent.length > 0) {
+    viewMoreBtn.addEventListener('click', () => {
+      moreContent.forEach(item => {
+        item.classList.add('show');
+      });
+      
+      // Show dividers and spacers
+      document.querySelectorAll('.projects-more-content-divider, .projects-more-content-spacer').forEach(el => {
+        el.classList.add('show');
+      });
+      
+      // Transform the divider into a regular line when clicked
+      viewMoreBtn.classList.add('hidden');
+    });
+  }
 });
 

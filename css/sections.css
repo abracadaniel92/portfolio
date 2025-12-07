@@ -47,6 +47,78 @@
   line-height: 1.6;
 }
 
+/* ===== HERO BUTTONS ===== */
+.hero-btn {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary button - original style */
+.hero-btn-primary {
+  background: transparent;
+  color: #64ffda;
+  border: 1px solid #64ffda;
+}
+
+.hero-btn-primary:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary button - original style */
+.hero-btn-secondary {
+  background: transparent;
+  color: #e6f1ff;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(100, 255, 218, 0.05);
+  transform: translateY(-2px);
+}
+
+.hero-btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Glow animation on hover - shimmer effect */
+.hero-btn-primary::before,
+.hero-btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.hero-btn-primary:hover::before,
+.hero-btn-secondary:hover::before {
+  left: 100%;
+}
+
 /* ===== HERO PAGE-LOAD ANIMATION ===== */
 .hero-item {
   opacity: 0;
@@ -384,7 +456,9 @@ body.page-loaded .hero-item {
 .section-shell.projects-shell {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 120px 24px 0;  /* match default section-shell padding */
+  padding: 120px 24px 2rem;  /* minimal bottom padding for spacing to tech skills */
+  border: none !important;
+  border-bottom: none !important;
 }
 
 .featured-project {
@@ -393,6 +467,96 @@ body.page-loaded .hero-item {
   flex-direction: column;
   gap: 1.5rem;
 }
+
+/* Hide additional projects by default */
+.featured-project.projects-more-content {
+  display: none !important;
+}
+
+.featured-project.projects-more-content.show {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  animation: fadeInUp 0.5s ease;
+  position: relative;
+  width: 100%;
+}
+
+/* Ensure all child elements are visible when shown */
+.featured-project.projects-more-content.show .featured-project-media,
+.featured-project.projects-more-content.show .featured-project-content {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Desktop: use grid layout when shown */
+@media (min-width: 1024px) {
+  .featured-project.projects-more-content.show {
+    display: grid !important;
+    grid-template-columns: 50% 50% !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+
+  .featured-project.projects-more-content.show .featured-project-media,
+  .featured-project.projects-more-content.show .featured-project-content {
+    display: block !important;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Show More Button - More prominent and user-friendly */
+.projects-view-more-btn {
+  background: rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 0.5rem;
+  color: #64ffda;
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+  /* Prevent text truncation */
+  overflow: visible;
+  text-overflow: clip;
+  word-break: keep-all;
+  width: auto;
+  min-width: fit-content;
+  flex-shrink: 0;
+  /* No glow by default */
+  box-shadow: none;
+}
+
+.projects-view-more-btn:hover {
+  color: #64ffda;
+  background: rgba(100, 255, 218, 0.15);
+  border-color: rgba(100, 255, 218, 0.5);
+  /* Glow only appears on hover */
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+  transform: translateY(-2px);
+}
+
+.projects-view-more-btn.hidden {
+  display: none;
+}
+
 
 .projects-spacer {
   height: 2.5rem;
@@ -429,10 +593,16 @@ body.page-loaded .hero-item {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
   
   display: flex;
-  align-items: center;
+  align-items: flex-start;  /* align items at the top for consistent logo alignment */
   justify-content: center;  /* center the group horizontally */
   flex-direction: row-reverse;  /* logo on right, text on left */
   gap: 1.25rem;
+}
+
+/* Ensure all featured projects have consistent logo alignment */
+.featured-project .featured-media-logo {
+  align-self: flex-start;
+  margin-top: 0;
 }
 
 
@@ -466,31 +636,70 @@ body.page-loaded .hero-item {
   flex-direction: column;
   align-items: flex-end;  /* right align all text */
   text-align: right;
+  justify-content: flex-start;  /* align content to top */
+}
+
+/* Fix "Delivered with" label position */
+.featured-media-label {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  min-height: 1rem;  /* fixed height for label */
+  line-height: 1rem;
+}
+
+/* Fix company name position - ensure it aligns with logo */
+.featured-media-name {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  min-height: 1.5rem;  /* fixed height for company name */
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Tags can vary in height without affecting alignment */
+.featured-media-tags {
+  margin-top: 0;
+  line-height: 1.2;
 }
 
 /* === CLEAN LOGO (NO BORDERS, NO SHADOWS, NO BG) === */
 .featured-media-logo {
   width: 72px;
   height: 72px;
+  min-width: 72px;
+  max-width: 72px;
+  flex-shrink: 0;
+  flex-grow: 0;
 
   border-radius: 0 !important;
   background: none !important;
   padding: 0 !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
 
   box-shadow: none !important;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;  /* align logo to top */
   justify-content: center;
+  position: relative;
+  align-self: flex-start;  /* ensure logo stays at top */
 }
 
 .featured-media-logo img {
-  width: 100%;
-  height: 100%;
+  width: 72px;
+  height: 72px;
+  max-width: 72px;
+  max-height: 72px;
+  object-fit: contain;
+  object-position: center;
 
   border-radius: 0 !important;
   box-shadow: none !important;
-  object-fit: contain;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .featured-media-label {
@@ -632,18 +841,141 @@ body.page-loaded .hero-item {
 /* === FINAL PROJECT DIVIDER RESET === */
 .project-divider {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   /* Center it inside the Projects container */
   width: 40%;               /* tweak 35–50% to taste */
   max-width: 480px;
-  height: 1px;
+  min-height: 1px;
   background: rgba(255, 255, 255, 0.28);
 
   margin: 2.5rem auto;      /* equal space above/below, centered horizontally */
-  left: auto;
-  right: auto;
-  transform: none;
+}
+
+/* Completely remove the default background line for divider with view more button */
+/* Using a direct class selector instead of :has() for better browser support */
+.project-divider-with-button {
+  /* Remove the 1px min-height that creates the line */
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  /* Match site background to hide the line - use exact same color */
+  background: #0a192f !important;
+  background-color: #0a192f !important;
+  background-image: none !important;
+  /* Remove all borders */
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  /* Spacing */
+  padding: 0.5rem 0 0 !important;
+  margin: 2.5rem auto 0 !important;
+  /* Layout */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative;
+  overflow: visible;
+  line-height: 0 !important;
+}
+
+/* Also support :has() selector for browsers that support it */
+.project-divider:has(.projects-view-more-btn:not(.hidden)),
+.project-divider:has(#projectsViewMore:not(.hidden)) {
+  min-height: 0 !important;
+  height: auto !important;
+  background: #0a192f !important;
+  background-color: #0a192f !important;
+  border: none !important;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Remove any potential line from the divider itself - set height to content only */
+.project-divider:has(.projects-view-more-btn:not(.hidden)) {
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+/* Remove any margin or border from accordion panel that might create a line */
+.projects-accordion-panel.hidden {
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure no line appears between accordion panel and divider with view more button */
+.projects-accordion-panel.hidden + .project-divider:has(.projects-view-more-btn:not(.hidden)) {
+  margin-top: 2.5rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* When button is hidden, make it a regular line (no pseudo-elements) */
+.project-divider:has(.projects-view-more-btn.hidden),
+.project-divider-with-button:has(.projects-view-more-btn.hidden),
+.project-divider-with-button .projects-view-more-btn.hidden {
+  /* Override all the button-specific styles when button is hidden */
+}
+
+/* When divider has button class but button is hidden, transform to regular line */
+.project-divider-with-button:has(.projects-view-more-btn.hidden) {
+  min-height: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  background: rgba(255, 255, 255, 0.28) !important;
+  background-color: rgba(255, 255, 255, 0.28) !important;
+  margin: 2.5rem auto !important;
+  display: block !important;
+  align-items: unset !important;
+  justify-content: unset !important;
+  /* Remove all button-specific overrides */
+  max-height: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  line-height: normal !important;
+}
+
+/* Regular dividers without buttons should be simple lines */
+.project-divider:not(:has(.projects-view-more-btn)) {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Add lines on both sides ONLY when divider has a button */
+.project-divider:has(.projects-view-more-btn:not(.hidden))::before,
+.project-divider:has(.projects-view-more-btn:not(.hidden))::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.28);
+  position: relative;
+  top: 0;
+  bottom: auto;  /* Ensure it doesn't extend below */
+}
+
+.project-divider:has(.projects-view-more-btn:not(.hidden))::before {
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+.project-divider:has(.projects-view-more-btn:not(.hidden))::after {
+  margin-left: 1rem;
+  margin-bottom: 0;
+}
+
+/* Ensure no line appears below the divider container */
+.project-divider:has(.projects-view-more-btn:not(.hidden))::after {
+  display: block;
+  height: 1px;
+  max-height: 1px;
+  overflow: hidden;
 }
 
 /* Slightly wider on small screens if you want */
@@ -652,11 +984,34 @@ body.page-loaded .hero-item {
     width: 55%;
     margin: 1.5rem auto;
   }
+  
+  .project-divider::before,
+  .project-divider::after {
+    margin: 0 0.5rem;
+  }
 }
 
 /* Reduce vertical space between project blocks */
 .featured-project {
   margin-bottom: 0.1rem !important;
+}
+
+/* Ensure consistent spacing when projects are shown */
+.featured-project.projects-more-content.show {
+  margin-bottom: 0.1rem !important;
+  margin-top: 0 !important;
+}
+
+/* Hide dividers and spacers when content is collapsed */
+.projects-more-content-divider,
+.projects-more-content-spacer {
+  display: none !important;
+}
+
+/* Show when projects are expanded - controlled by JavaScript */
+.projects-more-content-divider.show,
+.projects-more-content-spacer.show {
+  display: block !important;
 }
 
 @media (min-width: 1024px) {
