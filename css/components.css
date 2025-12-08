@@ -287,6 +287,15 @@
   }
 }
 
+/* On desktop, ensure footer stays at same position */
+@media (min-width: 768px) {
+  .exp-footer {
+    position: absolute !important;
+    bottom: 0 !important;
+    margin-top: 0 !important;  /* override auto margin when absolutely positioned */
+  }
+}
+
 /* View Projects button in Experience */
 .exp-view-btn {
   padding: 0.45rem 1.1rem;

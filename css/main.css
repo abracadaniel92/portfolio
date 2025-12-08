@@ -115,6 +115,11 @@ body {
   margin-bottom: 40px;
 }
 
+/* Tighter spacing for experience section */
+#experience .section-heading {
+  margin-bottom: 30px;
+}
+
 .section-number {
   color: #64ffda;
   font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas,
