@@ -440,17 +440,69 @@ body.page-loaded .hero-item {
 
 /* Fix "Where I've worked" tabs on mobile */
 @media (max-width: 767px) {
-  .exp-tabs {
-    flex-wrap: wrap;          /* allow them to go to 2+ rows */
-    overflow-x: visible;      /* stop horizontal scrolling/overflow */
+  /* Prevent horizontal overflow on the experience section */
+  #experience {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
-
-  .exp-tab {
-    flex: 1 1 50%;            /* two tabs per row */
-    text-align: center;
-    border-bottom: 1px solid #233554;
-    font-size: 12px;          /* slightly smaller label */
-    padding: 0.6rem 0.4rem;
+  
+  #experience .section-shell {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  /* Fix the parent flex container - keep it fixed */
+  #experience .mt-10.flex {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Tabs container - keep original layout, add horizontal scroll with subtle scrollbar */
+  .exp-tabs-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;  /* smooth scrolling on iOS */
+    scrollbar-width: thin;  /* Firefox - thin scrollbar */
+    scrollbar-color: rgba(100, 255, 218, 0.3) transparent;  /* subtle teal scrollbar */
+    padding-bottom: 8px;  /* space for scrollbar */
+  }
+  
+  /* Custom scrollbar styling for WebKit browsers (Chrome, Safari, Edge) */
+  .exp-tabs-container::-webkit-scrollbar {
+    height: 4px;  /* very thin scrollbar */
+  }
+  
+  .exp-tabs-container::-webkit-scrollbar-track {
+    background: transparent;  /* invisible track */
+    border-radius: 2px;
+  }
+  
+  .exp-tabs-container::-webkit-scrollbar-thumb {
+    background: rgba(100, 255, 218, 0.3);  /* subtle teal */
+    border-radius: 2px;
+    transition: background 0.2s ease;
+  }
+  
+  .exp-tabs-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 255, 218, 0.5);  /* slightly more visible on hover */
+  }
+  
+  /* Keep content panel fixed - no horizontal scroll */
+  .flex-1.relative {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .exp-panel {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
