@@ -1354,14 +1354,18 @@ body.page-loaded .hero-item {
   }
   #projects {
     padding-top: 1rem !important;
-    padding-bottom: 5rem !important;
+    padding-bottom: 8rem !important;  /* more space before personal-projects on mobile */
+  }
+  #personal-projects {
+    padding-top: 3.5rem !important;   /* more space after projects on mobile */
+    padding-bottom: 2rem !important;  /* less space before skills on mobile */
   }
   #skills {
-    padding-top: 1rem !important;
-    padding-bottom: 5rem !important;
+    padding-top: 0.5rem !important;   /* less space after personal-projects on mobile */
+    padding-bottom: 6rem !important;   /* more space before certifications on mobile */
   }
   #certifications {
-    padding-top: 1rem !important;
+    padding-top: 2rem !important;     /* more space after skills on mobile */
     padding-bottom: 5rem !important;
   }
   #contact {
