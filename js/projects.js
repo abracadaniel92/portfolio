@@ -168,5 +168,20 @@ document.addEventListener('DOMContentLoaded', () => {
       viewMoreBtn.classList.add('hidden');
     });
   }
+  
+  // View More functionality for personal projects
+  const personalViewMoreBtn = document.getElementById('personalProjectsViewMore');
+  const personalMoreContent = document.querySelectorAll('.personal-project-more-content');
+  
+  if (personalViewMoreBtn && personalMoreContent.length > 0) {
+    personalViewMoreBtn.addEventListener('click', () => {
+      personalMoreContent.forEach(item => {
+        item.classList.add('show');
+      });
+      
+      // Hide the button after showing content
+      personalViewMoreBtn.classList.add('hidden');
+    });
+  }
 });
 

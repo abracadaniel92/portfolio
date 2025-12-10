@@ -399,3 +399,30 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
   }
 }
 
+/* Personal project cards - smaller and more square, borderless */
+.personal-project-card {
+  padding: 1rem !important;
+  min-height: 280px;
+  max-height: 320px;
+  border: none !important;
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 1024px) {
+  .personal-project-card {
+    min-height: 300px;
+    max-height: 320px;
+  }
+}
+
+/* Hide additional personal projects by default */
+.personal-project-more-content {
+  display: none !important;
+}
+
+.personal-project-more-content.show {
+  display: flex !important;
+  flex-direction: column !important;
+}
+

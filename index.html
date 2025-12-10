@@ -1899,6 +1899,125 @@ Website
   </div>
 </section>
 
+<!-- ===== SOME THINGS I'VE BUILT MYSELF ===== -->
+<section id="personal-projects" class="pt-2 pb-4 bg-[#0a192f]">
+  <div class="section-shell projects-shell">
+    
+    <!-- Section heading -->
+    <div class="section-heading">
+      <h2 class="section-title">Some things I've built myself</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Subheader and one-liner -->
+    <div class="mt-6 mb-8">
+      <h3 class="text-xl font-semibold text-[#ccd6f6] mb-3">Raspberry Pi Home Lab</h3>
+      <p class="text-sm text-[#8892b0] italic leading-relaxed">
+        If something can be automated, integrated, dockerized, or hacked together for free, that's pretty much my love language.
+      </p>
+    </div>
+
+    <!-- Project cards grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      
+      <!-- Self-Hosted Cloud Platform -->
+      <article class="project-card personal-project-card">
+        <div class="mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="#64ffda" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/>
+          </svg>
+        </div>
+        <h4 class="text-white font-semibold mb-2 text-sm">Self-Hosted Cloud Platform</h4>
+        <p class="text-xs text-[#a8b2d1] mb-3 leading-relaxed">
+          A fully self-hosted cloud environment running on a Raspberry Pi 4 with SSD storage. 
+          Configured with Docker, automated updates, and encrypted remote access through Caddy + Cloudflare Tunnel. 
+          Includes file sync, photo backup, document management, and hosts this portfolio site.
+        </p>
+        <div class="flex flex-wrap gap-1.5 text-[10px] text-[#8892b0] font-mono">
+          <span>Nextcloud</span>
+          <span>Docker</span>
+          <span>Linux</span>
+          <span>Caddy</span>
+          <span>Cloudflare</span>
+        </div>
+      </article>
+
+      <!-- Reverse-Proxy & Routing Layer -->
+      <article class="project-card personal-project-card">
+        <div class="mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="#64ffda" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/>
+          </svg>
+        </div>
+        <h4 class="text-white font-semibold mb-2 text-sm">Reverse-Proxy & Routing Layer</h4>
+        <p class="text-xs text-[#a8b2d1] mb-3 leading-relaxed">
+          A hardened Caddy reverse-proxy handling automatic HTTPS, multi-subdomain routing, static site hosting, 
+          and Cloudflare Zero-Trust rules. Routes traffic for this portfolio and other services behind a single 
+          entry point with minimal maintenance.
+        </p>
+        <div class="flex flex-wrap gap-1.5 text-[10px] text-[#8892b0] font-mono">
+          <span>Caddy</span>
+          <span>TLS</span>
+          <span>DNS</span>
+          <span>Networking</span>
+          <span>Cloudflare</span>
+        </div>
+      </article>
+
+      <!-- Cloudflare Tunnel-Based Secure Access -->
+      <article class="project-card personal-project-card">
+        <div class="mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="#64ffda" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/>
+          </svg>
+        </div>
+        <h4 class="text-white font-semibold mb-2 text-sm">Cloudflare Tunnel-Based Secure Access</h4>
+        <p class="text-xs text-[#a8b2d1] mb-3 leading-relaxed">
+          A no-open-ports setup providing secure, identity-based access to all internal Pi services. 
+          Implements Cloudflare Tunnel + Access policies, device posture checks, and MFA, turning the Pi 
+          into a private cloud accessible from anywhere.
+        </p>
+        <div class="flex flex-wrap gap-1.5 text-[10px] text-[#8892b0] font-mono">
+          <span>Zero Trust</span>
+          <span>Cloudflare</span>
+          <span>Security</span>
+          <span>Identity Access</span>
+        </div>
+      </article>
+
+      <!-- Static Project Hosting -->
+      <article class="project-card personal-project-card personal-project-more-content">
+        <div class="mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="#64ffda" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/>
+          </svg>
+        </div>
+        <h4 class="text-white font-semibold mb-2 text-sm">Static Project Hosting</h4>
+        <p class="text-xs text-[#a8b2d1] mb-3 leading-relaxed">
+          Lightweight hosting for static sites, prototypes, and demos served directly from the Pi via Caddy. 
+          This portfolio site is hosted here, along with other experimental builds and small apps, providing 
+          a personal environment to deploy and test projects.
+        </p>
+        <div class="flex flex-wrap gap-1.5 text-[10px] text-[#8892b0] font-mono">
+          <span>Caddy</span>
+          <span>HTML/JS</span>
+          <span>Deployment</span>
+          <span>Raspberry Pi</span>
+        </div>
+      </article>
+
+    </div>
+    
+    <!-- Show More Button -->
+    <div class="mt-8 text-center">
+      <button id="personalProjectsViewMore" class="projects-view-more-btn">
+        Show more
+      </button>
+    </div>
+
+  </div>
+</section>
+
 <!-- ===== TECHNICAL SKILLS ===== -->
 <section id="skills" class="pt-12 pb-16 bg-[#0a192f]">
   <div class="section-shell">

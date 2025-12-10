@@ -1284,6 +1284,7 @@ body.page-loaded .hero-item {
 /* === FINAL SECTION SPACING: PROJECTS → SKILLS → CERTS === */
 /* Remove the big inner top padding from these shells */
 #projects .section-shell,
+#personal-projects .section-shell,
 #skills .section-shell,
 #certifications .section-shell {
   padding-top: 0 !important;
@@ -1309,6 +1310,13 @@ body.page-loaded .hero-item {
 
 #projects {
   padding-top: 1rem !important;     /* keep same */
+  padding-bottom: 5rem !important;  /* match experience bottom */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#personal-projects {
+  padding-top: 1rem !important;     /* match projects top */
   padding-bottom: 5rem !important;  /* match experience bottom */
   margin-top: 0 !important;
   margin-bottom: 0 !important;
