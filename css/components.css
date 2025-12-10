@@ -400,17 +400,23 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
 }
 
 /* Personal project cards - smaller and more square, borderless */
-.personal-project-card {
+.project-card.personal-project-card {
   padding: 1rem !important;
   min-height: 280px;
   max-height: 320px;
   border: none !important;
   border-radius: 0 !important;
-  background: #112240;  /* slightly lighter dark blue than main background */
+  background: #112240 !important;  /* slightly lighter dark blue than main background */
+  box-shadow: none !important;
+}
+
+.project-card.personal-project-card:hover {
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 @media (min-width: 1024px) {
-  .personal-project-card {
+  .project-card.personal-project-card {
     min-height: 300px;
     max-height: 320px;
   }
