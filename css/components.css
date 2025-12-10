@@ -406,7 +406,7 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
   max-height: 320px;
   border: none !important;
   border-radius: 0 !important;
-  background: rgba(255, 255, 255, 0.05);
+  background: #112240;  /* slightly lighter dark blue than main background */
 }
 
 @media (min-width: 1024px) {
