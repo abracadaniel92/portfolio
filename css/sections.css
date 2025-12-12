@@ -1238,6 +1238,8 @@ body.page-loaded .hero-item {
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
   white-space: nowrap;            /* prevent text wrapping inside chips */
   flex-shrink: 0;                 /* prevent chips from shrinking */
+  line-height: 1.2;               /* tighter line height to prevent extra space */
+  margin: 0 !important;           /* ensure no margins */
 }
 
 .skill-rail-chips span:hover {
@@ -1273,6 +1275,20 @@ body.page-loaded .hero-item {
   
   .skill-rail-chips {
     flex-wrap: wrap;  /* allow wrapping on mobile */
+    gap: 0.4rem;      /* consistent gap for both row and column */
+    row-gap: 0.4rem;  /* fix awkward gap when new line starts */
+    align-content: flex-start; /* prevent extra spacing when wrapping */
+  }
+  
+  .skill-rail-row {
+    margin: 0 !important;  /* remove any margins on mobile */
+    padding: 0 !important; /* remove any padding on mobile */
+    min-height: 0 !important; /* prevent extra height */
+  }
+  
+  /* Reduce row gap between skill rows on mobile */
+  .skill-grid-container {
+    row-gap: 0.5rem !important; /* tighter spacing between rows on mobile */
   }
 }
 
@@ -1324,20 +1340,20 @@ body.page-loaded .hero-item {
 
 #skills {
   padding-top: 1rem !important;     /* match projects top */
-  padding-bottom: 5rem !important;  /* match experience bottom */
+  padding-bottom: 2rem !important;  /* further reduced spacing before certifications */
   margin-top: 0 !important;
   margin-bottom: 0 !important;      /* rely on padding-bottom / padding-top for spacing */
 }
 
 #certifications {
-  padding-top: 1rem !important;     /* match projects top */
-  padding-bottom: 5rem !important;  /* match experience bottom */
+  padding-top: 0.4rem !important;     /* further reduced spacing after skills */
+  padding-bottom: 8rem !important;  /* increased spacing before contact */
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
 #contact {
-  padding-top: 7rem !important;     /* larger gap before contact */
+  padding-top: 9rem !important;     /* increased gap before contact */
   margin-top: 0 !important;
   padding-bottom: 2.5rem !important;
 }
@@ -1362,14 +1378,14 @@ body.page-loaded .hero-item {
   }
   #skills {
     padding-top: 0.5rem !important;   /* less space after personal-projects on mobile */
-    padding-bottom: 6rem !important;   /* more space before certifications on mobile */
+    padding-bottom: 3.2rem !important;   /* further reduced spacing before certifications on mobile */
   }
   #certifications {
-    padding-top: 2rem !important;     /* more space after skills on mobile */
-    padding-bottom: 5rem !important;
+    padding-top: 1.6rem !important;     /* further reduced spacing after skills on mobile */
+    padding-bottom: 8rem !important;  /* increased spacing before contact on mobile */
   }
   #contact {
-    padding-top: 4.5rem !important;
+    padding-top: 7rem !important;     /* increased gap before contact on mobile */
   }
 }
 
@@ -1433,13 +1449,13 @@ body.page-loaded .hero-item {
 
   #skills {
     padding-top: 0.75rem !important;
-    padding-bottom: 0.75rem !important;
+    padding-bottom: 3.2rem !important;   /* further reduced spacing before certifications on mobile */
     margin-top: 0 !important;
     margin-bottom: 0.25rem !important;
   }
 
   #certifications {
-    padding-top: 0.75rem !important;
+    padding-top: 1.6rem !important;     /* further reduced spacing after skills on mobile */
     padding-bottom: 0.75rem !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;

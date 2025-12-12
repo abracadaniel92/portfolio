@@ -408,11 +408,60 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
   border-radius: 0 !important;
   background: #112240 !important;  /* slightly lighter dark blue than main background */
   box-shadow: none !important;
+  position: relative;  /* for positioning the link icon */
 }
 
 .project-card.personal-project-card:hover {
   box-shadow: none !important;
   transform: none !important;
+}
+
+/* Icons container in top right corner */
+.personal-project-icons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+/* External link and GitHub icons */
+.personal-project-link-icon,
+.personal-project-github-icon {
+  color: #ffffff;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.personal-project-link-icon:hover,
+.personal-project-github-icon:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.personal-project-link-icon svg,
+.personal-project-github-icon svg {
+  width: 23px;
+  height: 23px;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+}
+
+/* Folder icon in top left */
+.personal-project-folder-icon {
+  color: #64ffda;
+  opacity: 0.8;
+}
+
+.personal-project-folder-icon svg {
+  width: 40px;
+  height: 40px;
 }
 
 @media (min-width: 1024px) {
@@ -428,7 +477,17 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
 }
 
 .personal-project-more-content.show {
+  display: block !important;
+}
+
+/* For article cards, use flex when shown */
+article.personal-project-more-content.show {
   display: flex !important;
   flex-direction: column !important;
+}
+
+/* For grid containers, use grid when shown */
+.personal-project-more-content.show.grid {
+  display: grid !important;
 }
 
