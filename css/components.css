@@ -453,6 +453,11 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
   stroke-width: 1.5;
 }
 
+.personal-project-github-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* Folder icon in top left */
 .personal-project-folder-icon {
   color: #64ffda;
