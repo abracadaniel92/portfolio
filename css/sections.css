@@ -172,11 +172,11 @@ body.page-loaded .hero-item {
   }
 }
 
-/* === White double-chevron scroll hint (fixed) === */
+/* === White double-chevron scroll hint (absolute) === */
 .scroll-chevrons {
-  position: fixed;
-  bottom: 60px;
-  /* distance from bottom on desktop */
+  position: absolute;
+  bottom: 40px;
+  /* distance from bottom of hero shell */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1051,7 +1051,7 @@ body.page-loaded .hero-item {
 .project-divider:has(.projects-view-more-btn.hidden),
 .project-divider-with-button:has(.projects-view-more-btn.hidden),
 .project-divider-with-button .projects-view-more-btn.hidden {
-  /* Override all the button-specific styles when button is hidden */
+  display: none !important;
 }
 
 /* When divider has button class but button is hidden, transform to regular line */
@@ -1296,10 +1296,10 @@ body.page-loaded .hero-item {
 /* Chip list */
 .skill-rail-chips {
   display: flex;
-  flex-wrap: nowrap;
-  /* keep all chips in one row */
-  gap: 0.4rem;
-  /* slightly reduced gap */
+  flex-wrap: wrap;
+  /* allow chips to wrap to the next row */
+  gap: 0.6rem 0.4rem;
+  /* increased row-gap for better readability when wrapped */
 }
 
 /* Individual skill chip */
@@ -1448,17 +1448,22 @@ body.page-loaded .hero-item {
 #certifications {
   padding-top: 1rem !important;
   /* site standard top spacing */
-  padding-bottom: 8rem !important;
-  /* increased spacing before contact */
+  padding-bottom: 4rem !important;
+  /* increased gap slightly */
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
 #contact {
-  padding-top: 9rem !important;
-  /* increased gap before contact */
+  padding-top: 4rem !important;
+  /* increased gap slightly */
   margin-top: 0 !important;
-  padding-bottom: 2.5rem !important;
+  padding-bottom: 3rem !important;
+}
+
+footer {
+  padding-top: 1rem !important;
+  padding-bottom: 2rem !important;
 }
 
 /* Mobile: same uniform spacing */
@@ -1496,12 +1501,12 @@ body.page-loaded .hero-item {
   #certifications {
     padding-top: 1rem !important;
     /* balanced mobile spacing */
-    padding-bottom: 8rem !important;
+    padding-bottom: 4rem !important;
   }
 
   #contact {
-    padding-top: 7rem !important;
-    /* increased gap before contact on mobile */
+    padding-top: 4rem !important;
+    padding-bottom: 2rem !important;
   }
 }
 

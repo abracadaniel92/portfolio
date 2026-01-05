@@ -1852,6 +1852,95 @@ Website
           </div>
         </article>
 
+        <!-- Self-Healing Infrastructure Watchdog -->
+        <article class="project-card personal-project-card personal-project-more-content">
+          <div class="mb-3 personal-project-folder-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="#64ffda" stroke-width="1"
+              viewBox="0 0 24 24">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h4 class="text-white font-semibold mb-2 text-sm">Self-Healing Infrastructure Watchdog</h4>
+          <p class="text-xs text-[#a8b2d1] mb-3 leading-relaxed">
+            A multi-layer health-check and auto-recovery system built with systemd timers and Bash.
+            It performs HTTP-level monitoring every 30 seconds and automatically restarts failed Docker containers
+            or systemd services, ensuring 99.9% uptime for the entire homelab.
+          </p>
+          <div class="flex flex-wrap gap-1.5 text-[10px] text-[#8892b0] font-mono">
+            <span>systemd</span>
+            <span>Bash</span>
+            <span>Docker</span>
+            <span>High Availability</span>
+          </div>
+        </article>
+
+        <!-- Off-site Backup & Retention Engine -->
+        <article class="project-card personal-project-card personal-project-more-content">
+          <div class="mb-3 personal-project-folder-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="#64ffda" stroke-width="1"
+              viewBox="0 0 24 24">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h4 class="text-white font-semibold mb-2 text-sm">Off-site Backup & Retention Engine</h4>
+          <p class="text-xs text-[#a8b2d1] mb-3 leading-relaxed">
+            A robust disaster recovery system that automates daily backups of critical databases (Vaultwarden,
+            Nextcloud)
+            to Backblaze B2 using Rclone. Features custom retention policies (30-day rotation)
+            and integrity verification to prevent data loss.
+          </p>
+          <div class="flex flex-wrap gap-1.5 text-[10px] text-[#8892b0] font-mono">
+            <span>Backblaze B2</span>
+            <span>Rclone</span>
+            <span>Bash</span>
+            <span>Disaster Recovery</span>
+          </div>
+        </article>
+
+        <!-- Python Data Migration Tool -->
+        <article class="project-card personal-project-card personal-project-more-content">
+          <div class="mb-3 personal-project-folder-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="#64ffda" stroke-width="1"
+              viewBox="0 0 24 24">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h4 class="text-white font-semibold mb-2 text-sm">Python Data Migration Tool</h4>
+          <p class="text-xs text-[#a8b2d1] mb-3 leading-relaxed">
+            A custom migration engine developed in Python to parse, transform, and import
+            over 290+ structured recipes into the KitchenOwl self-hosted instance.
+            Utilizes REST APIs and JSON mapping for seamless data transition between platforms.
+          </p>
+          <div class="flex flex-wrap gap-1.5 text-[10px] text-[#8892b0] font-mono">
+            <span>Python</span>
+            <span>REST API</span>
+            <span>JSON</span>
+            <span>Data Engineering</span>
+          </div>
+        </article>
+
+        <!-- System Health Alerting System -->
+        <article class="project-card personal-project-card personal-project-more-content">
+          <div class="mb-3 personal-project-folder-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="#64ffda" stroke-width="1"
+              viewBox="0 0 24 24">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h4 class="text-white font-semibold mb-2 text-sm">System Health Alerting System</h4>
+          <p class="text-xs text-[#a8b2d1] mb-3 leading-relaxed">
+            An integrated monitoring solution that pushes real-time health reports (CPU temp, load avg,
+            disk health) to Slack. Includes a weekly analytics reporter and proactive alerting
+            for unhealthy Docker containers using custom Bash agents.
+          </p>
+          <div class="flex flex-wrap gap-1.5 text-[10px] text-[#8892b0] font-mono">
+            <span>Slack API</span>
+            <span>Monitoring</span>
+            <span>Bash</span>
+            <span>SRE</span>
+          </div>
+        </article>
+
       </div>
 
       <!-- Subheader and one-liner for Web Apps -->
@@ -2025,7 +2114,7 @@ Website
         </div>
         <div class="skill-rail-row">
           <div class="skill-rail-chips">
-            <span>AWS</span><span>Azure</span><span>GCP</span>
+            <span>AWS</span><span>Azure</span><span>GCP</span><span>Backblaze B2</span>
           </div>
         </div>
 
@@ -2037,13 +2126,10 @@ Website
           <div class="skill-rail-chips">
             <span>Docker</span><span>Linux</span><span>GitHub</span>
             <span>Datadog</span><span>PagerDuty</span><span>Cloudflare</span>
-            <span>Nginx</span>
-          </div>
-        </div>
-        <div class="skill-rail-row">
-          <div class="skill-rail-chips">
+            <span>Nginx</span><span>Fail2ban</span>
             <span>Caddy</span><span>Tailscale</span><span>Headscale</span>
             <span>GitHub Actions</span><span>Raspberry Pi</span><span>Grafana</span>
+            <span>Rclone</span><span>systemd timers</span><span>IaC</span><span>Makefile</span>
           </div>
         </div>
 
@@ -2099,10 +2185,7 @@ Website
           <div class="skill-rail-chips">
             <span>Jira</span><span>Confluence</span><span>Make</span>
             <span>Zapier</span><span>n8n</span><span>Google Sheets</span><span>AppScripts</span>
-          </div>
-        </div>
-        <div class="skill-rail-row">
-          <div class="skill-rail-chips">
+            <span>Slack API</span><span>Uptime Kuma</span><span>GoatCounter</span>
             <span>Miro</span><span>Notion</span><span>Lucidchart</span><span>GitHub Projects</span>
           </div>
         </div>
@@ -2115,6 +2198,7 @@ Website
           <div class="skill-rail-chips">
             <span>AuditBoard</span><span>Vanta</span><span>Crowdstrike</span><span>Proofpoint</span>
             <span>Cloudflare Zero Trust</span><span>SSO/SAML</span><span>IAM</span>
+            <span>SOPS</span><span>Vaultwarden</span>
           </div>
         </div>
 
@@ -2126,10 +2210,6 @@ Website
           <div class="skill-rail-chips">
             <span>Figma</span><span>Adobe Suite</span><span>Canva</span><span>Excel</span>
             <span>Cursor</span>
-          </div>
-        </div>
-        <div class="skill-rail-row">
-          <div class="skill-rail-chips">
             <span>Generative AI</span><span>ChatGPT</span><span>Gemini</span><span>Perplexity</span>
             <span>Claude</span><span>Co-pilot</span>
           </div>
@@ -2143,15 +2223,7 @@ Website
           <div class="skill-rail-chips">
             <span>Product Roadmapping</span><span>User Stories</span><span>Stakeholder Management</span>
             <span>Requirements Gathering</span>
-          </div>
-        </div>
-        <div class="skill-rail-row">
-          <div class="skill-rail-chips">
             <span>Agile Project Management</span><span>Program Management</span><span>Conflict Management</span>
-          </div>
-        </div>
-        <div class="skill-rail-row">
-          <div class="skill-rail-chips">
             <span>Backlog Grooming</span><span>Sprint Planning</span>
             <span>A/B Testing</span><span>KPI & Metrics</span>
           </div>
@@ -2237,7 +2309,7 @@ Website
 
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact" class="py-80 bg-[#0a192f] text-center">
+  <section id="contact" class="bg-[#0a192f] text-center">
     <div class="max-w-2xl mx-auto px-6">
 
       <p class="text-sm font-mono tracking-[0.2em] text-[#64ffda] mb-3">
