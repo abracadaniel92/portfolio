@@ -496,3 +496,23 @@ article.personal-project-more-content.show {
   display: grid !important;
 }
 
+/* ===== NAVIGATION DROPDOWN ===== */
+.relative.group:hover #aboutDropdown {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#aboutDropdown {
+  backdrop-filter: blur(10px);
+}
+
+#aboutDropdown a:first-child {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+#aboutDropdown a:last-child {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
