@@ -403,12 +403,13 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
 .project-card.personal-project-card {
   padding: 1rem !important;
   min-height: 280px;
-  max-height: 320px;
+  max-height: none;
   border: none !important;
   border-radius: 0 !important;
   background: #112240 !important;  /* slightly lighter dark blue than main background */
   box-shadow: none !important;
   position: relative;  /* for positioning the link icon */
+  overflow: visible;
 }
 
 .project-card.personal-project-card:hover {
