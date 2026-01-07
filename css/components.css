@@ -497,6 +497,19 @@ article.personal-project-more-content.show {
   display: grid !important;
 }
 
+/* Hide cards 4-6 on mobile (below md breakpoint) */
+@media (max-width: 767px) {
+  .personal-project-card.hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .personal-project-card.hide-on-mobile {
+    display: flex !important;
+  }
+}
+
 /* ===== NAVIGATION DROPDOWN ===== */
 .relative.group:hover #aboutDropdown {
   opacity: 1 !important;
