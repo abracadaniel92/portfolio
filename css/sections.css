@@ -168,7 +168,8 @@ body.page-loaded .hero-item {
   }
 
   .hero-shell {
-    padding: 120px 24px 32px;
+    padding: 108px 24px 48px;
+    /* Reduced top padding (~10% higher), increased bottom padding for chevron spacing */
   }
 }
 
@@ -231,7 +232,8 @@ body.page-loaded .hero-item {
 /* Move slightly up on mobile */
 @media (max-width: 768px) {
   .scroll-chevrons {
-    bottom: 32px;
+    bottom: 24px;
+    /* Increased spacing from hero text content */
   }
 }
 
@@ -1542,9 +1544,11 @@ footer {
   }
 
   #contact button,
-  #contact a {
-    margin-bottom: 0.75rem !important;
-    /* slightly tighten button spacing */
+  #contact a.hero-btn {
+    margin-bottom: 0 !important;
+    width: auto !important;
+    flex-shrink: 0;
+    /* Keep buttons at natural width, side by side */
   }
 
   footer,
