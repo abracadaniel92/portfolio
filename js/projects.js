@@ -169,8 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // View More functionality for personal projects
+  // View More / View Less functionality for personal projects
   const personalViewMoreBtn = document.getElementById('personalProjectsViewMore');
+  const personalViewLessBtn = document.getElementById('personalProjectsViewLess');
   const personalMoreContent = document.querySelectorAll('.personal-project-more-content');
   
   if (personalViewMoreBtn && personalMoreContent.length > 0) {
@@ -179,8 +180,39 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.add('show');
       });
       
-      // Hide the button after showing content
+      // Hide "Show more" and show "Show less"
       personalViewMoreBtn.classList.add('hidden');
+      if (personalViewLessBtn) {
+        personalViewLessBtn.classList.remove('hidden');
+      }
+    });
+  }
+  
+  if (personalViewLessBtn && personalMoreContent.length > 0) {
+    personalViewLessBtn.addEventListener('click', () => {
+      personalMoreContent.forEach(item => {
+        item.classList.remove('show');
+      });
+      
+      // Hide "Show less" and show "Show more"
+      personalViewLessBtn.classList.add('hidden');
+      if (personalViewMoreBtn) {
+        personalViewMoreBtn.classList.remove('hidden');
+      }
+      
+      // Smooth scroll to the section title after collapsing
+      setTimeout(() => {
+        const personalProjectsSection = document.getElementById('personal-projects');
+        if (personalProjectsSection) {
+          const navbar = document.getElementById('navbar');
+          const navbarHeight = navbar ? navbar.offsetHeight : 80;
+          const targetPosition = personalProjectsSection.offsetTop - navbarHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
     });
   }
 });

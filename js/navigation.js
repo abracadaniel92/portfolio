@@ -2,31 +2,65 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
+  const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+  const mobileMenuClose = document.getElementById("mobileMenuClose");
 
-  if (!menuBtn || !mobileMenu) return;
+  if (!menuBtn || !mobileMenu || !mobileMenuOverlay) return;
+
+  const openMenu = () => {
+    mobileMenuOverlay.classList.remove("hidden");
+    mobileMenu.classList.remove("translate-x-full");
+    mobileMenu.classList.add("show");
+    document.body.classList.add("menu-open");
+  };
+
+  const closeMenu = () => {
+    mobileMenu.classList.add("translate-x-full");
+    mobileMenu.classList.remove("show");
+    mobileMenuOverlay.classList.add("hidden");
+    document.body.classList.remove("menu-open");
+  };
 
   // Toggle menu when clicking the burger
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    mobileMenu.classList.toggle("hidden");
+    if (mobileMenu.classList.contains("translate-x-full")) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
+  });
+
+  // Close menu when clicking the close button
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeMenu();
+    });
+  }
+
+  // Close menu when clicking overlay
+  mobileMenuOverlay.addEventListener("click", () => {
+    closeMenu();
   });
 
   // Close menu when clicking a link inside it
   mobileMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
+      closeMenu();
     });
   });
 
-  // Close menu when clicking anywhere outside
+  // Close menu when clicking anywhere outside (but not the toggle)
   document.addEventListener("click", (e) => {
-    if (mobileMenu.classList.contains("hidden")) return;
+    if (mobileMenu.classList.contains("translate-x-full")) return;
 
     const clickedInsideMenu = mobileMenu.contains(e.target);
     const clickedToggle = menuBtn.contains(e.target);
+    const clickedOverlay = mobileMenuOverlay.contains(e.target) && e.target === mobileMenuOverlay;
 
-    if (!clickedInsideMenu && !clickedToggle) {
-      mobileMenu.classList.add("hidden");
+    if (!clickedInsideMenu && !clickedToggle && !clickedOverlay) {
+      closeMenu();
     }
   });
 });
@@ -97,8 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Close mobile menu if open
         const mobileMenu = document.getElementById('mobileMenu');
-        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        if (mobileMenu && !mobileMenu.classList.contains('translate-x-full')) {
+          mobileMenu.classList.add('translate-x-full');
+          mobileMenu.classList.remove('show');
+          if (mobileMenuOverlay) mobileMenuOverlay.classList.add('hidden');
+          document.body.classList.remove('menu-open');
         }
         
         // Update URL without triggering scroll
