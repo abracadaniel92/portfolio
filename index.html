@@ -43,37 +43,8 @@ Website
 
 
 
-  <!-- Tailwind (CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    /* Tailwind on-the-fly config */
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#ecfdf9',
-              100: '#d1faee',
-              200: '#a7f3df',
-              300: '#6ee7cd',
-              400: '#34d3b6',
-              500: '#14b8a6',  /* primary teal */
-              600: '#0fa495',
-              700: '#0b7e73',
-              800: '#0a5c56',
-              900: '#083f3c'
-            }
-          },
-          boxShadow: {
-            glow: '0 0 0 3px rgba(20,184,166,0.25)'
-          },
-          backdropBlur: {
-            xs: '2px'
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Tailwind CSS (Built) -->
+  <link rel="stylesheet" href="css/tailwind.css">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/main.css">
@@ -2515,8 +2486,38 @@ Website
   </button>
 
   <!-- GoatCounter Analytics - Updated 2025-12-19 -->
-  <script data-goatcounter="https://analytics.gmojsoski.com/count" async
-    src="//analytics.gmojsoski.com/count.js"></script>
+  <script>
+    // Load GoatCounter analytics with error handling to prevent console errors
+    (function() {
+      try {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = '//analytics.gmojsoski.com/count.js';
+        script.setAttribute('data-goatcounter', 'https://analytics.gmojsoski.com/count');
+        
+        // Handle script loading errors silently (ad blockers, privacy extensions, etc.)
+        script.onerror = function() {
+          // Silently fail - analytics blocked by browser extension or network issue
+          script.onerror = null; // Prevent multiple error logs
+        };
+        
+        // Handle message channel errors from browser extensions
+        window.addEventListener('error', function(e) {
+          if (e.message && e.message.includes('message channel')) {
+            e.preventDefault(); // Prevent console error for extension-related issues
+            return true;
+          }
+        }, true);
+        
+        var firstScript = document.getElementsByTagName('script')[0];
+        if (firstScript && firstScript.parentNode) {
+          firstScript.parentNode.insertBefore(script, firstScript);
+        }
+      } catch (e) {
+        // Silently handle any initialization errors
+      }
+    })();
+  </script>
 
 </body>
 

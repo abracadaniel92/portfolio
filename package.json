@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "description": "Goce Mojsoski Portfolio Website",
   "scripts": {
-    "dev": "npx serve -l 8080",
+    "dev": "npm run build:css && npx serve -l 8080",
+    "build:css": "npx tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --minify",
+    "watch:css": "npx tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --watch",
     "start": "npm run dev",
-    "serve": "npx serve -l 8080",
-    "preview": "npx serve -l 3000"
+    "serve": "npm run build:css && npx serve -l 8080",
+    "preview": "npm run build:css && npx serve -l 3000"
   },
   "keywords": [
     "portfolio",
     "website"
   ],
   "author": "Goce Mojsoski",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19"
+  }
 }
-
