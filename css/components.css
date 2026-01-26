@@ -448,12 +448,18 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
   box-shadow: none !important;
   position: relative;  /* for positioning the link icon */
   overflow: visible;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
 }
 
+/* Subtle hover effects */
 .project-card.personal-project-card:hover {
-  box-shadow: none !important;
-  transform: none !important;
+  background: #0f1e3a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 255, 218, 0.1) !important;
 }
+
 
 /* Icons container in top right corner */
 .personal-project-icons {
@@ -497,15 +503,53 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
   height: 20px;
 }
 
-/* Folder icon in top left */
+/* Folder icon in top left - fixed height container for consistent alignment */
 .personal-project-folder-icon {
   color: #64ffda;
   opacity: 0.8;
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+  flex-shrink: 0;
 }
 
 .personal-project-folder-icon svg {
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
+}
+
+/* Ensure title alignment is consistent - fixed top position */
+.project-card.personal-project-card h4 {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Override any mb-3 class on folder icon to ensure consistency */
+.project-card.personal-project-card .mb-3.personal-project-folder-icon {
+  margin-bottom: 0.75rem !important;
+  margin-top: 0 !important;
+}
+
+/* Ensure folder icon always starts at same position - handle both cases */
+.project-card.personal-project-card > .personal-project-folder-icon:first-child {
+  margin-top: 0 !important;
+}
+
+.project-card.personal-project-card > .personal-project-icons + .personal-project-folder-icon {
+  margin-top: 0 !important;
+}
+
+/* Ensure title always directly after folder icon at same position */
+.project-card.personal-project-card .personal-project-folder-icon + h4 {
+  margin-top: 0 !important;
 }
 
 @media (min-width: 1024px) {
