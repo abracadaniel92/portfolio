@@ -169,50 +169,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // View More / View Less functionality for personal projects
-  const personalViewMoreBtn = document.getElementById('personalProjectsViewMore');
-  const personalViewLessBtn = document.getElementById('personalProjectsViewLess');
-  const personalMoreContent = document.querySelectorAll('.personal-project-more-content');
+  // View More functionality for Homelab subsection
+  const homelabViewMoreBtn = document.getElementById('homelabViewMore');
+  const homelabMoreContent = document.querySelectorAll('.homelab-more-content');
   
-  if (personalViewMoreBtn && personalMoreContent.length > 0) {
-    personalViewMoreBtn.addEventListener('click', () => {
-      personalMoreContent.forEach(item => {
+  if (homelabViewMoreBtn && homelabMoreContent.length > 0) {
+    homelabViewMoreBtn.addEventListener('click', () => {
+      homelabMoreContent.forEach(item => {
         item.classList.add('show');
       });
       
-      // Hide "Show more" and show "Show less"
-      personalViewMoreBtn.classList.add('hidden');
-      if (personalViewLessBtn) {
-        personalViewLessBtn.classList.remove('hidden');
-      }
+      // Hide "Show more" button after clicking
+      homelabViewMoreBtn.classList.add('hidden');
     });
   }
+
+  // View More functionality for Webpages subsection
+  const webpagesViewMoreBtn = document.getElementById('webpagesViewMore');
+  const webpagesMoreContent = document.querySelectorAll('.webpages-more-content');
   
-  if (personalViewLessBtn && personalMoreContent.length > 0) {
-    personalViewLessBtn.addEventListener('click', () => {
-      personalMoreContent.forEach(item => {
-        item.classList.remove('show');
+  if (webpagesViewMoreBtn && webpagesMoreContent.length > 0) {
+    webpagesViewMoreBtn.addEventListener('click', () => {
+      webpagesMoreContent.forEach(item => {
+        item.classList.add('show');
       });
       
-      // Hide "Show less" and show "Show more"
-      personalViewLessBtn.classList.add('hidden');
-      if (personalViewMoreBtn) {
-        personalViewMoreBtn.classList.remove('hidden');
-      }
-      
-      // Smooth scroll to the section title after collapsing
-      setTimeout(() => {
-        const personalProjectsSection = document.getElementById('personal-projects');
-        if (personalProjectsSection) {
-          const navbar = document.getElementById('navbar');
-          const navbarHeight = navbar ? navbar.offsetHeight : 80;
-          const targetPosition = personalProjectsSection.offsetTop - navbarHeight;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }, 100);
+      // Hide "Show more" button after clicking
+      webpagesViewMoreBtn.classList.add('hidden');
     });
   }
 });
