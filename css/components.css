@@ -535,6 +535,36 @@ article.personal-project-more-content.show {
   display: grid !important;
 }
 
+/* Hide additional homelab projects by default */
+.homelab-more-content {
+  display: none !important;
+}
+
+.homelab-more-content.show {
+  display: block !important;
+}
+
+/* For article cards, use flex when shown */
+article.homelab-more-content.show {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Hide additional webpages projects by default */
+.webpages-more-content {
+  display: none !important;
+}
+
+.webpages-more-content.show {
+  display: block !important;
+}
+
+/* For article cards, use flex when shown */
+article.webpages-more-content.show {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
 /* Hide cards 4-6 on mobile (below md breakpoint) */
 @media (max-width: 767px) {
   .personal-project-card.hide-on-mobile {
