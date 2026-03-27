@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // View More/Less functionality for projects
 document.addEventListener('DOMContentLoaded', () => {
   const viewMoreBtn = document.getElementById('projectsViewMore');
-  const viewLessBtn = document.getElementById('projectsViewLess');
   const moreContent = document.querySelectorAll('.projects-more-content');
   
   // View More button - only functionality, no view less

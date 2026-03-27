@@ -4,10 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenu = document.getElementById("mobileMenu");
   const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
   const mobileMenuClose = document.getElementById("mobileMenuClose");
+  let savedScrollY = 0;
 
   if (!menuBtn || !mobileMenu || !mobileMenuOverlay) return;
 
   const openMenu = () => {
+    savedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.setProperty("--scroll-lock-top", `-${savedScrollY}px`);
     mobileMenuOverlay.classList.remove("hidden");
     mobileMenu.classList.remove("translate-x-full");
     mobileMenu.classList.add("show");
@@ -19,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileMenu.classList.remove("show");
     mobileMenuOverlay.classList.add("hidden");
     document.body.classList.remove("menu-open");
+    document.body.style.removeProperty("--scroll-lock-top");
+    window.scrollTo({ top: savedScrollY, behavior: "auto" });
   };
 
   // Toggle menu when clicking the burger
@@ -140,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Update URL without triggering scroll
-        history.pushState(null, null, href);
+        history.replaceState(null, null, href);
       }
     });
   });

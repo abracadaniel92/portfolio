@@ -1,4 +1,23 @@
 /* ===== HERO SECTION ===== */
+#home {
+  position: relative;
+  overflow: hidden;
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#home .hero-shell {
+  position: relative;
+  z-index: 1;
+}
+
 /* Mobile: much tighter */
 @media (max-width: 640px) {
   #home {
@@ -69,15 +88,17 @@
   overflow: hidden;
 }
 
-/* Primary button - original style */
+/* Primary button - filled teal */
 .hero-btn-primary {
-  background: transparent;
-  color: #64ffda;
+  background: #64ffda;
+  color: #0a192f;
   border: 1px solid #64ffda;
+  font-weight: 600;
 }
 
 .hero-btn-primary:hover {
-  background: rgba(100, 255, 218, 0.1);
+  background: #4de8c5;
+  border-color: #4de8c5;
   transform: translateY(-2px);
 }
 
@@ -625,8 +646,8 @@ body.page-loaded .hero-item {
 
 /* Show More Button - More prominent and user-friendly */
 .projects-view-more-btn {
-  background: rgba(100, 255, 218, 0.1);
-  border: 1px solid rgba(100, 255, 218, 0.3);
+  background: transparent;
+  border: 1px dashed rgba(100, 255, 218, 0.45);
   border-radius: 0.5rem;
   color: #64ffda;
   font-family: "SF Mono", ui-monospace, monospace;
@@ -640,23 +661,21 @@ body.page-loaded .hero-item {
   position: relative;
   white-space: nowrap;
   z-index: 1;
-  /* Prevent text truncation */
   overflow: visible;
   text-overflow: clip;
   word-break: keep-all;
   width: auto;
   min-width: fit-content;
   flex-shrink: 0;
-  /* No glow by default */
   box-shadow: none;
 }
 
 .projects-view-more-btn:hover {
   color: #64ffda;
-  background: rgba(100, 255, 218, 0.15);
-  border-color: rgba(100, 255, 218, 0.5);
-  /* Glow only appears on hover */
-  box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+  background: rgba(100, 255, 218, 0.07);
+  border-color: rgba(100, 255, 218, 0.75);
+  border-style: dashed;
+  box-shadow: 0 0 16px rgba(100, 255, 218, 0.25);
   transform: translateY(-2px);
 }
 
