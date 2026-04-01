@@ -174,8 +174,8 @@ body {
   isolation: isolate;
   transition: border-color 0.2s ease;
   animation:
-    resume-text-flip 0.65s ease-out 1.4s both,
-    resume-pulse 2.8s ease-out 1.4s both;
+    resume-text-flip 0.65s ease-out 2s both,
+    resume-pulse 2.8s ease-out 2s both;
 }
 
 /* Text label sits above fill layer */
@@ -208,7 +208,7 @@ body {
   transform-origin: left center;
   transform: scaleX(0);
   z-index: -1;
-  animation: resume-fill-in 0.65s ease-out 1.4s both;
+  animation: resume-fill-in 0.65s ease-out 2s both;
   pointer-events: none;
 }
 
@@ -238,7 +238,7 @@ body {
     transparent 100%
   );
   transform: translateX(-160%) skewX(-18deg);
-  animation: resume-shimmer 0.65s ease-in-out 1.42s both;
+  animation: resume-shimmer 0.65s ease-in-out 2.02s both;
   pointer-events: none;
   z-index: 1;
 }

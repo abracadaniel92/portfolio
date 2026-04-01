@@ -1,5 +1,6 @@
-// Hero page-load animation
-window.addEventListener('load', function () {
+// Hero page-load animation — fires on DOMContentLoaded so text appears
+// immediately without waiting for images/fonts to fully download
+document.addEventListener('DOMContentLoaded', function () {
   const items = document.querySelectorAll('.hero-item');
   items.forEach((el, index) => {
     el.style.transitionDelay = (0.12 * index) + 's';
