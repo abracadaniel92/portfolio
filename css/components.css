@@ -527,6 +527,20 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
   }
 }
 
+/* Thumbnail cards: put GitHub / site links under the image so they don’t cover the screenshot */
+.project-card.personal-project-card--with-thumb .personal-project-icons {
+  position: static;
+  align-self: flex-end;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+}
+
+.project-card.personal-project-card--with-thumb .personal-project-card__thumb {
+  margin-bottom: 0.4rem;
+}
+
 .personal-project-card__thumb {
   width: 100%;
   border-radius: 4px;
