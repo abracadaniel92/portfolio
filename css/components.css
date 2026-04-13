@@ -514,6 +514,44 @@ a.accordion-btn[href="#experience"]:hover .accordion-icon {
   flex-shrink: 0;
 }
 
+/* Website preview thumbnails (replaces folder icon on these cards) */
+.project-card.personal-project-card.personal-project-card--with-thumb {
+  min-height: auto;
+  max-height: none;
+}
+
+@media (min-width: 1024px) {
+  .project-card.personal-project-card.personal-project-card--with-thumb {
+    min-height: auto;
+    max-height: none;
+  }
+}
+
+.personal-project-card__thumb {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+  aspect-ratio: 2.19 / 1;
+  background-color: #0a192f;
+}
+
+.personal-project-card__thumb img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.personal-project-card__thumb img.personal-project-card__thumb-img--contain {
+  object-fit: contain !important;
+  object-position: center top;
+}
+
 /* Ensure title alignment is consistent - fixed top position */
 .project-card.personal-project-card h4 {
   margin-top: 0 !important;
