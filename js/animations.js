@@ -17,15 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = parseFloat(el.dataset.countTarget);
     if (isNaN(target)) return;
 
-    const duration = 1500; // ms
+    const duration = 2500; // ms
     const startTime = performance.now();
 
     const step = (now) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const value = Math.floor(progress * target);
+      const rawProgress = Math.min((now - startTime) / duration, 1);
+      // Ease out cubic function for a smoother slowdown
+      const easeProgress = 1 - Math.pow(1 - rawProgress, 3);
+      const value = Math.floor(easeProgress * target);
       el.textContent = value.toString();
 
-      if (progress < 1) {
+      if (rawProgress < 1) {
         requestAnimationFrame(step);
       } else {
         el.textContent = target.toString(); // snap to final
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.disconnect();
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.6 }); // Requires more of the section to be visible before starting
 
   observer.observe(aboutSection);
 });
